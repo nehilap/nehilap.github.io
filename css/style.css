@@ -352,11 +352,6 @@ button:hover {
 	color: rgb(9, 32, 53);
 }
 
-button:active{	
-	background: rgba(9, 32, 53, 1);
-	box-shadow: none;
-}
-
 .second {
 	display: none;
 }
@@ -449,7 +444,8 @@ nav {
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: 100%;
+	min-width: 100%;
+	max-width: 100%;
 	background: rgba(0, 0, 0, 0.8);
 	font-size: 1.05em;
 	color: white;
@@ -462,7 +458,7 @@ nav {
 	z-index: 100;
 }
 
-nav a {
+nav a{
 	color: white;
 	font-family: "Arvo";
 	padding: 1em;
@@ -477,6 +473,15 @@ nav a:hover {
 	background-color: black;*/
 	background-color: white;
 	color: black;
+}
+
+.menu-bar {
+	text-align: right;
+	display: none;
+}
+
+.menu-bar:hover {
+	cursor: pointer;
 }
 
 .intro {
@@ -639,6 +644,26 @@ thead {
 }
 
 @media(max-width: 900px) {
+	nav {
+		flex-direction: column;
+	}
+
+	nav a {
+		width: 100%;
+	}
+
+	.menu-bar {
+		display: block;
+	}
+
+	nav a:not(.menu-bar) {
+		display: none;
+	}
+
+	nav.show-menu a {
+		display: block;
+	}
+
 	.banner {
 		margin-bottom: 3em;
 		height: 30vh;
