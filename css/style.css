@@ -612,7 +612,12 @@ thead {
 	border-radius: 0.5em;
 }
 
+.snowmans {
+	position: relative;
+}
+
 .third-snowman {
+	position: absolute;
 	animation-name: slide;
 	animation-duration: 3s;
 	animation-iteration-count: infinite;
