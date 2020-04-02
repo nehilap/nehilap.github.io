@@ -190,6 +190,7 @@ p {
 	text-align: center;
 	font-family: "ArvoBold", sans-serif;
 	transition: all 0.5s ease-in-out;
+	padding: 0 1rem;
 
 	text-decoration: underline;
 	text-decoration-color: transparent;
@@ -332,11 +333,16 @@ label span {
 	color: red;
 }
 
+.admin-line {
+	align-items: center;
+	padding-top: 1em;
+}
+
 button {
 	font-size: 0.9em;
 	font-weight: bold;
 	padding: 0.7em 1.4em;
-	margin: 1em 2em 0 0;
+	margin-right:2em;
 	background: none;
 	border: none;
 	border: 4px rgb(29, 94, 168) solid;
@@ -358,6 +364,10 @@ button:hover {
 
 button:hover {
 	cursor: pointer;
+}
+
+.error-message {
+	color: red;
 }
 
 .content-section {
@@ -614,7 +624,6 @@ thead {
 
 .snowmans {
 	position: relative;
-	overflow-x: hidden;
 }
 
 .third-snowman {
@@ -632,7 +641,7 @@ thead {
 }
 
 .second-snowman:hover {
-	transform: scale(1.5);
+	transform: rotate(45deg) scale(1.5) rotateY(65deg);
 }
 
 .third-snowman:hover {
@@ -641,11 +650,11 @@ thead {
 
 @keyframes slide {
 	from {
-		margin-left: 0px;
+		margin-top: 0px;
 	}
 
 	to {
-		margin-left: 300px;
+		margin-top: 100px;
 	}
 }
 
@@ -687,6 +696,14 @@ thead {
 	.contactForm .flex-holder {
 		flex-direction: row;
 		align-items: stretch;
+	}
+
+	.admin-line {
+		flex-direction: column;
+	}
+
+	.admin-line button {
+		margin: 0 0 1em 0;
 	}
 
 	.small.box {

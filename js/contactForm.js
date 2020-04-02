@@ -3,7 +3,13 @@
 let formRequests = [];
 let commentsContainer = document.getElementById("commentsContainer");
 let delCommentsButton = document.getElementById("delOldComments");
+let errorSpan = document.getElementById("errorSpan");
 let formElement = document.forms.namedItem("contactForm");
+
+const nameInput = formElement.elements.namedItem("name");
+const emailInput = formElement.elements.namedItem("email");
+const contextInput = formElement.elements.namedItem("context");
+const imgLinkInput = formElement.elements.namedItem("imgLink");
 
 if (localStorage.formComments) {
 	formRequests = JSON.parse(localStorage.formComments);
@@ -25,21 +31,31 @@ localStorage.formComments = JSON.stringify(formRequests);
 
 formElement.addEventListener("submit", submitFormData);
 
+formElement.addEventListener("reset", () => errorSpan.innerText = "");
+
 delCommentsButton.addEventListener("click", removeAndRefreshComments);
+
+nameInput.addEventListener("input", showNameError);
+
+emailInput.addEventListener("input", showEmailError);
+
+contextInput.addEventListener("input", showContextError);
+
+imgLinkInput.addEventListener("input", showImgLinkError);
 
 function submitFormData(event) {
 	event.preventDefault();
 
-	const nameVal = formElement.elements.namedItem("name").value.trim();
-	const emailVal = formElement.elements.namedItem("email").value.trim();
-	const imageUrlVal = formElement.elements.namedItem("imgLink").value.trim();
+	const nameVal = nameInput.value.trim();
+	const emailVal = emailInput.value.trim();
+	const imageUrlVal = imgLinkInput.value.trim();
 	const keyWordVal = formElement.elements.namedItem("keyWord").value.trim();
 	const ratingVal = formElement.elements.namedItem("hodnotenie").value;
 	const sendMailVal = formElement.elements.namedItem("sendMail").checked;
-	const contextVal = formElement.elements.namedItem("context").value.trim();
+	const contextVal = contextInput.value.trim();
 
-	if (nameVal == "" || emailVal == "" || contextVal == "") {
-		console.error("Incorrect form values!!");
+	if (nameVal == "" || !(emailInput.validity.valid) || contextVal.length <= 10) {
+		showError(nameInput, emailInput, contextInput, imgLinkInput);
 		return;
 	}
 
@@ -62,7 +78,7 @@ function submitFormData(event) {
 
 	//console.log(localStorage);
 	//console.log(formRequests);
-	
+
 	commentsContainer.innerHTML = parseRequests(formRequests);
 
 	formElement.reset();
@@ -74,25 +90,25 @@ function parseComment(comment) {
 	let commentTmp = {
 		name: comment.name,
 		email: comment.email,
-		parsedImg: comment.imageUrl == "" ? "" : "<img class='comment-img' src='" + comment.imageUrl +"'>",
+		parsedImg: comment.imageUrl == "" ? "" : "<img class='comment-img' src='" + comment.imageUrl + "'>",
 		keyWord: comment.keyWord,
 		ratingMessage: comment.rating == "" ? "" : ", hodnotenie: " + comment.rating + "/5",
 		context: comment.context,
 		created: (new Date(comment.created)).toLocaleString()
 	};
 
-    const template = document.getElementById("commentTemplate").innerHTML;
-    return Mustache.render(template, commentTmp);
+	const template = document.getElementById("commentTemplate").innerHTML;
+	return Mustache.render(template, commentTmp);
 }
 
 function parseRequests(requests) {
-	if(requests == null) {
+	if (requests == null) {
 		return "";
 	}
 
 	let parsedHtml = "";
 
-	for(let comment of requests) {
+	for (let comment of requests) {
 		parsedHtml += parseComment(comment);
 	}
 
@@ -112,9 +128,65 @@ function removeAndRefreshComments() {
 
 function showHideDelCommentsButton() {
 	// no comments == no button
-	if(formRequests.length < 1) { 
+	if (formRequests.length < 1) {
 		delCommentsButton.classList.add("hidden");
-	}else {
+	} else {
 		delCommentsButton.classList.remove("hidden");
 	}
+}
+
+function showError(nameInput, emailInput, contextInput, imgLinkInput) {
+	if(!(nameInput.validity.valid)) {
+		showNameError();
+	}else if(!(emailInput.validity.valid)) {
+		showEmailError();
+	}else if(!(contextInput.validity.valid) || contextInput.value.length <= 10) {
+		showContextError();
+	}else if(!(imgLinkInput.validity.valid)) {
+		showImgLinkError();
+	}
+}
+
+function showNameError() {
+	let errorMessage = "";
+
+	if (nameInput.validity.valueMissing) {
+		errorMessage = "Chýba meno";
+	}
+
+	errorSpan.innerText = errorMessage;
+}
+
+function showEmailError() {
+	let errorMessage = "";
+
+	if (emailInput.validity.valueMissing) {
+		errorMessage = "Chýba email";
+	} else if (emailInput.validity.typeMismatch) {
+		errorMessage = "Nesprávny formát emailu";
+	}
+
+	errorSpan.innerText = errorMessage;
+}
+
+function showContextError() {
+	let errorMessage = "";
+
+	if (contextInput.validity.valueMissing) {
+		errorMessage = "Chýba text komentára";
+	} else if (contextInput.validity.tooShort || contextInput.value.length <= 10) {
+		errorMessage = "Komentár musí mať aspoň "+ contextInput.minLength + " znakov, zadali ste " + contextInput.value.length;
+	}
+
+	errorSpan.innerText = errorMessage;
+}
+
+function showImgLinkError() {
+	let errorMessage = "";
+
+	if (imgLinkInput.validity.typeMismatch) {
+		errorMessage = "Nesprávny formát url odkazu";
+	}
+
+	errorSpan.innerText = errorMessage;
 }
