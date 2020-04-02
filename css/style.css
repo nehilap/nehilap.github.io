@@ -668,6 +668,7 @@ thead {
 	}
 
 	.articles-list li a img {
+		background-color: white;
 		filter: none;
 	}
 
