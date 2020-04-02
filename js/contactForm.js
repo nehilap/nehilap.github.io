@@ -3,6 +3,7 @@
 let formRequests = [];
 let commentsContainer = document.getElementById("commentsContainer");
 let delCommentsButton = document.getElementById("delOldComments");
+let formElement = document.forms.namedItem("contactForm");
 
 if (localStorage.formComments) {
 	formRequests = JSON.parse(localStorage.formComments);
@@ -10,10 +11,7 @@ if (localStorage.formComments) {
 
 commentsContainer.innerHTML = parseRequests(formRequests);
 
-// no comments == no button
-if(formRequests.length < 1) { 
-	delCommentsButton.classList.add("hidden");
-}
+showHideDelCommentsButton();
 
 // ONLY FOR TESTING PURPOSE
 
@@ -25,8 +23,6 @@ formRequests.pop();
 localStorage.formComments = JSON.stringify(formRequests);
 */
 
-let formElement = document.forms.namedItem("contactForm");
-
 formElement.addEventListener("submit", submitFormData);
 
 delCommentsButton.addEventListener("click", removeAndRefreshComments);
@@ -34,13 +30,13 @@ delCommentsButton.addEventListener("click", removeAndRefreshComments);
 function submitFormData(event) {
 	event.preventDefault();
 
-	const nameVal = formElement.elements.namedItem("name").value;
-	const emailVal = formElement.elements.namedItem("email").value;
-	const imageUrlVal = formElement.elements.namedItem("imgLink").value;
-	const keyWordVal = formElement.elements.namedItem("keyWord").value;
+	const nameVal = formElement.elements.namedItem("name").value.trim();
+	const emailVal = formElement.elements.namedItem("email").value.trim();
+	const imageUrlVal = formElement.elements.namedItem("imgLink").value.trim();
+	const keyWordVal = formElement.elements.namedItem("keyWord").value.trim();
 	const ratingVal = formElement.elements.namedItem("hodnotenie").value;
 	const sendMailVal = formElement.elements.namedItem("sendMail").checked;
-	const contextVal = formElement.elements.namedItem("context").value;
+	const contextVal = formElement.elements.namedItem("context").value.trim();
 
 	if (nameVal == "" || emailVal == "" || contextVal == "") {
 		console.error("Incorrect form values!!");
@@ -70,6 +66,8 @@ function submitFormData(event) {
 	commentsContainer.innerHTML = parseRequests(formRequests);
 
 	formElement.reset();
+
+	showHideDelCommentsButton();
 }
 
 function parseComment(comment) {
@@ -110,4 +108,13 @@ function removeAndRefreshComments() {
 	localStorage.formComments = JSON.stringify(formRequests);
 
 	commentsContainer.innerHTML = parseRequests(formRequests);
+}
+
+function showHideDelCommentsButton() {
+	// no comments == no button
+	if(formRequests.length < 1) { 
+		delCommentsButton.classList.add("hidden");
+	}else {
+		delCommentsButton.classList.remove("hidden");
+	}
 }
