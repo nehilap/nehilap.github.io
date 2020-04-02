@@ -623,11 +623,11 @@ thead {
 }
 
 .snowmans {
-	position: relative;
+	display: flex;
+	flex-direction: column;
 }
 
 .third-snowman {
-	position: absolute;
 	animation-name: slide;
 	animation-duration: 3s;
 	animation-iteration-count: infinite;
