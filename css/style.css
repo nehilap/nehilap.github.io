@@ -614,6 +614,7 @@ thead {
 
 .snowmans {
 	position: relative;
+	overflow-x: hidden;
 }
 
 .third-snowman {
