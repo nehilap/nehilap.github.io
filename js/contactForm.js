@@ -138,13 +138,13 @@ function showHideDelCommentsButton() {
 }
 
 function showError(nameInput, emailInput, contextInput, imgLinkInput) {
-	if(!(nameInput.validity.valid)) {
+	if (!(nameInput.validity.valid)) {
 		showNameError();
-	}else if(!(emailInput.validity.valid)) {
+	} else if (!(emailInput.validity.valid)) {
 		showEmailError();
-	}else if(!(contextInput.validity.valid) || contextInput.value.length <= 10) {
+	} else if (!(contextInput.validity.valid) || contextInput.value.length <= 10) {
 		showContextError();
-	}else if(!(imgLinkInput.validity.valid)) {
+	} else if (!(imgLinkInput.validity.valid)) {
 		showImgLinkError();
 	}
 }
@@ -177,7 +177,7 @@ function showContextError() {
 	if (contextInput.validity.valueMissing) {
 		errorMessage = "Chýba text komentára";
 	} else if (contextInput.validity.tooShort || contextInput.value.length <= 10) {
-		errorMessage = "Komentár musí mať aspoň "+ contextInput.minLength + " znakov, zadali ste " + contextInput.value.length;
+		errorMessage = "Komentár musí mať aspoň " + contextInput.minLength + " znakov, zadali ste " + contextInput.value.length;
 	}
 
 	errorSpan.innerText = errorMessage;

@@ -6,24 +6,36 @@ body {
 
 @font-face {
 	font-family: "Arvo";
-	src: url('../../fonts/Arvo-Regular.eot'); /* IE9 Compat Modes */
+	src: url('../../fonts/Arvo-Regular.eot');
+	/* IE9 Compat Modes */
 	src: local("Arvo"),
-		 url('../../fonts/Arvo-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-		 url('../../fonts/Arvo-Regular.woff2') format('woff2'), /* Super Modern Browsers */
-		 url('../../fonts/Arvo-Regular.woff') format('woff'), /* Modern Browsers */
-		 url('../../fonts/Arvo-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
-		 url('../../fonts/Arvo-Regular.svg#Arvo') format('svg'); /* Legacy iOS */
+		url('../../fonts/Arvo-Regular.eot?#iefix') format('embedded-opentype'),
+		/* IE6-IE8 */
+		url('../../fonts/Arvo-Regular.woff2') format('woff2'),
+		/* Super Modern Browsers */
+		url('../../fonts/Arvo-Regular.woff') format('woff'),
+		/* Modern Browsers */
+		url('../../fonts/Arvo-Regular.ttf') format('truetype'),
+		/* Safari, Android, iOS */
+		url('../../fonts/Arvo-Regular.svg#Arvo') format('svg');
+	/* Legacy iOS */
 }
-  
+
 @font-face {
 	font-family: "ArvoBold";
-	src: url('../../fonts/Arvo-Bold.eot'); /* IE9 Compat Modes */
+	src: url('../../fonts/Arvo-Bold.eot');
+	/* IE9 Compat Modes */
 	src: local("Arvo Bold"), local('Arvo-Bold'),
-		 url('../../fonts/Arvo-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-		 url('../../fonts/Arvo-Bold.woff2') format('woff2'), /* Super Modern Browsers */
-		 url('../../fonts/Arvo-Bold.woff') format('woff'), /* Modern Browsers */
-		 url('../../fonts/Arvo-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
-		 url('../../fonts/Arvo-Bold.svg#Arvo') format('svg'); /* Legacy iOS */
+		url('../../fonts/Arvo-Bold.eot?#iefix') format('embedded-opentype'),
+		/* IE6-IE8 */
+		url('../../fonts/Arvo-Bold.woff2') format('woff2'),
+		/* Super Modern Browsers */
+		url('../../fonts/Arvo-Bold.woff') format('woff'),
+		/* Modern Browsers */
+		url('../../fonts/Arvo-Bold.ttf') format('truetype'),
+		/* Safari, Android, iOS */
+		url('../../fonts/Arvo-Bold.svg#Arvo') format('svg');
+	/* Legacy iOS */
 }
 
 .wrapper {
@@ -62,14 +74,14 @@ footer {
 	border-top: 1px solid #e5e5e5;
 }
 
-footer .links i{
+footer .links i {
 	font-size: 2em;
 
 	color: black;
 	transition: all 0.2s linear;
 }
 
-footer .links a:hover i{
+footer .links a:hover i {
 	color: #007bff;
 }
 

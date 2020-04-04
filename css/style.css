@@ -280,7 +280,8 @@ legend {
 	width: 75%;
 }
 
-.contactForm input[type=radio], .contactForm input[type=checkbox] {
+.contactForm input[type=radio],
+.contactForm input[type=checkbox] {
 	width: initial;
 }
 
@@ -342,7 +343,7 @@ button {
 	font-size: 0.9em;
 	font-weight: bold;
 	padding: 0.7em 1.4em;
-	margin-right:2em;
+	margin-right: 2em;
 	background: none;
 	border: none;
 	border: 4px rgb(29, 94, 168) solid;
@@ -468,7 +469,7 @@ nav {
 	z-index: 100;
 }
 
-nav a{
+nav a {
 	color: white;
 	font-family: "Arvo";
 	padding: 1em;
@@ -684,7 +685,8 @@ thead {
 		height: 30vh;
 	}
 
-	.tooltip:before, .tooltip:after {
+	.tooltip:before,
+	.tooltip:after {
 		content: none;
 	}
 
@@ -738,7 +740,8 @@ thead {
 		width: 88%;
 	}
 
-	.comment-text, .comment-img {
+	.comment-text,
+	.comment-img {
 		flex: 1;
 	}
 
@@ -795,12 +798,13 @@ thead {
 		height: 30vh;
 	}
 
-	.articles-list li a, .articles-list li:nth-child(even) a {
+	.articles-list li a,
+	.articles-list li:nth-child(even) a {
 		font-size: 1.5em;
 		flex-wrap: wrap;
 		background: linear-gradient(to bottom, rgb(74, 245, 134) 65%, rgb(9, 32, 53) 107%);
 		padding: 0 0 1em 0;
-		
+
 		align-items: flex-start;
 		min-height: 85vw;
 	}

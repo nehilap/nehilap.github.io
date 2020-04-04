@@ -11,9 +11,10 @@
 
 	<link rel="stylesheet" media="print" href="./css/printStyle.css">
 
-	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+		integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-	<link rel="shortcut icon"  type="image/x-icon" href="./img/favicon.png">
+	<link rel="shortcut icon" type="image/x-icon" href="./img/favicon.png">
 </head>
 
 <body>
@@ -85,89 +86,88 @@
 				</li>
 			</ul>
 
-				<div class="content-section">
-					<form class="contactForm" lang="sk" id="contactForm">
-						<fieldset>
-							<legend>Vyjadrite svoj názor</legend>
-							<ul>
-								<li>
-									<label for="nameInput" class="tooltip" data-title="Povinné pole">Vaše meno:
-										<span>*</span></label>
-									<input type="text" name="name" id="nameInput" required>
-								</li>
-								<li>
-									<label for="emailInput" class="tooltip" data-title="Povinné pole">Váš email:
-										<span>*</span></label>
-									<input type="email" name="email" id="emailInput" required>
-								</li>
-								<li>
-									<label for="imgLinkInput">Obrázok príspevku (url):</label>
-									<input type="url" name="imgLink" id="imgLinkInput">
-								</li>
-								<li>
-									<label for="keyWordInput">Kĺúčové slovo: </label>
-									<input type="text" list="keyWords" id="keyWordInput" name="keyWord"/>
+			<div class="content-section">
+				<form class="contactForm" lang="sk" id="contactForm">
+					<fieldset>
+						<legend>Vyjadrite svoj názor</legend>
+						<ul>
+							<li>
+								<label for="nameInput" class="tooltip" data-title="Povinné pole">Vaše meno:
+									<span>*</span></label>
+								<input type="text" name="name" id="nameInput" required>
+							</li>
+							<li>
+								<label for="emailInput" class="tooltip" data-title="Povinné pole">Váš email:
+									<span>*</span></label>
+								<input type="email" name="email" id="emailInput" required>
+							</li>
+							<li>
+								<label for="imgLinkInput">Obrázok príspevku (url):</label>
+								<input type="url" name="imgLink" id="imgLinkInput">
+							</li>
+							<li>
+								<label for="keyWordInput">Kĺúčové slovo: </label>
+								<input type="text" list="keyWords" id="keyWordInput" name="keyWord" />
 
-									<datalist id="keyWords">
-										<option>Príroda</option>
-										<option>Živočíchy</option>
-										<option>Rastliny</option>
-										<option>Vtáctvo</option>
-										<option>Obojživelníky</option>
-										<option>Cicavce</option>
-										<option>Ryby</option>
-										<option>Hmyz</option>
-									</datalist>
-								</li>
-								<li>
-									<label for="hodnotenie0">Hodnotenie stránky:</label>
-									<div class="flex-holder">
-										<div>
-											<input type="radio" name="hodnotenie" id="hodnotenie0" value="0">
-											<label for="hodnotenie0">0 / 5</label>
-										</div>
-										<div>
-											<input type="radio" name="hodnotenie" id="hodnotenie1" value="1">
-											<label for="hodnotenie1">1 / 5</label>
-										</div>
-										<div>
-											<input type="radio" name="hodnotenie" id="hodnotenie2" value="2">
-											<label for="hodnotenie2">2 / 5</label>
-										</div>
-										<div>
-											<input type="radio" name="hodnotenie" id="hodnotenie3" value="3">
-											<label for="hodnotenie3">3 / 5</label>
-										</div>
-										<div>
-											<input type="radio" name="hodnotenie" id="hodnotenie4" value="4">
-											<label for="hodnotenie4">4 / 5</label>
-										</div>
-										<div>
-											<input type="radio" name="hodnotenie" id="hodnotenie5" value="5">
-											<label for="hodnotenie5">5 / 5</label>
-										</div>
+								<datalist id="keyWords">
+									<option>Príroda</option>
+									<option>Živočíchy</option>
+									<option>Rastliny</option>
+									<option>Vtáctvo</option>
+									<option>Obojživelníky</option>
+									<option>Cicavce</option>
+									<option>Ryby</option>
+									<option>Hmyz</option>
+								</datalist>
+							</li>
+							<li>
+								<label for="hodnotenie0">Hodnotenie stránky:</label>
+								<div class="flex-holder">
+									<div>
+										<input type="radio" name="hodnotenie" id="hodnotenie0" value="0">
+										<label for="hodnotenie0">0 / 5</label>
 									</div>
-								</li>
-								<li>
-									<label for="sendMailCheck">Zasielanie noviniek:</label>
-									<input type="checkbox" name="sendMail" id="sendMailCheck" value="true" />
-								</li>
-								<li>
-									<label for="contextArea" class="tooltip" data-title="Povinné pole">Váš názor:
-										<span>*</span></label>
-									<textarea name="context" id="contextArea" rows="6" minlength="10"
-										required></textarea>
-								</li>
-								<li class="admin-line">
-									<button type="submit">Odoslať</button>
-									<button type="reset">Resetovať</button>
-									<span class="error-message" id="errorSpan"></span>
-								</li>
-							</ul>
-						</fieldset>
-					</form>
-				</div>
+									<div>
+										<input type="radio" name="hodnotenie" id="hodnotenie1" value="1">
+										<label for="hodnotenie1">1 / 5</label>
+									</div>
+									<div>
+										<input type="radio" name="hodnotenie" id="hodnotenie2" value="2">
+										<label for="hodnotenie2">2 / 5</label>
+									</div>
+									<div>
+										<input type="radio" name="hodnotenie" id="hodnotenie3" value="3">
+										<label for="hodnotenie3">3 / 5</label>
+									</div>
+									<div>
+										<input type="radio" name="hodnotenie" id="hodnotenie4" value="4">
+										<label for="hodnotenie4">4 / 5</label>
+									</div>
+									<div>
+										<input type="radio" name="hodnotenie" id="hodnotenie5" value="5">
+										<label for="hodnotenie5">5 / 5</label>
+									</div>
+								</div>
+							</li>
+							<li>
+								<label for="sendMailCheck">Zasielanie noviniek:</label>
+								<input type="checkbox" name="sendMail" id="sendMailCheck" value="true" />
+							</li>
+							<li>
+								<label for="contextArea" class="tooltip" data-title="Povinné pole">Váš názor:
+									<span>*</span></label>
+								<textarea name="context" id="contextArea" rows="6" minlength="10" required></textarea>
+							</li>
+							<li class="admin-line">
+								<button type="submit">Odoslať</button>
+								<button type="reset">Resetovať</button>
+								<span class="error-message" id="errorSpan"></span>
+							</li>
+						</ul>
+					</fieldset>
+				</form>
 			</div>
+		</div>
 
 		<article class="content-section comments">
 			<h3>Vaše komentáre</h3>

@@ -8,7 +8,7 @@ menuBar.addEventListener("click", toggleMenu);
 function hideMenu(event) {
 	//console.log(event.target);
 	//console.log(menuBar);
-	if(!(event.target == menuBar || event.target.parentNode == menuBar)){
+	if (!(event.target == menuBar || event.target.parentNode == menuBar)) {
 		//console.log("removed");
 		nav.classList.remove("show-menu");
 	}

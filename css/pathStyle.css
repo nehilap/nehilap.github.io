@@ -6,7 +6,7 @@ footer div a:hover svg .path {
 	animation: dash 0.75s linear forwards;
 }
 
-footer div a:hover svg{
+footer div a:hover svg {
 	animation: increase 0.75s linear forwards;
 }
 
@@ -62,7 +62,7 @@ footer div a:hover svg .path.tw-outer {
 	stroke-dashoffset: 1800;
 }
 
-footer div a:hover svg .path.fb{
+footer div a:hover svg .path.fb {
 	stroke-dashoffset: 2000;
 }
 
@@ -72,7 +72,7 @@ footer div a:hover svg .path.fb-little {
 
 footer div a:hover svg .path.in {
 	stroke-dashoffset: 600;
-} 
+}
 
 footer div a:hover svg .path.in-outer {
 	stroke-dashoffset: 1500;
@@ -109,8 +109,11 @@ footer div a:hover svg .path.in-little {
 }
 
 
-@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-	path, circle {
+@media all and (-ms-high-contrast: none),
+(-ms-high-contrast: active) {
+
+	path,
+	circle {
 		stroke-dasharray: 0 !important;
 	}
 }
