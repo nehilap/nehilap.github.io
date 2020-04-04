@@ -720,6 +720,7 @@ thead {
 	.articles-list li a img {
 		background-color: white;
 		filter: none;
+		height: 35vw;
 	}
 
 	.small.box h3 {
@@ -803,10 +804,10 @@ thead {
 		font-size: 1.5em;
 		flex-wrap: wrap;
 		background: linear-gradient(to bottom, rgb(74, 245, 134) 65%, rgb(9, 32, 53) 107%);
-		padding: 0 0 1em 0;
+		padding: 0;
 
 		align-items: flex-start;
-		min-height: 85vw;
+		min-height: 90vw;
 	}
 
 	.articles-list li a:hover {
@@ -815,13 +816,12 @@ thead {
 
 	.articles-list li a img {
 		width: 100vw;
-		height: 60vw;
+		height: 65vw;
 	}
 
 	.articles-list li a span {
 		padding: 0 1em;
 		width: 100%;
-		align-self: center;
 	}
 
 	.small.box h3 {
@@ -832,7 +832,7 @@ thead {
 		font-size: 2em;
 	}
 
-	.content-section h3 {
+	.content-section h3, legend {
 		font-size: 1.5em;
 	}
 
