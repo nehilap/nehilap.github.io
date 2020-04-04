@@ -124,6 +124,8 @@ function removeAndRefreshComments() {
 	localStorage.formComments = JSON.stringify(formRequests);
 
 	commentsContainer.innerHTML = parseRequests(formRequests);
+
+	showHideDelCommentsButton();
 }
 
 function showHideDelCommentsButton() {
