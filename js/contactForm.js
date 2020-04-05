@@ -3,7 +3,8 @@
 let formRequests = [];
 let commentsContainer = document.getElementById("commentsContainer");
 let delCommentsButton = document.getElementById("delOldComments");
-let errorSpan = document.getElementById("errorSpan");
+let alertBar = document.getElementById("alertBar");
+let alertSpan = document.getElementById("alertSpan");
 let formElement = document.forms.namedItem("contactForm");
 
 const nameInput = formElement.elements.namedItem("name");
@@ -22,19 +23,22 @@ showHideDelCommentsButton();
 // ONLY FOR TESTING PURPOSE
 
 //console.log(localStorage);
-console.log(formRequests);
+//console.log(formRequests);
 
 /*
 formRequests.pop();
 localStorage.formComments = JSON.stringify(formRequests);
 */
 
+document.getElementById("closeAlert").addEventListener("click", hideSlowlyAlert);
+
 formElement.addEventListener("submit", submitFormData);
 
-formElement.addEventListener("reset", () => errorSpan.innerText = "");
+formElement.addEventListener("reset", () => alertSpan.innerText = "");
 
 delCommentsButton.addEventListener("click", removeAndRefreshComments);
 
+// requires feedback to decide whether to keep then on input or on submit only
 nameInput.addEventListener("input", showNameError);
 
 emailInput.addEventListener("input", showEmailError);
@@ -42,6 +46,7 @@ emailInput.addEventListener("input", showEmailError);
 contextInput.addEventListener("input", showContextError);
 
 imgLinkInput.addEventListener("input", showImgLinkError);
+
 
 function submitFormData(event) {
 	event.preventDefault();
@@ -84,6 +89,10 @@ function submitFormData(event) {
 	formElement.reset();
 
 	showHideDelCommentsButton();
+
+	showSubmitSuccess();
+
+	setTimeout(hideSlowlyAlert, 4000);
 }
 
 function parseComment(comment) {
@@ -154,9 +163,13 @@ function showNameError() {
 
 	if (nameInput.validity.valueMissing) {
 		errorMessage = "Chýba meno";
+		setErrorAlert();
+	} else if (nameInput.validity.valid) {
+		hideAlert();
 	}
 
-	errorSpan.innerText = errorMessage;
+
+	alertSpan.innerText = errorMessage;
 }
 
 function showEmailError() {
@@ -164,11 +177,15 @@ function showEmailError() {
 
 	if (emailInput.validity.valueMissing) {
 		errorMessage = "Chýba email";
-	} else if (emailInput.validity.typeMismatch) {
+		setErrorAlert();
+	} else if (!emailInput.validity.valid) {
 		errorMessage = "Nesprávny formát emailu";
+		setErrorAlert();
+	} else if (emailInput.validity.valid) {
+		hideAlert();
 	}
 
-	errorSpan.innerText = errorMessage;
+	alertSpan.innerText = errorMessage;
 }
 
 function showContextError() {
@@ -176,11 +193,16 @@ function showContextError() {
 
 	if (contextInput.validity.valueMissing) {
 		errorMessage = "Chýba text komentára";
+		setErrorAlert();
 	} else if (contextInput.validity.tooShort || contextInput.value.length <= 10) {
-		errorMessage = "Komentár musí mať aspoň " + contextInput.minLength + " znakov, zadali ste " + contextInput.value.length;
+		errorMessage = "Komentár musí mať viac než " + contextInput.minLength + " znakov, zadali ste " + contextInput.value.length;
+		setErrorAlert();
+	} else if (contextInput.validity.valid) {
+		hideAlert();
 	}
 
-	errorSpan.innerText = errorMessage;
+
+	alertSpan.innerText = errorMessage;
 }
 
 function showImgLinkError() {
@@ -188,7 +210,41 @@ function showImgLinkError() {
 
 	if (imgLinkInput.validity.typeMismatch) {
 		errorMessage = "Nesprávny formát url odkazu";
+		setErrorAlert();
+	} else if (imgLinkInput.validity.valid) {
+		hideAlert();
 	}
 
-	errorSpan.innerText = errorMessage;
+
+	alertSpan.innerText = errorMessage;
+}
+
+function showSubmitSuccess() {
+	setSuccessAlert();
+	alertSpan.innerText = "Uspešné odoslanie komentára";
+}
+
+function hideAlert() {
+	alertBar.classList.add("invis", "hidden");
+}
+
+function hideSlowlyAlert() {
+	alertBar.classList.add("invis");
+	setTimeout(() => alertBar.classList.add("hidden"), 500);
+}
+
+function showAlert() {
+	alertBar.classList.remove("invis", "hidden");
+}
+
+function setSuccessAlert() {
+	showAlert();
+	alertBar.classList.remove("error");
+	alertBar.classList.add("success");
+}
+
+function setErrorAlert() {
+	showAlert();
+	alertBar.classList.add("error");
+	alertBar.classList.remove("success");
 }

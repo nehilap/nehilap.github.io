@@ -140,7 +140,11 @@ p {
 }
 
 .hidden {
-	display: none;
+	display: none !important;
+}
+
+.invis {
+	opacity: 0 !important;
 }
 
 .articles-list {
@@ -191,13 +195,6 @@ p {
 	font-family: "ArvoBold", sans-serif;
 	transition: all 0.5s ease-in-out;
 	padding: 0 1rem;
-
-	text-decoration: underline;
-	text-decoration-color: transparent;
-}
-
-.articles-list li a:hover span {
-	text-decoration-color: rgba(9, 32, 53, 1);
 }
 
 .flex-holder {
@@ -209,7 +206,6 @@ p {
 }
 
 .box {
-	min-height: 100%;
 	margin: 0.5em;
 
 	background-color: white;
@@ -311,11 +307,6 @@ input:required {
 	border-bottom: 2px grey dashed;
 }
 
-textarea:required:valid,
-input:required:valid {
-	border-bottom: 1.5px darkgrey solid;
-}
-
 textarea:focus,
 input:not([type=checkbox]):not([type=radio]):focus {
 	border-bottom: 2px rgb(9, 32, 53) solid;
@@ -367,8 +358,28 @@ button:hover {
 	cursor: pointer;
 }
 
-.error-message {
-	color: red;
+.alert-bar {
+	opacity: 1;
+	transition: opacity 0.5s linear;
+	padding: 0.7em;
+	color: white;
+}
+
+.alert-close {
+	font-weight: bold;
+	margin-left: auto;
+}
+
+.alert-close:hover {
+	cursor: pointer;
+}
+
+.error {
+	background-color: #f44336;
+}
+
+.success {
+	background-color: #4CAF50;
 }
 
 .content-section {
@@ -584,10 +595,6 @@ thead {
 
 .protected-animals tbody td:nth-child(2) {
 	text-transform: capitalize;
-}
-
-.content-section.comments {
-	padding: 2em;
 }
 
 .content-section h4 {
