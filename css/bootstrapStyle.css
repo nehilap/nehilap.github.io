@@ -4,6 +4,10 @@ body {
 	padding: 0;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 @font-face {
 	font-family: "Arvo";
 	src: url('../../fonts/Arvo-Regular.eot');

@@ -3,11 +3,14 @@
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-
 body {
 	margin: 0;
 	padding: 0;
 	background-color: rgb(9, 32, 53);
+}
+
+html {
+	scroll-behavior: smooth;
 }
 
 @font-face {
@@ -265,6 +268,7 @@ legend {
 	resize: vertical;
 	margin-top: 0.4em;
 	min-height: 1.5em;
+	max-height: calc(1.5em * 25);
 }
 
 .contactForm label {
