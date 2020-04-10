@@ -644,7 +644,8 @@ thead {
 	right: initial;
 }
 
-.floating div {
+.floating a {
+	padding: 0;
 	background: rgba(0, 0, 0, 0.9);
 	color: white;
 
@@ -655,32 +656,21 @@ thead {
 	transition: all 0.15s linear;
 }
 
-.floating div:hover {
-	cursor: pointer;
+.floating a:hover {
+	left: 0;
 }
 
-.floating div i {
+.floating a span {
+	font-family: "Arvo";
+	padding: 1em;
+	width: 10em;
+}
+
+.floating a i {
 	width: 4em;
 	font-size: 1.05em;
 	padding: 1em;
 	text-align: center;
-
-	transition: all 0.35s linear;
-	position: relative;
-}
-
-.floating div:hover i, .floating div:hover a {
-	color: black;
-	background-color: white;
-}
-
-.floating div a {
-	position: relative;
-	width: 10em;
-}
-
-.floating div:hover {
-	left: 0;
 }
 
 .snowmans {
