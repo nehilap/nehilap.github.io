@@ -634,6 +634,55 @@ thead {
 	border-radius: 0.5em;
 }
 
+.floating {
+	min-width: initial;
+	max-width: 0;
+
+	flex-direction: column;
+	left: 0;
+	top: 5%;
+	right: initial;
+}
+
+.floating div {
+	background: rgba(0, 0, 0, 0.9);
+	color: white;
+
+	position: relative;
+	display: flex;
+
+	left: -10em;
+	transition: all 0.15s linear;
+}
+
+.floating div:hover {
+	cursor: pointer;
+}
+
+.floating div i {
+	width: 4em;
+	font-size: 1.05em;
+	padding: 1em;
+	text-align: center;
+
+	transition: all 0.35s linear;
+	position: relative;
+}
+
+.floating div:hover i, .floating div:hover a {
+	color: black;
+	background-color: white;
+}
+
+.floating div a {
+	position: relative;
+	width: 10em;
+}
+
+.floating div:hover {
+	left: 0;
+}
+
 .snowmans {
 	display: flex;
 	flex-direction: column;
