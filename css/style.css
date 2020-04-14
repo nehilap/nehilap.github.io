@@ -658,6 +658,8 @@ thead {
 
 .floating a:hover {
 	left: 0;
+
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 5px rgba(0, 0, 0, 0.1) inset;
 }
 
 .floating a span {
