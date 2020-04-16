@@ -145,14 +145,27 @@
 			<h3>Príspevky</h3>
 
 			<div id="articlesContainer"></div>
+
+			<div id="pageNav"></div>
 		</section>
+	</script>
+
+	<script id="template-page-nav" type="text/template">
+		<div class="flex-holder page-nav">
+			{{#previous}}
+			<a href="#articles/{{previous}}/">← Predošlá strana</a>
+			{{/previous}}
+			{{#next}}
+			<a href="#articles/{{next}}/">Ďalšia strana →</a>
+			{{/next}}
+		</div>
 	</script>
 
 	<script id="template-article" type="text/template">
 		<section class="comment">
 			<h4>{{title}}</h4>
-			<span class="info">{{dateCreated}}, {{author}}</span>
-			<br>
+			<h5>{{author}}</h5>
+			<span class="info">{{created}};</span>
 			{{#tags}}
 				<span class="info">{{.}}, </span>
 			{{/tags}}

@@ -8,14 +8,12 @@ export function setupComments() {
 	}
 
 	commentsContainer.innerHTML = parseRequests(formRequests);
-	
 
 	if (delCommentsButton) {
 		showHideDelCommentsButton();
 
 		delCommentsButton.addEventListener("click", removeAndRefreshComments);
 	}
-
 
 	function parseComment(comment) {
 		let commentTmp = {

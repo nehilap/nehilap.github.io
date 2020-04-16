@@ -596,6 +596,7 @@ thead {
 	font-family: "Arvo", sans-serif;
 	font-size: 1.3em;
 	margin: 0.7em 0;
+	text-transform: uppercase;
 }
 
 .comment .flex-holder {
@@ -611,6 +612,7 @@ thead {
 	font-family: "Arvo", sans-serif;
 	margin: 0.6em 0 0 0;
 	font-size: 1.15em;
+	text-transform: capitalize;
 }
 
 .comment-text {
@@ -654,7 +656,7 @@ thead {
 }
 
 .floating a span {
-	font-family: "Arvo";
+	font-family: "Arvo", sans-serif;
 	padding: 1em;
 	width: 10em;
 	white-space: nowrap;
@@ -678,30 +680,24 @@ thead {
 	cursor: pointer;
 }
 
-.snowmans {
-	display: flex;
-	flex-direction: column;
+.page-nav {
+	border-top: 1px solid grey;
+	border-bottom: 1px solid grey;
+	justify-content: space-between;
+	justify-items: stretch;
+	padding: 0 1em 0.7em 1em;
 }
 
-.third-snowman {
-	animation-name: slide;
-	animation-duration: 3s;
-	animation-iteration-count: infinite;
-	animation-direction: alternate;
-	transition: 1s ease-in-out;
+.page-nav a {
+	transition: all 0.35s ease-in;
+	padding: 1em 0 0.2em 0;
+	font-family: "Arvo", sans-serif;
+	font-size: 1.2em;
+	border-bottom: 2px dotted transparent;
 }
 
-.second-snowman {
-	transition: 1s ease-in-out;
-	transform-origin: center center;
-}
-
-.second-snowman:hover {
-	transform: rotate(45deg) scale(1.5) rotateY(65deg);
-}
-
-.third-snowman:hover {
-	transform: rotate(45deg) scale(1.5) rotateY(360deg);
+.page-nav a:hover {
+	border-color: rgb(17, 74, 182);
 }
 
 @keyframes slide {
