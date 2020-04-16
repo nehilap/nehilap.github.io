@@ -1,0 +1,119 @@
+.path {
+	stroke: grey;
+}
+
+footer div a:hover svg .path {
+	animation: dash 0.75s linear forwards;
+}
+
+footer div a:hover svg {
+	animation: increase 0.75s linear forwards;
+}
+
+.path.in {
+	stroke-dasharray: 600;
+}
+
+.path.in-outer {
+	stroke-dasharray: 1500;
+}
+
+.path.in-little {
+	stroke-dasharray: 150;
+}
+
+.path.yt {
+	stroke-dasharray: 600;
+}
+
+.path.yt-outer {
+	stroke-dasharray: 1700;
+}
+
+.path.tw {
+	stroke-dasharray: 1200;
+}
+
+.path.tw-outer {
+	stroke-dasharray: 1800;
+}
+
+.path.fb {
+	stroke-dasharray: 2000;
+}
+
+.path.fb-little {
+	stroke-dasharray: 1000;
+}
+
+footer div a:hover svg .path.yt {
+	stroke-dashoffset: 600;
+}
+
+footer div a:hover svg .path.yt-outer {
+	stroke-dashoffset: 1700;
+}
+
+footer div a:hover svg .path.tw {
+	stroke-dashoffset: 1200;
+}
+
+footer div a:hover svg .path.tw-outer {
+	stroke-dashoffset: 1800;
+}
+
+footer div a:hover svg .path.fb {
+	stroke-dashoffset: 2000;
+}
+
+footer div a:hover svg .path.fb-little {
+	stroke-dashoffset: 1000;
+}
+
+footer div a:hover svg .path.in {
+	stroke-dashoffset: 600;
+}
+
+footer div a:hover svg .path.in-outer {
+	stroke-dashoffset: 1500;
+}
+
+footer div a:hover svg .path.in-little {
+	stroke-dashoffset: 150;
+}
+
+@keyframes dash {
+	80% {
+		stroke: grey;
+		stroke-dashoffset: 0;
+	}
+
+	100% {
+		stroke: white;
+		stroke-dashoffset: 0;
+	}
+}
+
+@keyframes increase {
+	80% {
+		width: 2em;
+		height: 2em;
+		margin: 0 0.6em;
+	}
+
+	100% {
+		width: 2.2em;
+		height: 2.2em;
+		margin: 0 0.5em;
+	}
+}
+
+
+@media all and (-ms-high-contrast: none),
+(-ms-high-contrast: active) {
+
+	path,
+	circle {
+		stroke-dasharray: 0 !important;
+	}
+}

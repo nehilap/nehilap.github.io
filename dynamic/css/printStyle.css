@@ -1,0 +1,80 @@
+html {
+	font-family: "Times New Roman", serif;
+	font-size: 12pt;
+}
+
+body {
+	margin: 0;
+	color: black;
+	background-color: white;
+}
+
+nav {
+	display: none;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.articles-list li a img {
+	display: none;
+}
+
+img,
+svg {
+	filter: grayscale(100%);
+}
+
+.img-section {
+	display: flex;
+	justify-content: center;
+}
+
+.img-section>div {
+	margin: 1%;
+}
+
+.img-section img {
+	width: 32vw;
+	height: 20vw;
+}
+
+.content-section h3 {
+	text-transform: capitalize;
+}
+
+footer {
+	margin-top: 12pt;
+}
+
+footer .links {
+	display: none;
+}
+
+table {
+	width: 90%;
+	margin: 0 auto;
+}
+
+table,
+th,
+td {
+	border-collapse: collapse;
+	border: 1px solid black;
+}
+
+p {
+	text-align: justify;
+}
+
+img.big-img {
+	width: 80%;
+	height: auto;
+	margin: 0 auto;
+}
+
+thead {
+	font-size: 1.2rem;
+}

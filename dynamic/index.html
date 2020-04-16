@@ -1,0 +1,451 @@
+<!DOCTYPE HTML>
+<html lang="sk">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Zvieratá</title>
+	<link rel="stylesheet" media="screen" href="./css/normalize.css">
+	<link rel="stylesheet" media="screen" href="./css/style.css">
+	<link rel="stylesheet" media="screen" href="./css/pathStyle.css">
+
+	<link rel="stylesheet" media="print" href="./css/printStyle.css">
+
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+		integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+	<link rel="shortcut icon" type="image/x-icon" href="./img/favicon.png">
+</head>
+
+<body>
+	<nav class="floating">
+		<a class="menu-bar"><i class="fa fa-bars"></i></a>
+
+		<a href="#welcome">
+			<span>Intro</span>
+			<i class="fa fa-home" aria-hidden="true"></i>
+		</a>
+		<a href="#articles">
+			<span>Príspevky</span>
+			<i class="fa fa-bars" aria-hidden="true"></i>
+		</a>
+		<a href="#contactForm">
+			<span>Váš názor</span>
+			<i class="fa fa-address-card" aria-hidden="true"></i>
+		</a>
+		<a href="#comments">
+			<span>Komentáre</span>
+			<i class="fa fa-comments" aria-hidden="true"></i>
+		</a>
+		<a href="#land">
+			<span>Suchozemské živočíchy</span>
+			<i class="fa fa-pagelines" aria-hidden="true"></i>
+		</a>
+
+	</nav>
+
+	<div class="wrapper">
+		<div class="banner" id="intro">
+			<h1>
+				ŽIVOČÍŠSTVO
+			</h1>
+		</div>
+
+		<main id="router-view"></main>
+
+		<footer>
+			<div class="links">
+
+				<a href="https://www.facebook.com" target="_blank">
+					<svg height="482pt" viewBox="-30 -30 612 562" width="482pt">
+						<path class="path fb-little" fill="transparent" stroke="gray" stroke-width="38"
+							d="m274.285156 493.714844c-10.097656 0-18.285156-8.179688-18.285156-18.285156v-289.234376c0-42.175781 34.3125-76.480468 76.480469-76.480468h33.234375c10.097656 0 18.285156 8.175781 18.285156 18.285156s-8.1875 18.285156-18.285156 18.285156h-33.234375c-22.007813 0-39.910157 17.910156-39.910157 39.910156v289.234376c0 10.105468-8.1875 18.285156-18.285156 18.285156zm0 0" />
+						<path class="path fb-little" fill="transparent" stroke="gray" stroke-width="37"
+							d="m329.144531 274.285156h-109.714843c-10.097657 0-18.285157-8.175781-18.285157-18.285156s8.1875-18.285156 18.285157-18.285156h109.714843c10.097657 0 18.285157 8.175781 18.285157 18.285156s-8.1875 18.285156-18.285157 18.285156zm0 0" />
+						<path class="path fb" fill="transparent" stroke="gray" stroke-width="60"
+							d="m429.761719 512h-347.523438c-45.34375 0-82.238281-36.894531-82.238281-82.234375v-347.53125c0-45.339844 36.894531-82.234375 82.238281-82.234375h347.523438c45.34375 0 82.238281 36.894531 82.238281 82.234375v347.535156c0 45.335938-36.894531 82.230469-82.238281 82.230469zm-347.523438-475.429688" />
+					</svg>
+				</a>
+
+				<a href="https://www.twitter.com" target="_blank">
+					<svg x="0px" y="0px" viewBox="-50 -50 556 596" style="enable-background:new -30 -30 516 596;"
+						xml:space="preserve">
+						<path class="path tw-outer" fill="transparent" stroke="gray" stroke-width="55" d="M365.008,0H130.992C57.536,0,0,57.536,0,130.992v234.016C0,438.464,57.536,496,130.992,496h234.016
+						C438.464,496,496,438.464,496,365.008V130.992C496,57.536,438.448,0,365.008,0z M464,365.008" />
+
+						<path class="path tw" fill="transparent" stroke="gray" stroke-width="45"
+							d="M403.984,126.64c-5.136-3.76-12.016-4.08-17.504-0.88c-5.472,3.216-17.6,4.8-27.328,6.08c-2.016,0.272-4,0.528-5.92,0.8
+						c-13.616-11.296-31.008-17.632-48.944-17.632c-40.4,0-73.552,31.264-75.904,70.592c-36.64-6.176-70.192-25.28-93.968-53.984
+						c-3.536-4.288-9.024-6.384-14.56-5.664c-5.504,0.768-10.208,4.336-12.432,9.424c-1.024,2.336-9.952,24.304-9.952,78.64
+						c0,47.056,37.136,81.632,62.608,99.824c-17.424,7.92-37.504,10.832-56.576,8.72c-7.456-0.8-14.432,3.584-16.896,10.608
+						c-2.464,7.04,0.256,14.848,6.56,18.832c30.08,18.976,64.848,29.008,100.56,29.008c114.688,0,184.096-90.096,186.672-178.928
+						c3.296-4.784,9.584-14.096,20.208-30.432c4.256-6.576,7.824-20.752,9.568-28.608C411.568,136.832,409.12,130.384,403.984,126.64z" />
+					</svg>
+				</a>
+
+				<a href="https://www.youtube.com" target="_blank">
+					<svg viewBox="-20 -62 562.00199 492">
+						<path class="path yt" fill="transparent" stroke="gray" stroke-width="45"
+							d="m334.808594 170.992188-113.113282-61.890626c-6.503906-3.558593-14.191406-3.425781-20.566406.351563-6.378906 3.78125-10.183594 10.460937-10.183594 17.875v122.71875c0 7.378906 3.78125 14.046875 10.117188 17.832031 3.308594 1.976563 6.976562 2.96875 10.652344 2.96875 3.367187 0 6.742187-.832031 9.847656-2.503906l113.117188-60.824219c6.714843-3.613281 10.90625-10.59375 10.9375-18.222656.027343-7.628906-4.113282-14.640625-10.808594-18.304687" />
+						<path class="path yt-outer" fill="transparent" stroke="gray" stroke-width="55"
+							d="m508.234375 91.527344-.023437-.234375c-.433594-4.121094-4.75-40.777344-22.570313-59.421875-20.597656-21.929688-43.949219-24.59375-55.179687-25.871094-.929688-.105469-1.78125-.203125-2.542969-.304688l-.894531-.09375c-67.6875-4.921874-169.910157-5.5937495-170.933594-5.59765575l-.089844-.00390625-.089844.00390625c-1.023437.00390625-103.246094.67578175-171.542968 5.59765575l-.902344.09375c-.726563.097657-1.527344.1875-2.398438.289063-11.101562 1.28125-34.203125 3.949219-54.859375 26.671875-16.972656 18.445312-21.878906 54.316406-22.382812 58.347656l-.058594.523438c-.152344 1.714844-3.765625 42.539062-3.765625 83.523437v38.3125c0 40.984375 3.613281 81.808594 3.765625 83.527344l.027344.257813c.433593 4.054687 4.746093 40.039062 22.484375 58.691406 19.367187 21.195312 43.855468 24 57.027344 25.507812 2.082031.238282 3.875.441406 5.097656.65625l1.183594.164063c39.082031 3.71875 161.617187 5.550781 166.8125 5.625l.15625.003906.15625-.003906c1.023437-.003907 103.242187-.675781 170.929687-5.597657l.894531-.09375c.855469-.113281 1.816406-.214843 2.871094-.324218 11.039062-1.171875 34.015625-3.605469 54.386719-26.019532 16.972656-18.449218 21.882812-54.320312 22.382812-58.347656l.058594-.523437c.152344-1.71875 3.769531-42.539063 3.769531-83.523438v-38.3125c-.003906-40.984375-3.617187-81.804687-3.769531-83.523437" />
+					</svg>
+				</a>
+
+				<a href="https://www.instagram.com" target="_blank">
+					<svg x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 502;"
+						xml:space="preserve">
+						<path class="path in-outer" fill="transparent" stroke="gray" stroke-width="50" d="M464,352c0,61.76-50.24,112-112,112H160c-61.76,0-112-50.24-112-112V160C48,98.24,98.24,48,160,48
+								h192c61.76,0,112,50.24,112,112V352z" />
+						<circle class="path in" fill="transparent" stroke="gray" stroke-width="45" cx="256" cy="256"
+							r="80" />
+						<circle class="path in-little" fill="transparent" stroke="gray" stroke-width="35" cx="363.6"
+							cy="140.4" r="17.056" />
+					</svg>
+				</a>
+			</div>
+
+			<div>
+				&copy; Copyright 2020 - 2020
+			</div>
+			<div>
+				Created by <span>Peter Nehila</span>
+			</div>
+		</footer>
+	</div>
+
+	<!--Templates for html, dynamically inserted by the router -->
+
+	<script id="template-welcome" type="text/template">
+		<div class="flex-holder">
+		<section class="small box">
+			<h3>Obsah blogu</h3>
+
+			<p>
+				Blog sa zaoberá rôznymi témami o zvieratách, od domácich miláčikov po ohrozené druhy. Vybrané
+				témy sa týkajú Slovenska ale aj zvyšku sveta.
+			</p>
+		</section>
+
+		<section class="small box">
+			<h3>O autorovi</h3>
+
+			<p>
+				Volám sa Peter a študujem na Technickej univerzite v Košiciach, o prírodu sa zaujímam od
+				malička, rád pozerám rôzne
+				dokumentárne seriály, najradšej o vodnom živote. Rád čítam (fantasy > sci-fi > detektívky). Doma
+				mám aj psíka a korytnačku.
+			</p>
+		</section>
+	</div>
+	</script>
+
+	<script id="template-articles" type="text/template">
+		<section class="content-section comments" id="comments">
+			<h3>Príspevky</h3>
+
+			<div id="articlesContainer"></div>
+		</section>
+	</script>
+
+	<script id="template-article" type="text/template">
+		<section class="comment">
+			<h4>{{title}}</h4>
+			<span class="info">{{dateCreated}}, {{author}}</span>
+			<br>
+			{{#tags}}
+				<span class="info">{{.}}, </span>
+			{{/tags}}
+			<div class="flex-holder">
+				<p class="comment-text">{{content}}</p>
+				{{{parsedImg}}}
+			</div>
+		</section>
+	</script>
+
+	<script id="template-web-comments" type="text/template">
+		<section class="content-section comments" id="comments">
+			<h3>Vaše komentáre</h3>
+
+			<div id="commentsContainer"></div>
+
+			<button id="delOldComments">Vymazať staršie</button>
+		</section>
+	</script>
+
+	<script id="template-articles-error" type="text/template">
+
+		<article>
+        <h2>Articles acquisition failed</h2>
+        <p>
+            {{errMessage}}
+        </p>
+    </article>
+    <footer  class="menuLink"><a href="#menuTitle">Back to the menu</a></footer>
+
+	</script>
+
+	<script id="template-addOpinion" type="text/template">
+
+		<div class="content-section">
+			<form class="contactForm" lang="sk" id="contactForm">
+				<fieldset>
+					<legend>Vyjadrite svoj názor</legend>
+					<ul>
+						<li>
+							<label for="nameInput" class="tooltip" data-title="Povinné pole">Vaše meno:
+								<span>*</span></label>
+							<input type="text" name="name" id="nameInput" required>
+						</li>
+						<li>
+							<label for="emailInput" class="tooltip" data-title="Povinné pole">Váš email:
+								<span>*</span></label>
+							<input type="email" name="email" id="emailInput" required>
+						</li>
+						<li>
+							<label for="imgLinkInput">Obrázok príspevku (url):</label>
+							<input type="url" name="imgLink" id="imgLinkInput">
+						</li>
+						<li>
+							<label for="keyWordInput">Kĺúčové slovo: </label>
+							<input type="text" list="keyWords" id="keyWordInput" name="keyWord" />
+
+							<datalist id="keyWords">
+								<option>Príroda</option>
+								<option>Živočíchy</option>
+								<option>Rastliny</option>
+								<option>Vtáctvo</option>
+								<option>Obojživelníky</option>
+								<option>Cicavce</option>
+								<option>Ryby</option>
+								<option>Hmyz</option>
+							</datalist>
+						</li>
+						<li>
+							<label for="hodnotenie0">Hodnotenie stránky:</label>
+							<div class="flex-holder">
+								<div>
+									<input type="radio" name="hodnotenie" id="hodnotenie0" value="0">
+									<label for="hodnotenie0">0 / 5</label>
+								</div>
+								<div>
+									<input type="radio" name="hodnotenie" id="hodnotenie1" value="1">
+									<label for="hodnotenie1">1 / 5</label>
+								</div>
+								<div>
+									<input type="radio" name="hodnotenie" id="hodnotenie2" value="2">
+									<label for="hodnotenie2">2 / 5</label>
+								</div>
+								<div>
+									<input type="radio" name="hodnotenie" id="hodnotenie3" value="3">
+									<label for="hodnotenie3">3 / 5</label>
+								</div>
+								<div>
+									<input type="radio" name="hodnotenie" id="hodnotenie4" value="4">
+									<label for="hodnotenie4">4 / 5</label>
+								</div>
+								<div>
+									<input type="radio" name="hodnotenie" id="hodnotenie5" value="5">
+									<label for="hodnotenie5">5 / 5</label>
+								</div>
+							</div>
+						</li>
+						<li>
+							<label for="sendMailCheck">Zasielanie noviniek:</label>
+							<input type="checkbox" name="sendMail" id="sendMailCheck" value="true" />
+						</li>
+						<li>
+							<label for="contextArea" class="tooltip" data-title="Povinné pole">Váš názor:
+								<span>*</span></label>
+							<textarea name="context" id="contextArea" rows="6" minlength="10" required></textarea>
+						</li>
+						<li class="admin-line">
+							<button type="submit">Odoslať</button>
+							<button type="reset">Resetovať</button>
+						</li>
+						<li id="alertBar" class="hidden invis alert-bar">
+							<span id="alertSpan" class="alert-text"></span>
+							<span id="closeAlert" class="alert-close">&times;</span>
+						</li>
+					</ul>
+				</fieldset>
+			</form>
+		</div>
+
+		
+	</script>
+
+	<script id="template-land" type="text/template">
+		<article>
+			<header class="content-section intro">
+				<h2>Suchozemské živočíchy na Slovensku</h2>
+
+				<span class="info">
+					27.2.2020, Peter Nehila, <a href="mailto:nehila.peter@gmail.com">nehila.peter@gmail.com</a>
+				</span>
+
+				<p>
+					Lesy sú plné živočíchov, častými je veverica, líška, diviak, rys, vlk, medveď, vysokú zver zastupuje
+					jeleň,
+					srnec, daniel, muflón. Slovenské lesy vytvárajú výborné podmienky pre poľovníctvo, veľmi obvyklé sú
+					poľovačky
+					na medvede a jelene. Z vtákov na Slovensku prebýva sova, tetrov, myšiak, v jaskyniach žijú mnohé
+					druhy
+					netopierov.
+					V pásme kosodreviny sa vyskytujú kamzíky a svište. Typickým živočíšnym predstaviteľom polí na
+					nížinách
+					Slovenska
+					je napríklad bažant, zajac, hraboš. Na rozhraní nížin a pohorí sa v hojnom počte vyskytuje jež.
+				</p>
+
+				<p>
+					Faunu Slovenska rozdeľujeme do štyroch oblastí podľa výskytu jednotlivých živočíchov v daných
+					oblastiach.
+				</p>
+
+				<ul>
+					<li><a href="#step">Oblasť stepného živočíšstva</a></li>
+					<li><a href="#lles">Oblasť živočíšstva listnatých lesov</a></li>
+					<li><a href="#iles">Oblasť živočíšstva ihličnatých lesov</a></li>
+					<li><a href="#hory">Oblasť vysokohorského živočíšstva – kosodrevín a alpínskych lúk</a></li>
+				</ul>
+			</header>
+
+
+			<section class="content-section" id="step">
+				<h3>stepné živočíšstvo</h3>
+
+				<p>
+					Ide o oblasť nížin, slnečných svahov predhorí, ale aj o plochy, ktoré človek premenil na ornú pôdu.
+					Vyskytuje sa
+					tu približne 10 – 13% živočíchov z celkového počtu všetkých druhov žijúcich na našom území.
+					Zástupcovia tejto oblasti sú zajace, hraboše, jarabice, bažanty, škovránky. Kriticky ohrozený
+					druh je drob fúzatý, ktorého prirodzeným prostredím sú práve stepné oblasti nachádzajúce sa v
+					Podunajskej rovine,
+					v Podunajskej a Trnavskej pahorkatine, pričom najviac živočíchov je sústredených na významnom vtáčom
+					území Sysľové
+					polia neďaleko Rusoviec pri Bratislave. Z bezstavovcov sa vyskytuje v tejto oblasti sága stepná,
+					fúzač
+					trávový a
+					bohato zastúpené sú i motýle.
+				</p>
+
+				<div class="img-section">
+					<div class="tooltip" data-title="Hraboš">
+						<div class="name-bubble">Hraboš Poľný</div>
+						<img src="img/hrabos.jpg" alt="hraboš" class="mid-size-img">
+					</div>
+					<div class="tooltip" data-title="Škovránok">
+						<div class="name-bubble bot-left">Škovránok Poľný</div>
+						<img src="img/skovranok.jpeg" alt="škovranok" class="mid-size-img">
+					</div>
+				</div>
+			</section>
+
+			<section class="content-section" id="lles">
+				<h3>živočíšstvo listnatých lesov</h3>
+
+				<p>
+					Táto oblasť je miestom s najväčším počtom druhov živočíšnej ríše žijúcich na Slovensku. Možno tu
+					nájsť
+					až 75%
+					všetkých druhov. Listnatý les poskytuje dostatok potravy a dobré možnosti úkrytu srnám, diviakom,
+					ale i
+					líške
+					hrdzavej a mačke lesnej, tiež veľkému množstvu rozličných vtákov, z ktorých najčastejšie sú kukučka
+					jarabá,
+					sova lesná, vrana túlavá, slávik červienka, pinka lesná, stehlík konopiar, sýkorky a ďatle. Z
+					obojživelníkov
+					sú tu zastúpené mlok bodkovaný, mlok hrebenatý, ropucha bradavičnatá a rosnička stromová.
+				</p>
+
+				<div class="img-section">
+					<div class="tooltip" data-title="Pinka lesná">
+						<div class="name-bubble">Pinka Lesná</div>
+						<img src="img/pinka.jpg" alt="pinka" class="mid-size-img">
+					</div>
+					<div class="tooltip" data-title="Mlok hrebenatý">
+						<div class="name-bubble bot-left">Mlok Hrebenatý</div>
+						<img src="img/mlok.jpg" alt="mlok" class="mid-size-img">
+					</div>
+				</div>
+			</section>
+
+			<section class="content-section" id="iles">
+				<h3>živočíšstvo ihličnatých lesov</h3>
+
+				<p>
+					Potravu si v tejto oblasti nachádza asi 10% druhov našich živočíchov. Ihličnatý les je domovom pre
+					veverice,
+					medvede hnedé, rysa ostrovida, vtáky – tetrova hlucháňa, drozda kolohrivého, orešnicu perlavú,
+					sýkorku
+					uhliarku a
+					sýkorku chochlatú, hýľa lesného a krivonosa smrekového. Z plazov tu možno nájsť vretenicu severnú a
+					užovku živorodú.
+					Mnohé zo živočíchov žijú v listnatých aj ihličnatých lesoch, napr. líšky, vlky, jelene.
+				</p>
+
+				<div class="img-section">
+					<div class="tooltip" data-title="Tetrov hlucháň">
+						<div class="name-bubble">Tetrov Hlucháň</div>
+						<img src="img/tetrov.jpg" alt="tetrov" class="mid-size-img">
+					</div>
+					<div class="tooltip" data-title="Rys ostrovid">
+						<div class="name-bubble bot-left">Rys Ostrovid</div>
+						<img src="img/rys.jpg" alt="rys" class="mid-size-img">
+					</div>
+				</div>
+			</section>
+
+			<section class="content-section" id="hory">
+				<h3>vysokohorské živočíšstvo – kosodreviny a alpínske lúky</h3>
+
+				<p>
+					Hoci spoločenstvo živočíchov žijúcich v tejto oblasti Slovenska je chudobnejšie, predstavuje asi 1%
+					z
+					našich druhov,
+					nestráca svoj význam ani zaujímavosť. Udržali sa tu druhy živočíšnej ríše, ktoré prežili doby
+					ľadové, sú
+					to tzv.
+					glaciálne relikty. Z obojživelníkov je charakteristickým druhom mlok horský, z plazov jašterica
+					živorodá, z vtákov
+					dážďovník tmavý, z cicavcov hraboš tatranský, hraboš snežný, v najvyšších polohách žijú kamzíky a
+					svište.
+				</p>
+
+				<div class="img-section">
+					<div class="tooltip" data-title="Kamzík vrchovský tatranský">
+						<div class="name-bubble">Kamzík Tatranský</div>
+						<img src="img/kamzik.jpg" alt="kamzík" class="mid-size-img">
+					</div>
+					<div class="tooltip" data-title="Mlok Horský">
+						<div class="name-bubble bot-left">Mlok Horský</div>
+						<img src="img/mlok_h.jpg" alt="mlok horský" class="mid-size-img">
+					</div>
+				</div>
+			</section>
+		</article>
+	</script>
+
+	<script id="commentTemplate" type="text/template">
+		<section class="comment">
+			<h4>{{name}}</h4>
+			<span class="info">{{created}}, {{email}}{{ratingMessage}}</span>
+			<h5>{{keyWord}}</h5>
+			<div class="flex-holder">
+				<p class="comment-text">{{context}}</p>
+				{{{parsedImg}}}
+			</div>
+		</section>
+	</script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.1.0/mustache.min.js"
+		integrity="sha256-MPgtcamIpCPKRRm1ppJHkvtNBAuE71xcOM+MmQytXi8=" crossorigin="anonymous">
+	</script>
+
+	<script type="module" src="./js/routerInit.js"></script>
+
+	<script src="./js/responsiveMenu.js"></script>
+</body>
+
+</html>
