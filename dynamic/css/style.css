@@ -622,6 +622,7 @@ thead {
 	text-align: justify;
 	margin: 0.6em 0;
 	flex: 7;
+	
 }
 
 .comment-img {
@@ -685,10 +686,30 @@ thead {
 }
 
 .page-nav {
+
+	position: fixed;
+	bottom: 0;
+	left: 10%;
+	margin: 0 auto;
+
+	z-index: 106;
+	padding: 1.5%;
+	padding-top: 0;
+	padding-bottom: 0.4em;
+}
+
+.page-nav .flex-holder {
+	justify-content: space-between;
+	padding: 0 1em 0.5em 1em;
 	border-top: 1px solid grey;
 	border-bottom: 1px solid grey;
-	justify-content: space-between;
-	padding: 0 1em 0.7em 1em;
+}
+
+.no-fixed {
+	position: initial;
+	bottom: initial;
+	left: initial;
+	margin-top: -2.5em;
 }
 
 .flex-end {
@@ -697,7 +718,7 @@ thead {
 
 .page-nav a {
 	transition: all 0.35s ease-in;
-	padding: 1em 0 0.2em 0;
+	padding: 0.8em 0 0.2em 0;
 	font-family: "Arvo", sans-serif;
 	font-size: 1.2em;
 	border-bottom: 2px dotted transparent;
@@ -773,6 +794,14 @@ thead {
 		align-items: center;
 	}
 
+	.page-nav {
+		left: 6%;
+	}
+
+	.page-nav .flex-holder {
+		flex-direction: row;
+	}
+
 	.contactForm .flex-holder {
 		flex-direction: row;
 		align-items: stretch;
@@ -822,6 +851,7 @@ thead {
 	.comment-text,
 	.comment-img {
 		flex: 1;
+		width: 100%;
 	}
 
 	.comment-img {
@@ -833,6 +863,12 @@ thead {
 @media(max-width: 650px) {
 	.content-section {
 		padding: 2.5% 4%;
+	}
+
+	.content-section.page-nav {
+		padding: 2.5%;
+		padding-top: 0;
+		padding-bottom: 0.2%;
 	}
 
 	.banner h1 {
@@ -929,5 +965,9 @@ thead {
 	p,
 	ul li {
 		font-size: 0.9em;
+	}
+
+	.page-nav {
+		font-size: 0.85em;
 	}
 }

@@ -2,11 +2,36 @@ export function setupArticles(page) {
 	let offset = (Number(page) - 1) * 20;
 	let articlesElement = document.getElementById("articlesContainer");
 	let pageNavElement = document.getElementById("pageNav")
+	let pageFooter = document.getElementsByTagName("footer")[0];
 
-	// FIX FOR CORS SECURITY
-	const cors_api_url = 'https://cors-anywhere.herokuapp.com/';
+	/*
+	console.log("scroll " + document.documentElement.scrollTop);
+	console.log("articles " + articlesElement.offsetHeight);
+	console.log("footer " + pageFooter.offsetTop);
+	*/
 
-	const url = cors_api_url + `http://wt.kpi.fei.tuke.sk/api/article`;
+	let scrolling = false;
+
+	document.addEventListener("scroll", () => {
+		scrolling = true;
+	});
+
+	setInterval(() => {
+		if (scrolling) {
+			scrolling = false;
+
+			let docElement = document.documentElement;
+
+			if (docElement.scrollTop > articlesElement.offsetHeight - (pageFooter.offsetHeight)) {
+				pageNavElement.classList.add("no-fixed");
+			} else {
+				pageNavElement.classList.remove("no-fixed");
+			}
+		}
+	}, 250);
+
+
+	const url = `https://wt.kpi.fei.tuke.sk/api/article`;
 	const fetchUrl = url + `/?max=21&offset=${offset}`;
 	let articlesList = [];
 
@@ -27,6 +52,7 @@ export function setupArticles(page) {
 			let cntRequests = articlesList.map(
 				article => fetchOneByOne(article)
 			);
+
 			return Promise.all(cntRequests);
 		})
 		.catch(error => { ////here we process all the failed promises
@@ -72,6 +98,8 @@ export function setupArticles(page) {
 			parsedHTML += Mustache.render(document.getElementById("template-article").innerHTML, article);
 		})
 		articlesElement.innerHTML = parsedHTML;
+
+		scrolling = true;
 	}
 
 	function setupPageNav() {

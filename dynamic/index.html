@@ -145,18 +145,19 @@
 			<h3>Príspevky</h3>
 
 			<div id="articlesContainer"></div>
-
-			<div id="pageNav"></div>
 		</section>
+
+		<section class="content-section page-nav" id="pageNav"></section>
 	</script>
 
 	<script id="template-page-nav" type="text/template">
-		<div class="flex-holder page-nav">
+		<div class="flex-holder">
 			{{#previous}}
-			<a href="#articles/{{previous}}/">← Predošlá strana</a>
+				<a href="#articles/{{previous}}/">← Predošlá strana</a>
 			{{/previous}}
+
 			{{#next}}
-			<a class="flex-end" href="#articles/{{next}}/">Ďalšia strana →</a>
+				<a class="flex-end" href="#articles/{{next}}/">Ďalšia strana →</a>
 			{{/next}}
 		</div>
 	</script>
