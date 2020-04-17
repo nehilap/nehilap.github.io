@@ -57,6 +57,7 @@ a:hover {
 }
 
 p {
+	overflow-wrap: break-word;
 	word-wrap: break-word;
 	line-height: 1.44em;
 }
@@ -616,6 +617,8 @@ thead {
 }
 
 .comment-text {
+	word-wrap: break-word;
+	overflow-wrap: break-word;
 	text-align: justify;
 	margin: 0.6em 0;
 	flex: 7;

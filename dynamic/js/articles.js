@@ -6,7 +6,7 @@ export function setupArticles(page) {
 	// FIX FOR CORS SECURITY
 	const cors_api_url = 'https://cors-anywhere.herokuapp.com/';
 
-	const url =  cors_api_url + `http://wt.kpi.fei.tuke.sk/api/article`;
+	const url = cors_api_url + `http://wt.kpi.fei.tuke.sk/api/article`;
 	const fetchUrl = url + `/?max=21&offset=${offset}`;
 	let articlesList = [];
 

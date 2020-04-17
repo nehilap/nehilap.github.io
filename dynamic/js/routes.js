@@ -23,7 +23,7 @@ export default [
         getTemplate: fetchAndDisplayArticles
     },
     {
-        hash: "contactForm",
+        hash: "contact",
         target: "router-view",
         getTemplate: displayForm
     },
