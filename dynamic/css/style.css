@@ -616,6 +616,7 @@ thead {
 }
 
 .comment-text {
+	text-align: justify;
 	margin: 0.6em 0;
 	flex: 7;
 }
@@ -684,8 +685,11 @@ thead {
 	border-top: 1px solid grey;
 	border-bottom: 1px solid grey;
 	justify-content: space-between;
-	justify-items: stretch;
 	padding: 0 1em 0.7em 1em;
+}
+
+.flex-end {
+	margin-left: auto;
 }
 
 .page-nav a {

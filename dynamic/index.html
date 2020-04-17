@@ -156,13 +156,13 @@
 			<a href="#articles/{{previous}}/">← Predošlá strana</a>
 			{{/previous}}
 			{{#next}}
-			<a href="#articles/{{next}}/">Ďalšia strana →</a>
+			<a class="flex-end" href="#articles/{{next}}/">Ďalšia strana →</a>
 			{{/next}}
 		</div>
 	</script>
 
 	<script id="template-article" type="text/template">
-		<section class="comment">
+		<div class="comment">
 			<h4>{{title}}</h4>
 			<h5>{{author}}</h5>
 			<span class="info">{{created}};</span>
@@ -170,10 +170,10 @@
 				<span class="info">{{.}}, </span>
 			{{/tags}}
 			<div class="flex-holder">
-				<p class="comment-text">{{content}}</p>
+				<div class="comment-text">{{{content}}}</div>
 				{{{parsedImg}}}
 			</div>
-		</section>
+		</div>
 	</script>
 
 	<script id="template-web-comments" type="text/template">

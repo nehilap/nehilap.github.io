@@ -2,11 +2,11 @@ export function setupArticles(page) {
 	let offset = (Number(page) - 1) * 20;
 	let articlesElement = document.getElementById("articlesContainer");
 	let pageNavElement = document.getElementById("pageNav")
-	
+
 	// FIX FOR CORS SECURITY
 	const cors_api_url = 'https://cors-anywhere.herokuapp.com/';
-	  
-	const url = cors_api_url + `http://wt.kpi.fei.tuke.sk/api/article`;
+
+	const url =  cors_api_url + `http://wt.kpi.fei.tuke.sk/api/article`;
 	const fetchUrl = url + `/?max=21&offset=${offset}`;
 	let articlesList = [];
 
@@ -25,32 +25,9 @@ export function setupArticles(page) {
 		})
 		.then(() => {
 			let cntRequests = articlesList.map(
-				article => fetch(`${url}/${article.id}`)
+				article => fetchOneByOne(article)
 			);
 			return Promise.all(cntRequests);
-		})
-		.then(responses => {
-			let failed = "";
-			for (let response of responses) {
-				if (!response.ok) failed += response.url + " ";
-			}
-			if (failed === "") {
-				return responses;
-			} else {
-				return Promise.reject(new Error(`Failed to access the content of the articles with urls ${failed}.`));
-			}
-		})
-		.then(responses => {
-			return Promise.all(responses.map(resp => resp.json()))
-		})
-		.then(articles => {
-			for (let i = 0; i < articles.length; i++) {
-				articlesList[i].content = articles[i].content;
-			}
-			return Promise.resolve();
-		})
-		.then(() => {
-			parseArticles();
 		})
 		.catch(error => { ////here we process all the failed promises
 			const errMsgObj = {
@@ -63,12 +40,35 @@ export function setupArticles(page) {
 				);
 		});
 
+	function fetchOneByOne(article) {
+		fetch(`${url}/${article.id}`)
+			.then(response => {
+				if (response.ok) {
+					return response.json();
+				} else { //if we get server error
+					return Promise.reject(new Error(`Failed to access the content of the articles with urls ${response.url}.`));
+				}
+			})
+			.then(article => {
+				for (let i = 0; i < articlesList.length; i++) {
+					if (articlesList[i].id == article.id) {
+						articlesList[i].content = article.content;
+					}
+				}
+				return Promise.resolve();
+			})
+			.then(() => {
+				parseArticles();
+			})
+	}
+
 	function parseArticles() {
 		let parsedHTML = "";
 
 		articlesList.forEach(article => {
 			article.parsedImg = (article.imageLink == "" || article.imageLink == null) ? "" : "<img class='comment-img' src='" + article.imageLink + "'>";
 			article.created = (new Date(article.dateCreated)).toLocaleString();
+
 			parsedHTML += Mustache.render(document.getElementById("template-article").innerHTML, article);
 		})
 		articlesElement.innerHTML = parsedHTML;
@@ -77,10 +77,11 @@ export function setupArticles(page) {
 	function setupPageNav() {
 		let obj = {};
 
-		if(articlesList.length > 20) {
+		if (articlesList.length > 20) {
 			obj.next = Number(page) + 1;
+			articlesList.pop(); // remove last article, was used only to find out if there is next page
 		}
-		if(page > 1) {
+		if (page > 1) {
 			obj.previous = Number(page) - 1;
 		}
 
