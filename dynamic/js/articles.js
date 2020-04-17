@@ -2,7 +2,11 @@ export function setupArticles(page) {
 	let offset = (Number(page) - 1) * 20;
 	let articlesElement = document.getElementById("articlesContainer");
 	let pageNavElement = document.getElementById("pageNav")
-	const url = `http://wt.kpi.fei.tuke.sk/api/article`;
+	
+	// FIX FOR CORS SECURITY
+	const cors_api_url = 'https://cors-anywhere.herokuapp.com/';
+	  
+	const url = cors_api_url + `http://wt.kpi.fei.tuke.sk/api/article`;
 	const fetchUrl = url + `/?max=21&offset=${offset}`;
 	let articlesList = [];
 
