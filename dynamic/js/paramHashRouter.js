@@ -18,7 +18,6 @@ export default class ParamHashRouter {
     let hash = window.location.hash;
     if (hash) {
       
-      document.documentElement.scrollTop = 0;
       window.scrollTo(0, 0);
 
       hash = hash[0] === '#' ? hash.substr(1) : hash;

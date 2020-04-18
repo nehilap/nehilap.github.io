@@ -2,14 +2,16 @@ export function setupArticles(page) {
 	let offset = (Number(page) - 1) * 20;
 	let articlesElement = document.getElementById("articlesContainer");
 	let pageNavElement = document.getElementById("pageNav")
-	let pageFooter = document.getElementsByTagName("footer")[0];
 
+	/*
+	let pageFooter = document.getElementsByTagName("footer")[0];
+	let banner = document.getElementById("intro");
+	*/
 	/*
 	console.log("scroll " + document.documentElement.scrollTop);
 	console.log("articles " + articlesElement.offsetHeight);
 	console.log("footer " + pageFooter.offsetTop);
 	*/
-
 	let scrolling = false;
 
 	document.addEventListener("scroll", () => {
@@ -20,9 +22,11 @@ export function setupArticles(page) {
 		if (scrolling) {
 			scrolling = false;
 
-			let docElement = document.documentElement;
-
-			if (docElement.scrollTop > articlesElement.offsetHeight - (pageFooter.offsetHeight)) {
+			let docEl = document.documentElement;
+			let bodyEl = document.body;
+			
+			if ((docEl && docEl.scrollTop > articlesElement.offsetHeight + articlesElement.offsetTop - window.innerHeight) ||
+				(bodyEl && bodyEl.scrollTop > articlesElement.offsetHeight + articlesElement.offsetTop - window.innerHeight)) {
 				pageNavElement.classList.add("no-fixed");
 			} else {
 				pageNavElement.classList.remove("no-fixed");
