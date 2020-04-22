@@ -31,7 +31,6 @@ export function setupForm() {
 
 	formElement.addEventListener("reset", () => alertSpan.innerText = "");
 
-	// requires feedback to decide whether to keep then on input or on submit only
 	nameInput.addEventListener("input", showNameError);
 
 	emailInput.addEventListener("input", showEmailError);
@@ -84,13 +83,12 @@ export function setupForm() {
 		setTimeout(hideSlowlyAlert, 4000);
 	}
 
-
 	function showError(nameInput, emailInput, contextInput, imgLinkInput) {
-		if (!(nameInput.validity.valid)) {
+		if (!(nameInput.validity.valid) || !nameInput.value.trim()) {
 			showNameError();
-		} else if (!(emailInput.validity.valid)) {
+		} else if (!(emailInput.validity.valid) || !emailInput.value.trim()) {
 			showEmailError();
-		} else if (!(contextInput.validity.valid) || contextInput.value.length <= 10) {
+		} else if (!(contextInput.validity.valid) || contextInput.value.length <= 10 || !contextInput.value.trim()) {
 			showContextError();
 		} else if (!(imgLinkInput.validity.valid)) {
 			showImgLinkError();
@@ -107,7 +105,6 @@ export function setupForm() {
 		} else if (nameInput.validity.valid) {
 			hideAlert();
 		}
-
 
 		alertSpan.innerText = errorMessage;
 	}
@@ -143,7 +140,6 @@ export function setupForm() {
 			hideAlert();
 		}
 
-
 		alertSpan.innerText = errorMessage;
 	}
 
@@ -157,7 +153,6 @@ export function setupForm() {
 		} else if (imgLinkInput.validity.valid) {
 			hideAlert();
 		}
-
 
 		alertSpan.innerText = errorMessage;
 	}

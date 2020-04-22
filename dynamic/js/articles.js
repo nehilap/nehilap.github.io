@@ -36,7 +36,7 @@ export function setupArticles(page) {
 
 
 	const url = `https://wt.kpi.fei.tuke.sk/api/article`;
-	const fetchUrl = url + `/?max=21&offset=${offset}`;
+	const fetchUrl = url + `/?max=20&offset=${offset}`;
 	let articlesList = [];
 
 	fetch(fetchUrl)
@@ -49,7 +49,7 @@ export function setupArticles(page) {
 		})
 		.then(responseJSON => {
 			articlesList = responseJSON.articles;
-			setupPageNav();
+			setupPageNav(responseJSON.meta);
 			return Promise.resolve();
 		})
 		.then(() => {
@@ -76,7 +76,7 @@ export function setupArticles(page) {
 				if (response.ok) {
 					return response.json();
 				} else { //if we get server error
-					return Promise.reject(new Error(`Failed to access the content of the articles with urls ${response.url}.`));
+					return Promise.reject(new Error(`Failed to access the content of the article with url ${response.url}.`));
 				}
 			})
 			.then(article => {
@@ -106,12 +106,11 @@ export function setupArticles(page) {
 		scrolling = true;
 	}
 
-	function setupPageNav() {
+	function setupPageNav(meta) {
 		let obj = {};
 
-		if (articlesList.length > 20) {
+		if (Number(meta.offset) + 20 < meta.totalCount) {
 			obj.next = Number(page) + 1;
-			articlesList.pop(); // remove last article, was used only to find out if there is next page
 		}
 		if (page > 1) {
 			obj.previous = Number(page) - 1;
