@@ -11,7 +11,8 @@ import {
     setupArticle
 } from './article.js';
 
-//an array, defining the routes
+const SERVER_URL = `https://wt.kpi.fei.tuke.sk/api`;
+
 export default [
 
     {
@@ -50,6 +51,10 @@ export default [
         hash: "artEdit",
         target: "router-view",
         getTemplate: editArticle
+    },
+    {
+        hash: "artDelete",
+        getTemplate: deletArticle
     }
 ];
 
@@ -64,7 +69,7 @@ function fetchAndDisplayArticles(targetElm, page) {
     }
 
     document.getElementById(targetElm).innerHTML = document.getElementById("template-articles").innerHTML;
-    setupArticles(page);
+    setupArticles(page, SERVER_URL);
 }
 
 function displayComments(targetElm) {
@@ -78,9 +83,31 @@ function displayForm(targetElm) {
 }
 
 function displayArticle(targetElm, articleId, page) {
-    setupArticle(document.getElementById(targetElm), articleId, page, false);
+    setupArticle(document.getElementById(targetElm), articleId, page, false, SERVER_URL);
 }
 
 function editArticle(targetElm, articleId, page) {
-    setupArticle(document.getElementById(targetElm), articleId, page, true);
+    setupArticle(document.getElementById(targetElm), articleId, page, true, SERVER_URL);
+}
+
+function deletArticle(targetElm, articleId, page) {
+    
+    let options = {
+        method: "DELETE"
+    }
+
+    const delUrl = `${SERVER_URL}/article/${articleId}/`
+
+    fetch(delUrl, options)
+        .then(response => {
+            if(response.status == 204){
+                window.location = `#articles/${page}/`;
+                return Promise.resolve();
+            }else {
+                return Promise.reject(new Error(`Server answered with ${response.status}: ${response.statusText}.`));
+            }
+        })
+        .catch(error => {
+            console.log(`Failed to delete article. ${error}.`);
+        });
 }

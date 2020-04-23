@@ -1,4 +1,4 @@
-export function setupArticles(page) {
+export function setupArticles(page, serverUrl) {
 	let offset = (Number(page) - 1) * 20;
 	let articlesElement = document.getElementById("articlesContainer");
 	let pageNavElement = document.getElementById("pageNav")
@@ -35,7 +35,7 @@ export function setupArticles(page) {
 	}, 250);
 
 
-	const url = `https://wt.kpi.fei.tuke.sk/api/article`;
+	const url = serverUrl + "/articles";
 	const fetchUrl = url + `/?max=20&offset=${offset}`;
 	let articlesList = [];
 

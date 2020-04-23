@@ -70,10 +70,6 @@ p {
 	min-height: 100vh;
 }
 
-.wrapper article {
-	padding-top: 4rem;
-}
-
 /* setup tooltips */
 .tooltip {
 	position: relative;
@@ -126,14 +122,14 @@ p {
 
 .banner {
 	width: 100%;
-	height: 50vh;
+	height: 40vh;
 
 	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, rgb(9, 32, 53)), url("../img/banner.png");
 	background-size: 100% 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin-bottom: 6em;
+	margin-bottom: 4em;
 }
 
 .banner h1 {
@@ -268,7 +264,7 @@ legend {
 	width: 100%;
 	resize: vertical;
 	margin-top: 0.4em;
-	min-height: 1.5em;
+	min-height: 1.95em;
 	max-height: calc(1.5em * 35);
 
 	padding-bottom: 0.5em;
@@ -328,6 +324,10 @@ input:not([type=checkbox]):not([type=radio]):hover {
 	box-shadow: 0 8px 6px -6px lightblue;
 }
 
+input[type=file] {
+	width: 100%;
+}
+
 label span {
 	color: red;
 }
@@ -344,17 +344,39 @@ button {
 	margin-right: 2em;
 	background: none;
 	border: none;
-	border: 4px rgb(29, 94, 168) solid;
-	border-radius: 0.5em;
-	color: rgb(29, 94, 168);
 
+	min-width: 15em;
+	
+	border-radius: 0.25em;
+	color: white;
+	background-color:  rgb(49, 114, 188);
 	transition: all 0.3s ease;
 }
 
 button:hover {
-	border-radius: 3em;
-	border-color: rgb(9, 32, 53);
-	color: rgb(9, 32, 53);
+	background-color:  rgb(29, 94, 168);
+}
+
+button.secondary {
+	font-size: 0.85em;
+	padding: 0.55em 1.0em;
+	background-color: transparent;
+	border: 2px rgb(49, 114, 188) solid;
+	color: rgb(49, 114, 188);
+}
+
+button.secondary:hover {
+	border-color: rgb(29, 94, 148);
+	color: rgb(29, 94, 148);
+}
+
+.file-dialog {
+	width: 100%;
+	padding: 0.5em 0;
+}
+
+.file-dialog button.secondary, button.img-upload {
+	margin-top: 0.5em;
 }
 
 .second {
@@ -629,7 +651,7 @@ a .comment:hover {
 	overflow-wrap: break-word;
 	text-align: justify;
 	margin: 0.6em 0;
-	flex: 7;
+	flex: 6;
 	max-width: 100%;
 	font-size: 1.05em;
 	line-height: 1.44em;
@@ -642,7 +664,7 @@ a .comment:hover {
 }
 
 .comment-img {
-	flex: 3;
+	flex: 4;
 	margin-left: 1em;
 	align-self: center;
 	border-radius: 0.5em;

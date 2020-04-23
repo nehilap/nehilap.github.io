@@ -1,10 +1,9 @@
-export function setupArticle(targetElm, articleId, page, editMode) {
-	const url = `https://wt.kpi.fei.tuke.sk/api`;
+export function setupArticle(targetElm, articleId, page, editMode, serverUrl) {
 
 	fetchOne(articleId);
 
 	function fetchOne(articleId) {
-		fetch(`${url}/article/${articleId}`)
+		fetch(`${serverUrl}/article/${articleId}`)
 			.then(response => {
 				if (response.ok) {
 					return response.json();
@@ -46,9 +45,9 @@ export function setupArticle(targetElm, articleId, page, editMode) {
 
 	function parseArticleForEdit(article) {
 		article.articleFormMode = "Úprava príspevku";
-		article.urlBase = url;
+		article.urlBase = serverUrl;
 		
-		article.formSubmitCall = `editArticle(event, ${article.id}, ${page}, '${url}')`;
+		article.formSubmitCall = `editArticle(event, ${article.id}, ${page}, '${serverUrl}')`;
 
 		article.parsedImg = (article.imageLink == "" || article.imageLink == null) ? "" : "<img class='comment-img' src='" + article.imageLink + "'>";
 		article.created = (new Date(article.dateCreated)).toLocaleString();

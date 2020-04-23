@@ -153,11 +153,11 @@
 	<script id="template-page-nav" type="text/template">
 		<div class="flex-holder">
 			{{#previous}}
-				<a href="#articles/{{previous}}/">← Predošlá strana</a>
+				<a href="#articles/{{previous}}/">← Previous</a>
 			{{/previous}}
 
 			{{#next}}
-				<a class="flex-end" href="#articles/{{next}}/">Ďalšia strana →</a>
+				<a class="flex-end" href="#articles/{{next}}/">Next →</a>
 			{{/next}}
 		</div>
 	</script>
@@ -223,19 +223,17 @@
 						<li>
 							<label for="imageLink">Image (url):</label>
 							<input type="url" name="imageLink" id="imageLink" value="{{imageLink}}" size="50" title="Image URL, max. length 100 characters." maxlength="100"/>
-							<br>
-							<label></label><button type="button" id="btShowFileUpload" onclick="showFileUpload()">Upload image</button>
+							<button class="secondary img-upload" type="button" id="btShowFileUpload" onclick="showFileUpload()">Upload image</button>
 
-							<div class="hidden" id="fileUpload">
+							<div class="hidden file-dialog" id="fileUpload">
 								<input type="file" id="flElm" name="file" accept="image/jpeg, image/png"/>
-								<br />
-								<button type="button" id="btFileUpload" onclick="uploadImg('{{urlBase}}')">Send image to server</button>
-								<button type="button" id="btCancelFileUpload" onclick="cancelFileUpload()">Cancel uploading</button>
+								<button class="secondary" type="button" id="btFileUpload" onclick="uploadImg('{{urlBase}}')">Send image to server</button>
+								<button class="secondary" type="button" id="btCancelFileUpload" onclick="cancelFileUpload()">Cancel uploading</button>
 							</div>
 						</li>
 						<li>
 							<label for="content">Article content:</label>
-							<textarea name="content" id="content" spellcheck="true" rows="10" required
+							<textarea name="content" id="content" spellcheck="true" rows="8" required
 									title="Article content, mandatory item, can be plain text or in HTML.">{{content}}
 							</textarea>
 						</li>
