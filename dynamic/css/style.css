@@ -269,7 +269,9 @@ legend {
 	resize: vertical;
 	margin-top: 0.4em;
 	min-height: 1.5em;
-	max-height: calc(1.5em * 25);
+	max-height: calc(1.5em * 35);
+
+	padding-bottom: 0.5em;
 }
 
 .contactForm label {
@@ -403,7 +405,7 @@ button:hover {
 	font-family: "Arvo", sans-serif;
 }
 
-header h2 {
+h2 {
 	text-transform: uppercase;
 	color: rgb(9, 32, 53);
 	font-size: 3em;
@@ -605,8 +607,14 @@ thead {
 }
 
 .comment {
-	margin: 1em 0;
+	padding: 0 1em 1em 1em;
 	border-top: 1px solid lightgrey;
+
+	transition: all 0.25s linear;
+}
+
+a .comment:hover {
+	box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.75);
 }
 
 .comment h5 {
@@ -623,6 +631,8 @@ thead {
 	margin: 0.6em 0;
 	flex: 7;
 	max-width: 100%;
+	font-size: 1.05em;
+	line-height: 1.44em;
 }
 
 .comment h4, .comment h5, .comment .info {
@@ -948,7 +958,7 @@ thead {
 		font-size: 1.1em;
 	}
 
-	header h2 {
+	h2 {
 		font-size: 2em;
 	}
 

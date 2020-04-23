@@ -50,15 +50,16 @@ export function setupArticles(page) {
 		.then(responseJSON => {
 			articlesList = responseJSON.articles;
 			setupPageNav(responseJSON.meta);
+			parseArticles();
 			return Promise.resolve();
 		})
-		.then(() => {
+		/*.then(() => {
 			let cntRequests = articlesList.map(
 				article => fetchOneByOne(article)
 			);
 
 			return Promise.all(cntRequests);
-		})
+		})*/
 		.catch(error => { ////here we process all the failed promises
 			const errMsgObj = {
 				errMessage: error
@@ -70,33 +71,13 @@ export function setupArticles(page) {
 				);
 		});
 
-	function fetchOneByOne(article) {
-		fetch(`${url}/${article.id}`)
-			.then(response => {
-				if (response.ok) {
-					return response.json();
-				} else { //if we get server error
-					return Promise.reject(new Error(`Failed to access the content of the article with url ${response.url}.`));
-				}
-			})
-			.then(article => {
-				for (let i = 0; i < articlesList.length; i++) {
-					if (articlesList[i].id == article.id) {
-						articlesList[i].content = article.content;
-					}
-				}
-				return Promise.resolve();
-			})
-			.then(() => {
-				parseArticles();
-			})
-	}
+	
 
 	function parseArticles() {
 		let parsedHTML = "";
 
 		articlesList.forEach(article => {
-			article.parsedImg = (article.imageLink == "" || article.imageLink == null) ? "" : "<img class='comment-img' src='" + article.imageLink + "'>";
+			article.articleLink = `#article/${article.id}/${page}/`;
 			article.created = (new Date(article.dateCreated)).toLocaleString();
 
 			parsedHTML += Mustache.render(document.getElementById("template-article").innerHTML, article);

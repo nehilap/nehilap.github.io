@@ -80,7 +80,8 @@ export function setupForm() {
 
 		showSubmitSuccess();
 
-		setTimeout(hideSlowlyAlert, 4000);
+		window.location.hash="#comments";
+		// setTimeout(hideSlowlyAlert, 4000);
 	}
 
 	function showError(nameInput, emailInput, contextInput, imgLinkInput) {

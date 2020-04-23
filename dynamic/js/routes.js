@@ -7,6 +7,9 @@ import {
 import {
     setupArticles
 } from './articles.js';
+import {
+    setupArticle
+} from './article.js';
 
 //an array, defining the routes
 export default [
@@ -28,16 +31,25 @@ export default [
         getTemplate: displayForm
     },
     {
+        hash: "comments",
+        target: "router-view",
+        getTemplate: displayComments
+    },
+    {
         hash: "land",
         target: "router-view",
         getTemplate: (targetElm) =>
             document.getElementById(targetElm).innerHTML = document.getElementById("template-land").innerHTML
     },
     {
-        hash: "comments",
+        hash: "article",
         target: "router-view",
-        getTemplate: displayComments
-
+        getTemplate: displayArticle
+    },
+    {
+        hash: "artEdit",
+        target: "router-view",
+        getTemplate: editArticle
     }
 ];
 
@@ -48,6 +60,7 @@ function fetchAndDisplayArticles(targetElm, page) {
        } else {
            page = 1;
        }
+       window.location.hash = `#articles/${page}`;
     }
 
     document.getElementById(targetElm).innerHTML = document.getElementById("template-articles").innerHTML;
@@ -62,4 +75,12 @@ function displayComments(targetElm) {
 function displayForm(targetElm) {
     document.getElementById(targetElm).innerHTML = document.getElementById("template-addOpinion").innerHTML;
     setupForm();
+}
+
+function displayArticle(targetElm, articleId, page) {
+    setupArticle(document.getElementById(targetElm), articleId, page, false);
+}
+
+function editArticle(targetElm, articleId, page) {
+    setupArticle(document.getElementById(targetElm), articleId, page, true);
 }
