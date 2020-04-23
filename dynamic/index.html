@@ -208,7 +208,7 @@
 
 	<script id="template-article-edit" type="text/template">
 		<section class="content-section">
-			<form class="contactForm" lang="sk" id="articleForm">
+			<form class="contactForm" lang="sk" id="articleForm" onsubmit="{{formSubmitCall}}">
 				<fieldset>
 					<legend>{{articleFormMode}}</legend>
 					<ul>
@@ -235,7 +235,7 @@
 						</li>
 						<li>
 							<label for="content">Article content:</label>
-							<textarea name="content" id="content" spellcheck="true" rows="15" required
+							<textarea name="content" id="content" spellcheck="true" rows="10" required
 									title="Article content, mandatory item, can be plain text or in HTML.">{{content}}
 							</textarea>
 						</li>
@@ -250,7 +250,7 @@
 						</li>
 						<li id="alertBar" class="hidden invis alert-bar">
 							<span id="alertSpan" class="alert-text"></span>
-							<span id="closeAlert" class="alert-close">&times;</span>
+							<span id="closeAlert" class="alert-close" onclick="hideSlowlyAlert(this)">&times;</span>
 						</li>
 					</ul>
 				</fieldset>
