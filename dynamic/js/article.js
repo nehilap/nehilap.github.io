@@ -12,9 +12,9 @@ export function setupArticle(targetElm, articleId, page, editMode, serverUrl) {
 				}
 			})
 			.then((article) => {
-				if(editMode) {
+				if (editMode) {
 					parseArticleForEdit(article);
-				}else {
+				} else {
 					parseArticle(article);
 				}
 				return Promise.resolve();
@@ -34,20 +34,22 @@ export function setupArticle(targetElm, articleId, page, editMode, serverUrl) {
 		article.parsedImg = (article.imageLink == "" || article.imageLink == null) ? "" : "<img class='comment-img' src='" + article.imageLink + "'>";
 		article.created = (new Date(article.dateCreated)).toLocaleString();
 
+		article.updated = (new Date(article.lastUpdated)).toLocaleString();
+
 		article.back = `#articles/${page}/`;
 		article.edit = `#artEdit/${article.id}/${page}`;
 		article.delete = `#artDelete/${article.id}/${page}`;
 
 		targetElm.innerHTML = Mustache.render(document.getElementById("template-article-info").innerHTML, article);
 
-		setupPageNav();
+		setupPageNav(targetElm);
 	}
 
 	function parseArticleForEdit(article) {
 		article.articleFormMode = "Úprava príspevku";
 		article.urlBase = serverUrl;
-		
-		article.formSubmitCall = `editArticle(event, ${article.id}, ${page}, '${serverUrl}')`;
+
+		article.formSubmitCall = `submitForm(event, '#article/${article.id}/${page}', '${serverUrl}/article/${article.id}', 'PUT')`;
 
 		article.parsedImg = (article.imageLink == "" || article.imageLink == null) ? "" : "<img class='comment-img' src='" + article.imageLink + "'>";
 		article.created = (new Date(article.dateCreated)).toLocaleString();
@@ -57,35 +59,46 @@ export function setupArticle(targetElm, articleId, page, editMode, serverUrl) {
 
 		targetElm.innerHTML = Mustache.render(document.getElementById("template-article-edit").innerHTML, article);
 
-		setupPageNav();
+		setupPageNav(targetElm);
 	}
+}
 
-	function setupPageNav() {
+export function setupAddArticle(targetElm, page, serverUrl) {
+		let obj = {
+			back: `#articles/${page}`,
+			articleFormMode: `Pridanie nového príspevku`,
+			formSubmitCall: `submitForm(event, '#articles/${page}/', '${serverUrl}/article', 'POST')`
+		}
 
-		let content = targetElm;
-		let pageNavElement = document.getElementById("pageNav")
+		targetElm.innerHTML = Mustache.render(document.getElementById("template-article-edit").innerHTML, obj);
+		
+		setupPageNav(targetElm);
+}
 
-		let scrolling = true;
+function setupPageNav(targetElm) {
 
-		document.addEventListener("scroll", () => {
-			scrolling = true;
-		});
+	let content = targetElm;
+	let pageNavElement = document.getElementById("pageNav")
 
-		setInterval(() => {
-			if (scrolling) {
-				scrolling = false;
+	let scrolling = true;
 
-				let docEl = document.documentElement;
-				let bodyEl = document.body;
+	document.addEventListener("scroll", () => {
+		scrolling = true;
+	});
 
-				if ((docEl && docEl.scrollTop > content.offsetHeight + content.offsetTop - window.innerHeight) ||
-					(bodyEl && bodyEl.scrollTop > content.offsetHeight + content.offsetTop - window.innerHeight)) {
-					pageNavElement.classList.add("no-fixed");
-				} else {
-					pageNavElement.classList.remove("no-fixed");
-				}
+	setInterval(() => {
+		if (scrolling) {
+			scrolling = false;
+
+			let docEl = document.documentElement;
+			let bodyEl = document.body;
+
+			if ((docEl && docEl.scrollTop > content.offsetHeight + content.offsetTop - window.innerHeight) ||
+				(bodyEl && bodyEl.scrollTop > content.offsetHeight + content.offsetTop - window.innerHeight)) {
+				pageNavElement.classList.add("no-fixed");
+			} else {
+				pageNavElement.classList.remove("no-fixed");
 			}
-		}, 250);
-	}
-
+		}
+	}, 250);
 }

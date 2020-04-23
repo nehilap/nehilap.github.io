@@ -346,15 +346,15 @@ button {
 	border: none;
 
 	min-width: 15em;
-	
+
 	border-radius: 0.25em;
 	color: white;
-	background-color:  rgb(49, 114, 188);
+	background-color: rgb(49, 114, 188);
 	transition: all 0.3s ease;
 }
 
 button:hover {
-	background-color:  rgb(29, 94, 168);
+	background-color: rgb(29, 94, 168);
 }
 
 button.secondary {
@@ -375,7 +375,8 @@ button.secondary:hover {
 	padding: 0.5em 0;
 }
 
-.file-dialog button.secondary, button.img-upload {
+.file-dialog button.secondary,
+button.img-upload {
 	margin-top: 0.5em;
 }
 
@@ -657,7 +658,9 @@ a .comment:hover {
 	line-height: 1.44em;
 }
 
-.comment h4, .comment h5, .comment .info {
+.comment h4,
+.comment h5,
+.comment .info {
 	max-width: 100%;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
@@ -711,8 +714,11 @@ a .comment:hover {
 .floating a i {
 	width: 4em;
 	font-size: 1.05em;
-	padding: 1em;
+	padding: 0 1em;
+	margin: 1em 0;
 	text-align: center;
+
+	border-left: 2px solid black;
 }
 
 .menu-bar {
@@ -765,6 +771,15 @@ a .comment:hover {
 
 .page-nav a:hover {
 	border-color: rgb(17, 74, 182);
+}
+
+.flex-holder.articles-list {
+	align-items: center;
+	padding-bottom: 0.5em;
+}
+
+.articles-list button {
+	margin-right: 0;
 }
 
 @keyframes slide {
@@ -984,7 +999,8 @@ a .comment:hover {
 		font-size: 2em;
 	}
 
-	.content-section h3, legend {
+	.content-section h3,
+	legend {
 		font-size: 1.5em;
 	}
 

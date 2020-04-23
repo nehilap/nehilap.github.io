@@ -142,8 +142,11 @@
 
 	<script id="template-articles" type="text/template">
 		<section class="content-section comments" id="comments">
-			<h3>Príspevky</h3>
+			<div class="flex-holder articles-list">
+				<h3>Príspevky</h3>
 
+				<button onclick="location.href='#artInsert/{{page}}'">Pridať nový</button>
+			</div>
 			<div id="articlesContainer"></div>
 		</section>
 
@@ -155,7 +158,6 @@
 			{{#previous}}
 				<a href="#articles/{{previous}}/">← Previous</a>
 			{{/previous}}
-
 			{{#next}}
 				<a class="flex-end" href="#articles/{{next}}/">Next →</a>
 			{{/next}}
@@ -180,7 +182,7 @@
 			<h3>{{title}}</h3>
 			<div class="comment">
 				<h5>{{author}}</h5>
-				<span class="info">{{created}};</span>
+				<span title="Updated: {{updated}}" class="info">{{created}};</span>
 				{{#tags}}
 					<span class="info">{{.}}, </span>
 				{{/tags}}
@@ -269,7 +271,6 @@
 			</div>
 		</section>
 	</script>
-
 
 	<script id="template-articles-error" type="text/template">
 

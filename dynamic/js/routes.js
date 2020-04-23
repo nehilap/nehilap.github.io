@@ -8,7 +8,8 @@ import {
     setupArticles
 } from './articles.js';
 import {
-    setupArticle
+    setupArticle,
+    setupAddArticle
 } from './article.js';
 
 const SERVER_URL = `https://wt.kpi.fei.tuke.sk/api`;
@@ -55,20 +56,25 @@ export default [
     {
         hash: "artDelete",
         getTemplate: deletArticle
+    },
+    {
+        hash: "artInsert",
+        target: "router-view",
+        getTemplate: addArticle
     }
 ];
 
 function fetchAndDisplayArticles(targetElm, page) {
-    if(page == undefined || page == null || page == "") {
-       if(localStorage.latestPage) {
-           page = localStorage.latestPage;
-       } else {
-           page = 1;
-       }
-       window.location.hash = `#articles/${page}`;
+    if (page == undefined || page == null || page == "") {
+        if (localStorage.latestPage) {
+            page = localStorage.latestPage;
+        } else {
+            page = 1;
+        }
+        window.location.hash = `#articles/${page}`;
     }
 
-    document.getElementById(targetElm).innerHTML = document.getElementById("template-articles").innerHTML;
+    document.getElementById(targetElm).innerHTML = Mustache.render(document.getElementById("template-articles").innerHTML, {page: page});
     setupArticles(page, SERVER_URL);
 }
 
@@ -91,7 +97,6 @@ function editArticle(targetElm, articleId, page) {
 }
 
 function deletArticle(targetElm, articleId, page) {
-    
     let options = {
         method: "DELETE"
     }
@@ -100,14 +105,18 @@ function deletArticle(targetElm, articleId, page) {
 
     fetch(delUrl, options)
         .then(response => {
-            if(response.status == 204){
+            if (response.status == 204) {
                 window.location = `#articles/${page}/`;
                 return Promise.resolve();
-            }else {
+            } else {
                 return Promise.reject(new Error(`Server answered with ${response.status}: ${response.statusText}.`));
             }
         })
         .catch(error => {
             console.log(`Failed to delete article. ${error}.`);
         });
+}
+
+function addArticle(targetElm, page) {
+    setupAddArticle(document.getElementById(targetElm), page, SERVER_URL);
 }

@@ -80,7 +80,7 @@ export function setupForm() {
 
 		showSubmitSuccess();
 
-		window.location.hash="#comments";
+		window.location.hash = "#comments";
 		// setTimeout(hideSlowlyAlert, 4000);
 	}
 

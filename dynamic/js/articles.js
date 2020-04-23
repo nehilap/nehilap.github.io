@@ -24,7 +24,7 @@ export function setupArticles(page, serverUrl) {
 
 			let docEl = document.documentElement;
 			let bodyEl = document.body;
-			
+
 			if ((docEl && docEl.scrollTop > articlesElement.offsetHeight + articlesElement.offsetTop - window.innerHeight) ||
 				(bodyEl && bodyEl.scrollTop > articlesElement.offsetHeight + articlesElement.offsetTop - window.innerHeight)) {
 				pageNavElement.classList.add("no-fixed");
@@ -71,7 +71,7 @@ export function setupArticles(page, serverUrl) {
 				);
 		});
 
-	
+
 
 	function parseArticles() {
 		let parsedHTML = "";
@@ -96,7 +96,7 @@ export function setupArticles(page, serverUrl) {
 		if (page > 1) {
 			obj.previous = Number(page) - 1;
 		}
-
+		
 		pageNavElement.innerHTML = Mustache.render(document.getElementById("template-page-nav").innerHTML, obj);
 
 		localStorage.latestPage = page;

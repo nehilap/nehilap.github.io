@@ -54,7 +54,7 @@ function uploadImg(url) {
 	}
 }
 
-function editArticle(event, articleId, page, url) {
+function submitForm(event, backLink, completeUrl, method) {
 	event.preventDefault();
 
 	const articleData = {
@@ -90,14 +90,14 @@ function editArticle(event, articleId, page, url) {
 	}
 
 	const options = {
-			method: 'PUT',
-			headers: {
-				'Content-Type': 'application/json;charset=utf-8',
-			},
-			body: JSON.stringify(articleData)
-		};
+		method: method.toUpperCase(),
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(articleData)
+	};
 
-	fetch(`${url}/article/${articleId}`, options)
+	fetch(completeUrl, options)
 		.then(response => {
 			if (response.ok) {
 				return Promise.resolve();
@@ -111,8 +111,7 @@ function editArticle(event, articleId, page, url) {
 			alertSpan.innerText(`Failed to save the updated article on server. ${error}`);
 
 		})
-		.finally(() => window.location.hash = `#article/${articleId}/${page}/`);
-
+		.finally(() => window.location.hash = backLink);
 }
 
 function hideAlert() {
