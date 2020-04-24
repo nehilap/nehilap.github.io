@@ -198,7 +198,7 @@ p {
 }
 
 .flex-holder {
-	display: inline-flex;
+	display: flex;
 	justify-content: center;
 
 	width: 100%;
@@ -782,6 +782,16 @@ a .comment:hover {
 
 .page-nav a:hover {
 	border-color: rgb(17, 74, 182);
+}
+
+.page-nav.article-comm-flex {
+	padding: 0;
+}
+
+.article-comm-flex {
+	position: initial;
+	bottom: initial;
+	left: initial;
 }
 
 .flex-holder.list-header {

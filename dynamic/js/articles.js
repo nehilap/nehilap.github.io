@@ -1,4 +1,4 @@
-export function setupArticles(page, serverUrl) {
+export function setupArticles(page, serverUrl, tagToFilter) {
 	let offset = (Number(page) - 1) * 20;
 	let articlesElement = document.getElementById("articlesContainer");
 	let pageNavElement = document.getElementById("pageNav")
@@ -36,7 +36,12 @@ export function setupArticles(page, serverUrl) {
 
 
 	const url = serverUrl + "/articles";
-	const fetchUrl = url + `/?max=20&offset=${offset}`;
+	let fetchUrl = url + `/?max=20&offset=${offset}`;
+
+	if(tagToFilter) {
+		fetchUrl += `&tag=${tagToFilter}`;
+	}
+
 	let articlesList = [];
 
 	fetch(fetchUrl)
@@ -49,7 +54,11 @@ export function setupArticles(page, serverUrl) {
 		})
 		.then(responseJSON => {
 			articlesList = responseJSON.articles;
-			setupPageNav(responseJSON.meta);
+			
+			if(articlesList.length > 0) {
+				setupPageNav(responseJSON.meta);
+			}
+
 			parseArticles();
 			return Promise.resolve();
 		})
@@ -79,6 +88,7 @@ export function setupArticles(page, serverUrl) {
 		articlesList.forEach(article => {
 			article.articleLink = `#article/${article.id}/${page}/1`;
 			article.created = (new Date(article.dateCreated)).toLocaleString();
+			article.tags = article.tags.filter(tag => tag != "aniNeh");
 
 			parsedHTML += Mustache.render(document.getElementById("template-article").innerHTML, article);
 		})

@@ -11,6 +11,9 @@ import {
     setupArticle,
     setupAddArticle
 } from './article.js';
+import {
+	setupArticleComments
+} from './articleComments.js';
 
 const SERVER_URL = `https://wt.kpi.fei.tuke.sk/api`;
 
@@ -61,6 +64,11 @@ export default [
         hash: "artInsert",
         target: "router-view",
         getTemplate: addArticle
+    },
+    {
+        hash: "artComment",
+        target: "articleComments",
+        getTemplate: displayArticleComments
     }
 ];
 
@@ -75,7 +83,7 @@ function fetchAndDisplayArticles(targetElm, page) {
     }
 
     document.getElementById(targetElm).innerHTML = Mustache.render(document.getElementById("template-articles").innerHTML, {page: page});
-    setupArticles(page, SERVER_URL);
+    setupArticles(page, SERVER_URL, "");
 }
 
 function displayComments(targetElm) {
@@ -119,4 +127,9 @@ function deletArticle(targetElm, articleId, page) {
 
 function addArticle(targetElm, page) {
     setupAddArticle(document.getElementById(targetElm), page, SERVER_URL);
+}
+
+    
+function displayArticleComments(targetElm, articleId, page, commentPage) {
+    setupArticleComments(targetElm, articleId, page, commentPage, SERVER_URL);
 }
