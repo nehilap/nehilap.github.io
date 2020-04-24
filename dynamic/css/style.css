@@ -198,7 +198,7 @@ p {
 }
 
 .flex-holder {
-	display: flex;
+	display: inline-flex;
 	justify-content: center;
 
 	width: 100%;
@@ -679,7 +679,10 @@ a .comment:hover {
 	margin-left: 1em;
 	align-self: center;
 	border-radius: 0.5em;
+	min-width: 0px;
+	min-height: 0px;
 	max-width: 100%;
+	width: 40%;
 }
 
 .floating {

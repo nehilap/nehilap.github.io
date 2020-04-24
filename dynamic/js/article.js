@@ -53,9 +53,6 @@ export function setupArticle(targetElm, articleId, page, editMode, serverUrl, co
 
 		article.formSubmitCall = `submitForm(event, '#article/${article.id}/${page}', '${serverUrl}/article/${article.id}', 'PUT')`;
 
-		article.parsedImg = (article.imageLink == "" || article.imageLink == null) ? "" : "<img class='comment-img' src='" + article.imageLink + "'>";
-		article.created = (new Date(article.dateCreated)).toLocaleString();
-
 		article.back = `#article/${article.id}/${page}/`;
 		article.delete = `#artDelete/${article.id}/${page}/`;
 
