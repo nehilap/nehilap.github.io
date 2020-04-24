@@ -88,8 +88,8 @@ function displayForm(targetElm) {
     setupForm();
 }
 
-function displayArticle(targetElm, articleId, page) {
-    setupArticle(document.getElementById(targetElm), articleId, page, false, SERVER_URL);
+function displayArticle(targetElm, articleId, page, commentPage) {
+    setupArticle(document.getElementById(targetElm), articleId, page, false, SERVER_URL, commentPage);
 }
 
 function editArticle(targetElm, articleId, page) {

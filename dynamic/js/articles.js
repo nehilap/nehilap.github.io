@@ -77,7 +77,7 @@ export function setupArticles(page, serverUrl) {
 		let parsedHTML = "";
 
 		articlesList.forEach(article => {
-			article.articleLink = `#article/${article.id}/${page}/`;
+			article.articleLink = `#article/${article.id}/${page}/1`;
 			article.created = (new Date(article.dateCreated)).toLocaleString();
 
 			parsedHTML += Mustache.render(document.getElementById("template-article").innerHTML, article);

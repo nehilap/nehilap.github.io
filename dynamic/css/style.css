@@ -620,10 +620,11 @@ thead {
 }
 
 .content-section h4 {
+	width: 100%;
 	font-family: "Arvo", sans-serif;
 	font-size: 1.3em;
 	margin: 0.7em 0;
-	text-transform: uppercase;
+	text-transform: capitalize;
 }
 
 .comment .flex-holder {
@@ -660,9 +661,9 @@ a .comment:hover {
 }
 
 .comment-text * {
+	white-space: pre-wrap;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
-	max-width: 100%;
 }
 
 .comment h4,
@@ -780,23 +781,21 @@ a .comment:hover {
 	border-color: rgb(17, 74, 182);
 }
 
-.flex-holder.articles-list {
+.flex-holder.list-header {
 	align-items: center;
 	padding-bottom: 0.5em;
 }
 
-.articles-list button {
+.list-header button {
 	margin-right: 0;
 }
 
-@keyframes slide {
-	from {
-		margin-top: 0px;
-	}
+.article-comments {
+	padding: 0 1em;
+}
 
-	to {
-		margin-top: 100px;
-	}
+.article-comments .comment {
+	padding-bottom: 0;
 }
 
 @media(max-width: 900px) {

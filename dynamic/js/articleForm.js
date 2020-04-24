@@ -114,6 +114,15 @@ function submitForm(event, backLink, completeUrl, method) {
 		.finally(() => window.location.hash = backLink);
 }
 
+function showCommentForm() {
+	document.getElementById('articleCommentForm').classList.remove("hidden");
+}
+
+function hideCommentForm() {
+	document.getElementById('articleCommentForm').classList.add("hidden");
+}
+
+
 function hideAlert() {
 	document.getElementById("alertBar").classList.add("invis", "hidden");
 }

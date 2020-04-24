@@ -142,7 +142,7 @@
 
 	<script id="template-articles" type="text/template">
 		<section class="content-section comments" id="comments">
-			<div class="flex-holder articles-list">
+			<div class="flex-holder list-header">
 				<h3>Príspevky</h3>
 
 				<button onclick="location.href='#artInsert/{{page}}'">Pridať nový</button>
@@ -191,8 +191,33 @@
 					{{{parsedImg}}}
 				</div>
 			</div>
+			<div class="flex-holder list-header">
+				<h4>Komentáre</h4>
+
+				<button onclick="showCommentForm()">Pridať nový</button>
+			</div>
+
+			<div class="hidden" id="articleCommentForm">
+				<form class="contactForm" lang="sk" id="addCommentForm" >
+					<ul>
+						<li>
+							<label for="author">Author:</label>
+							<input required type="text" name="author" id="author" title="Comment author, max. length 100 characters." maxlength="100" placeholder="e.g. Ján Trieska"/>
+						</li>
+						<textarea name="text" id="text" spellcheck="true" rows="4" required
+										title="Comment content, mandatory item, can be plain text or in HTML."></textarea>
+
+						<li class="admin-line">
+							<button class="secondary" type="submit">Odoslať</button>
+							<button class="secondary" onclick="hideCommentForm()">Zrušiť</button>
+						</li>
+					</ul>
+				</form>
+			</div>
+
+			<div class="article-comments" id="articleComments"></div>
 		</section>
-		
+
 		<section class="content-section page-nav" id="pageNav">
 			<div class="flex-holder">
 				{{#back}}
@@ -205,6 +230,14 @@
 					<a href="{{delete}}">Zmazať</a>	
 				{{/delete}}
 			</div>
+		</section>
+	</script>
+
+	<script id="template-article-comment" type="text/template">
+		<section class="comment">
+			<h5>{{author}}</h5>
+			<span title="Updated: {{updated}}" class="info">{{created}}</span>
+			<div class="comment-text">{{{text}}}</div>
 		</section>
 	</script>
 
@@ -224,7 +257,7 @@
 						</li>
 						<li>
 							<label for="imageLink">Image (url):</label>
-							<input type="url" name="imageLink" id="imageLink" value="{{imageLink}}" size="50" title="Image URL, max. length 100 characters." maxlength="100"/>
+							<input type="url" name="imageLink" id="imageLink" value="{{imageLink}}" size="50" title="Image URL, max. length 100 characters." maxlength="256"/>
 							<button class="secondary img-upload" type="button" id="btShowFileUpload" onclick="showFileUpload()">Upload image</button>
 
 							<div class="hidden file-dialog" id="fileUpload">
