@@ -36,7 +36,6 @@ export function setupArticleComments(targetElm, articleId, page, commentPage, se
 		});
 
 	function setupCommentNav(meta) {
-		console.log(meta);
 		const navTemplate = 
 		`<div class="page-nav article-comm-flex">
 			<div class="flex-holder">
@@ -109,7 +108,7 @@ export function setupAddComment(targetElm, articleId, page, serverUrl) {
 			.catch(error => {
 				console.error("Failed to add comment, " + error);
 			}).finally(() => {
-				document.getElementById('articleCommentForm').classList.add("hidden");
+				document.getElementById('articleCommentForm').classList.add("hidden-height");
 				commentForm.reset();
 			});
 

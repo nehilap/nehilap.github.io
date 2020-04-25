@@ -111,15 +111,17 @@ function submitForm(event, backLink, completeUrl, method) {
 			alertSpan.innerText(`Failed to save the updated article on server. ${error}`);
 
 		})
-		.finally(() => window.location.hash = backLink);
+		.finally(() => window.location = backLink);
+
+	
 }
 
 function showCommentForm() {
-	document.getElementById('articleCommentForm').classList.remove("hidden");
+	document.getElementById('articleCommentForm').classList.remove("hidden-height");
 }
 
 function hideCommentForm() {
-	document.getElementById('articleCommentForm').classList.add("hidden");
+	document.getElementById('articleCommentForm').classList.add("hidden-height");
 }
 
 

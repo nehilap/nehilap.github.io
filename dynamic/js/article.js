@@ -18,7 +18,7 @@ export function setupArticle(targetElm, articleId, page, editMode, serverUrl, co
 			})
 			.then((article) => {
 				if (editMode) {
-					parseArticleForEdit(article);
+					parseArticleForEdit(article, commentPage);
 				} else {
 					parseArticle(article, commentPage);
 				}
@@ -44,8 +44,8 @@ export function setupArticle(targetElm, articleId, page, editMode, serverUrl, co
 		article.tags = article.tags.filter(tag => tag != "aniNeh");
 
 		article.back = `#articles/${page}/`;
-		article.edit = `#artEdit/${article.id}/${page}`;
-		article.delete = `#artDelete/${article.id}/${page}`;
+		article.edit = `#artEdit/${article.id}/${page}/`;
+		article.delete = `#artDelete/${article.id}/${page}/`;
 
 		targetElm.innerHTML = Mustache.render(document.getElementById("template-article-info").innerHTML, article);
 
@@ -58,12 +58,13 @@ export function setupArticle(targetElm, articleId, page, editMode, serverUrl, co
 		article.articleFormMode = "Úprava príspevku";
 		article.urlBase = serverUrl;
 
-		article.formSubmitCall = `submitForm(event, '#article/${article.id}/${page}', '${serverUrl}/article/${article.id}', 'PUT')`;
+		article.back = `#article/${article.id}/${page}/${sessionStorage.latestCommentPage}/`;
+		article.delete = `#artDelete/${article.id}/${page}/`;
+
+		article.formSubmitCall = `submitForm(event, '${article.back}', '${serverUrl}/article/${article.id}', 'PUT')`;
 		
 		article.tags = article.tags.filter(tag => tag != "aniNeh");
 
-		article.back = `#article/${article.id}/${page}/`;
-		article.delete = `#artDelete/${article.id}/${page}/`;
 
 		targetElm.innerHTML = Mustache.render(document.getElementById("template-article-edit").innerHTML, article);
 

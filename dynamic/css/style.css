@@ -799,6 +799,20 @@ a .comment:hover {
 	padding-bottom: 0.5em;
 }
 
+.animated-block {
+	transform-origin: top;
+	transition: all 0.35s linear; 
+	transform: scaleY(1);
+	opacity: 1;
+	max-height: initial;
+}
+
+.hidden-height {
+	transform: scaleY(0);
+	opacity: 0;
+	max-height: 0;
+}
+
 .list-header button {
 	margin-right: 0;
 }
