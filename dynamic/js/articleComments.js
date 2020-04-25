@@ -20,9 +20,7 @@ export function setupArticleComments(targetElm, articleId, page, commentPage, se
 			});
 			document.getElementById(targetElm).innerHTML = parsedHTML;
 
-			if(comments.length > 0) {
-				setupCommentNav(responseJSON.meta);
-			}
+			setupCommentNav(responseJSON.meta);
 			sessionStorage.latestCommentPage = commentPage;
 			return Promise.resolve();
 		})
@@ -60,7 +58,9 @@ export function setupArticleComments(targetElm, articleId, page, commentPage, se
 			obj.previousComm = Number(commentPage) - 1;
 		}
 		
-		document.getElementById(targetElm).innerHTML += Mustache.render(navTemplate, obj);
+		if(obj.nextComm || obj.previousComm) {
+			document.getElementById(targetElm).innerHTML += Mustache.render(navTemplate, obj);
+		}
 	}
 }
 

@@ -55,9 +55,7 @@ export function setupArticles(page, serverUrl, tagToFilter) {
 		.then(responseJSON => {
 			articlesList = responseJSON.articles;
 			
-			if(articlesList.length > 0) {
-				setupPageNav(responseJSON.meta);
-			}
+			setupPageNav(responseJSON.meta);
 
 			parseArticles();
 			return Promise.resolve();
@@ -107,7 +105,9 @@ export function setupArticles(page, serverUrl, tagToFilter) {
 			obj.previous = Number(page) - 1;
 		}
 		
-		pageNavElement.innerHTML = Mustache.render(document.getElementById("template-page-nav").innerHTML, obj);
+		if(obj.next || obj.previous) {
+			pageNavElement.innerHTML = Mustache.render(document.getElementById("template-page-nav").innerHTML, obj);
+		}
 
 		localStorage.latestPage = page;
 	}
