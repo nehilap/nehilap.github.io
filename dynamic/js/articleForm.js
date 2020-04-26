@@ -117,11 +117,11 @@ function submitForm(event, backLink, completeUrl, method) {
 }
 
 function showCommentForm() {
-	document.getElementById('articleCommentForm').classList.remove("hidden-height");
+	document.getElementById('articleCommentForm').classList.remove("hidden");
 }
 
 function hideCommentForm() {
-	document.getElementById('articleCommentForm').classList.add("hidden-height");
+	document.getElementById('articleCommentForm').classList.add("hidden");
 }
 
 

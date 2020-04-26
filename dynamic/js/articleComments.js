@@ -108,7 +108,7 @@ export function setupAddComment(targetElm, articleId, page, serverUrl) {
 			.catch(error => {
 				console.error("Failed to add comment, " + error);
 			}).finally(() => {
-				document.getElementById('articleCommentForm').classList.add("hidden-height");
+				document.getElementById('articleCommentForm').classList.add("hidden");
 				commentForm.reset();
 			});
 
