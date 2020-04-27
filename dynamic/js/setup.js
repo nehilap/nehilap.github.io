@@ -1,0 +1,1 @@
+localStorage.filteredTags = JSON.stringify([]);

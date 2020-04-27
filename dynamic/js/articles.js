@@ -1,46 +1,22 @@
-export function setupArticles(page, serverUrl, tagToFilter) {
+import {
+	setupScrollBehaviour,
+	refreshScroll
+}from './scrollingNav.js';
+
+export function setupArticles(targetElm, page, serverUrl) {
 	let offset = (Number(page) - 1) * 20;
 	let articlesElement = document.getElementById("articlesContainer");
 	let pageNavElement = document.getElementById("pageNav")
-
-	/*
-	let pageFooter = document.getElementsByTagName("footer")[0];
-	let banner = document.getElementById("intro");
-	*/
-	/*
-	console.log("scroll " + document.documentElement.scrollTop);
-	console.log("articles " + articlesElement.offsetHeight);
-	console.log("footer " + pageFooter.offsetTop);
-	*/
-	let scrolling = false;
-
-	document.addEventListener("scroll", () => {
-		scrolling = true;
-	});
-
-	setInterval(() => {
-		if (scrolling) {
-			scrolling = false;
-
-			let docEl = document.documentElement;
-			let bodyEl = document.body;
-
-			if ((docEl && docEl.scrollTop > articlesElement.offsetHeight + articlesElement.offsetTop - window.innerHeight) ||
-				(bodyEl && bodyEl.scrollTop > articlesElement.offsetHeight + articlesElement.offsetTop - window.innerHeight)) {
-				pageNavElement.classList.add("no-fixed");
-			} else {
-				pageNavElement.classList.remove("no-fixed");
-			}
-		}
-	}, 250);
-
+	
+	setupScrollBehaviour(articlesElement);
 
 	const url = serverUrl + "/articles";
 	let fetchUrl = url + `/?max=20&offset=${offset}`;
 
-	if(tagToFilter) {
-		fetchUrl += `&tag=${tagToFilter}`;
-	}
+	const tagsToFilter = JSON.parse(localStorage.filteredTags);
+	tagsToFilter.forEach((tag) => {
+		fetchUrl += `&tag=${tag}`
+	}); 
 
 	let articlesList = [];
 
@@ -55,7 +31,7 @@ export function setupArticles(page, serverUrl, tagToFilter) {
 		.then(responseJSON => {
 			articlesList = responseJSON.articles;
 			
-			setupPageNav(responseJSON.meta);
+			setupPageNav(responseJSON.meta.offset, responseJSON.meta.totalCount);
 
 			parseArticles();
 			return Promise.resolve();
@@ -86,19 +62,22 @@ export function setupArticles(page, serverUrl, tagToFilter) {
 		articlesList.forEach(article => {
 			article.articleLink = `#article/${article.id}/${page}/1`;
 			article.created = (new Date(article.dateCreated)).toLocaleString();
-			article.tags = article.tags.filter(tag => tag != "aniNeh");
+				
+			const tagsToFilter = JSON.parse(localStorage.filteredTags);
+			article.tags = article.tags.filter(tag => !tagsToFilter.includes(tag));
 
 			parsedHTML += Mustache.render(document.getElementById("template-article").innerHTML, article);
 		})
 		articlesElement.innerHTML = parsedHTML;
 
-		scrolling = true;
+		refreshScroll();
+		//scrolling = true;
 	}
 
-	function setupPageNav(meta) {
+	function setupPageNav(offset, totalCount) {
 		let obj = {};
 
-		if (Number(meta.offset) + 20 < meta.totalCount) {
+		if (Number(offset) + 20 < totalCount) {
 			obj.next = Number(page) + 1;
 		}
 		if (page > 1) {

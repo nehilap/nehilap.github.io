@@ -54,68 +54,6 @@ function uploadImg(url) {
 	}
 }
 
-function submitForm(event, backLink, completeUrl, method) {
-	event.preventDefault();
-
-	const articleData = {
-		title: document.getElementById("title").value.trim(),
-		content: document.getElementById("content").value.trim(),
-		author: document.getElementById("author").value.trim(),
-
-		imageLink: document.getElementById("imageLink").value.trim(),
-		tags: document.getElementById("tags").value.trim()
-	};
-
-	if (!(articleData.title && articleData.content)) {
-		window.alert("Please, enter article title and content");
-		return;
-	}
-
-	if (!articleData.author) {
-		articleData.author = "Anonymous";
-	}
-
-	if (!articleData.imageLink) {
-		delete articleData.imageLink;
-	}
-
-	if (!articleData.tags) {
-		delete articleData.tags;
-	} else {
-		articleData.tags = articleData.tags.split(",").map(tag => tag.trim()).filter(tag => tag);
-		articleData.tags.push("aniNeh");
-		if (articleData.tags.length == 0) {
-			delete articleData.tags;
-		}
-	}
-
-	const options = {
-		method: method.toUpperCase(),
-		headers: {
-			'Content-Type': 'application/json',
-		},
-		body: JSON.stringify(articleData)
-	};
-
-	fetch(completeUrl, options)
-		.then(response => {
-			if (response.ok) {
-				return Promise.resolve();
-			} else {
-				return Promise.reject(new Error(`Server answered with ${response.status}: ${response.statusText}.`));
-			}
-		})
-		.catch(error => {
-			setErrorAlert();
-
-			alertSpan.innerText(`Failed to save the updated article on server. ${error}`);
-
-		})
-		.finally(() => window.location = backLink);
-
-	
-}
-
 function showCommentForm() {
 	document.getElementById('articleCommentForm').classList.remove("hidden");
 }

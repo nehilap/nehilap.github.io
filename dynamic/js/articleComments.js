@@ -110,8 +110,6 @@ export function setupAddComment(targetElm, articleId, page, serverUrl) {
 			}).finally(() => {
 				document.getElementById('articleCommentForm').classList.add("hidden");
 				commentForm.reset();
-			});
-
-		
+			});		
 	}
 }

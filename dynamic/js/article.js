@@ -2,6 +2,9 @@ import {
 	setupArticleComments, 
 	setupAddComment
 } from './articleComments.js';
+import {
+	setupScrollBehaviour
+}from './scrollingNav.js';
 
 export function setupArticle(targetElm, articleId, page, editMode, serverUrl, commentPage) {
 
@@ -41,7 +44,8 @@ export function setupArticle(targetElm, articleId, page, editMode, serverUrl, co
 
 		article.updated = (new Date(article.lastUpdated)).toLocaleString();
 
-		article.tags = article.tags.filter(tag => tag != "aniNeh");
+		const tagsToFilter = JSON.parse(localStorage.filteredTags);
+		article.tags = article.tags.filter(tag => !tagsToFilter.includes(tag));
 
 		article.back = `#articles/${page}/`;
 		article.edit = `#artEdit/${article.id}/${page}/`;
@@ -51,7 +55,7 @@ export function setupArticle(targetElm, articleId, page, editMode, serverUrl, co
 
 		setupArticleComments("articleComments", article.id, page, commentPage, serverUrl);
 		setupAddComment("articleComments", article.id, page, serverUrl);
-		setupPageNav(targetElm);
+		setupScrollBehaviour(targetElm);
 	}
 
 	function parseArticleForEdit(article) {
@@ -61,14 +65,13 @@ export function setupArticle(targetElm, articleId, page, editMode, serverUrl, co
 		article.back = `#article/${article.id}/${page}/${sessionStorage.latestCommentPage}/`;
 		article.delete = `#artDelete/${article.id}/${page}/`;
 
-		article.formSubmitCall = `submitForm(event, '${article.back}', '${serverUrl}/article/${article.id}', 'PUT')`;
-		
-		article.tags = article.tags.filter(tag => tag != "aniNeh");
-
+		const tagsToFilter = JSON.parse(localStorage.filteredTags);
+		article.tags = article.tags.filter(tag => !tagsToFilter.includes(tag));
 
 		targetElm.innerHTML = Mustache.render(document.getElementById("template-article-edit").innerHTML, article);
 
-		setupPageNav(targetElm);
+		setupArticleFormSubmit(`'${article.back}'`, `'${serverUrl}/article/${article.id}'`, 'PUT');
+		setupScrollBehaviour(targetElm);
 	}
 }
 
@@ -76,38 +79,76 @@ export function setupAddArticle(targetElm, page, serverUrl) {
 	let obj = {
 		back: `#articles/${page}`,
 		articleFormMode: `Pridanie nového príspevku`,
-		formSubmitCall: `submitForm(event, '#articles/${page}/', '${serverUrl}/article', 'POST')`
 	}
 
 	targetElm.innerHTML = Mustache.render(document.getElementById("template-article-edit").innerHTML, obj);
 
-	setupPageNav(targetElm);
+	setupArticleFormSubmit(`'#articles/${page}/'`, `'${serverUrl}/article'`, 'POST');
+	setupScrollBehaviour(targetElm);
 }
 
-function setupPageNav(targetElm) {
+function setupArticleFormSubmit(backLink, completeUrl, method) {
+	const commentForm = document.getElementById("articleForm");
 
-	let content = targetElm;
-	let pageNavElement = document.getElementById("pageNav")
+	commentForm.addEventListener("submit", submitForm);
 
-	let scrolling = true;
-
-	document.addEventListener("scroll", () => {
-		scrolling = true;
-	});
-
-	setInterval(() => {
-		if (scrolling) {
-			scrolling = false;
-
-			let docEl = document.documentElement;
-			let bodyEl = document.body;
-
-			if ((docEl && docEl.scrollTop > content.offsetHeight + content.offsetTop - window.innerHeight) ||
-				(bodyEl && bodyEl.scrollTop > content.offsetHeight + content.offsetTop - window.innerHeight)) {
-				pageNavElement.classList.add("no-fixed");
-			} else {
-				pageNavElement.classList.remove("no-fixed");
+	function submitForm(event) {
+		event.preventDefault();
+	
+		const articleData = {
+			title: document.getElementById("title").value.trim(),
+			content: document.getElementById("content").value.trim(),
+			author: document.getElementById("author").value.trim(),
+	
+			imageLink: document.getElementById("imageLink").value.trim(),
+			tags: document.getElementById("tags").value.trim()
+		};
+	
+		if (!(articleData.title && articleData.content)) {
+			window.alert("Please, enter article title and content");
+			return;
+		}
+	
+		if (!articleData.author) {
+			articleData.author = "Anonymous";
+		}
+	
+		if (!articleData.imageLink) {
+			delete articleData.imageLink;
+		}
+	
+		if (!articleData.tags) {
+			delete articleData.tags;
+		} else {
+			articleData.tags = articleData.tags.split(",").map(tag => tag.trim()).filter(tag => tag);
+			articleData.tags.concat(localStorage.filteredTags);
+			if (articleData.tags.length == 0) {
+				delete articleData.tags;
 			}
 		}
-	}, 250);
+	
+		const options = {
+			method: method.toUpperCase(),
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(articleData)
+		};
+	
+		fetch(completeUrl, options)
+			.then(response => {
+				if (response.ok) {
+					return Promise.resolve();
+				} else {
+					return Promise.reject(new Error(`Server answered with ${response.status}: ${response.statusText}.`));
+				}
+			})
+			.catch(error => {
+				setErrorAlert();
+	
+				alertSpan.innerText(`Failed to save the updated article on server. ${error}`);
+	
+			})
+			.finally(() => window.location = backLink);	
+	}
 }

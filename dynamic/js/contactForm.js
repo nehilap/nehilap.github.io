@@ -1,4 +1,4 @@
-export function setupForm() {
+export function setupContactForm() {
 	let formRequests = [];
 
 	if (localStorage.formComments) {

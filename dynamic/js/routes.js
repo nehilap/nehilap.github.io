@@ -2,7 +2,7 @@ import {
     setupComments
 } from './comments.js';
 import {
-    setupForm
+    setupContactForm
 } from './contactForm.js';
 import {
     setupArticles
@@ -80,10 +80,11 @@ function fetchAndDisplayArticles(targetElm, page) {
             page = 1;
         }
         window.location.hash = `#articles/${page}`;
+        return;
     }
 
     document.getElementById(targetElm).innerHTML = Mustache.render(document.getElementById("template-articles").innerHTML, {page: page});
-    setupArticles(page, SERVER_URL, "");
+    setupArticles(targetElm, page, SERVER_URL);
 }
 
 function displayComments(targetElm) {
@@ -93,7 +94,7 @@ function displayComments(targetElm) {
 
 function displayForm(targetElm) {
     document.getElementById(targetElm).innerHTML = document.getElementById("template-addOpinion").innerHTML;
-    setupForm();
+    setupContactForm();
 }
 
 function displayArticle(targetElm, articleId, page, commentPage) {
