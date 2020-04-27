@@ -70,7 +70,7 @@ export function setupArticle(targetElm, articleId, page, editMode, serverUrl, co
 
 		targetElm.innerHTML = Mustache.render(document.getElementById("template-article-edit").innerHTML, article);
 
-		setupArticleFormSubmit(`'${article.back}'`, `'${serverUrl}/article/${article.id}'`, 'PUT');
+		setupArticleFormSubmit(`${article.back}`, `${serverUrl}/article/${article.id}`, 'PUT');
 		setupScrollBehaviour(targetElm);
 	}
 }
@@ -83,7 +83,7 @@ export function setupAddArticle(targetElm, page, serverUrl) {
 
 	targetElm.innerHTML = Mustache.render(document.getElementById("template-article-edit").innerHTML, obj);
 
-	setupArticleFormSubmit(`'#articles/${page}/'`, `'${serverUrl}/article'`, 'POST');
+	setupArticleFormSubmit(`#articles/${page}/`, `${serverUrl}/article`, 'POST');
 	setupScrollBehaviour(targetElm);
 }
 
@@ -146,7 +146,7 @@ function setupArticleFormSubmit(backLink, completeUrl, method) {
 			.catch(error => {
 				setErrorAlert();
 	
-				alertSpan.innerText(`Failed to save the updated article on server. ${error}`);
+				alertSpan.innerText = `Failed to save the updated article on server. ${error}`;
 	
 			})
 			.finally(() => window.location = backLink);	

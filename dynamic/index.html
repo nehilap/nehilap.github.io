@@ -204,7 +204,7 @@
 							<label for="author">Author:</label>
 							<input required type="text" name="author" id="author" title="Comment author, max. length 100 characters." maxlength="100" placeholder="e.g. Ján Trieska"/>
 						</li>
-						<textarea name="text" id="text" spellcheck="true" rows="4" required
+						<textarea name="text" id="text" spellcheck="true" rows="4" required minlength="10"
 										title="Comment content, mandatory item, can be plain text or in HTML."></textarea>
 
 						<li class="admin-line">
@@ -253,7 +253,7 @@
 						</li>
 						<li>
 							<label for="title">Title:</label>
-							<input type="text" name="title" id="title" value="{{title}}" size="50"  maxlength="100" pattern="\S[\S\s]*" required title="Article title, mandatory item, max. length: 100 characters, the first character must not be a space." placeholder="e.g. My story." />
+							<input type="text" name="title" id="title" value="{{title}}" maxlength="100" pattern="\S[\S\s]*" required title="Article title, mandatory item, max. length: 100 characters, the first character must not be a space." placeholder="e.g. My story." />
 						</li>
 						<li>
 							<label for="imageLink">Image (url):</label>
@@ -283,7 +283,7 @@
 						</li>
 						<li id="alertBar" class="hidden invis alert-bar">
 							<span id="alertSpan" class="alert-text"></span>
-							<span id="closeAlert" class="alert-close" onclick="hideSlowlyAlert(this)">&times;</span>
+							<span id="closeAlert" class="alert-close" onclick="hideSlowlyAlert()">&times;</span>
 						</li>
 					</ul>
 				</fieldset>
@@ -419,7 +419,7 @@
 						</li>
 						<li id="alertBar" class="hidden invis alert-bar">
 							<span id="alertSpan" class="alert-text"></span>
-							<span id="closeAlert" class="alert-close">&times;</span>
+							<span id="closeAlert" class="alert-close" onclick="hideSlowlyAlert()">&times;</span>
 						</li>
 					</ul>
 				</fieldset>

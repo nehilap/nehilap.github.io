@@ -9,7 +9,6 @@ export function setupContactForm() {
 	let alertBar = document.getElementById("alertBar");
 	let alertSpan = document.getElementById("alertSpan");
 	let formElement = document.forms.namedItem("contactForm");
-	let closeAlert = document.getElementById("closeAlert");
 
 	const nameInput = formElement.elements.namedItem("name");
 	const emailInput = formElement.elements.namedItem("email");
@@ -24,8 +23,6 @@ export function setupContactForm() {
 	formRequests.pop();
 	localStorage.formComments = JSON.stringify(formRequests);
 	*/
-
-	closeAlert.addEventListener("click", hideSlowlyAlert);
 
 	formElement.addEventListener("submit", submitFormData);
 
