@@ -723,6 +723,7 @@ a .comment:hover {
 }
 
 .floating a i {
+	display: inline-block;
 	width: 4em;
 	font-size: 1.05em;
 	padding: 0 1em;
@@ -811,6 +812,26 @@ a .comment:hover {
 	padding-bottom: 0;
 }
 
+.custom-google-login {
+	cursor: pointer;
+	background-color: white !important;
+	color: black !important;
+}
+
+.custom-google-login .icon{
+	display: inline-block;
+	margin: 0 !important;
+	border: none !important;
+	background: url('../img/g-logo.png') transparent no-repeat;
+	vertical-align: middle;
+	background-size: 1.5em 1.5em !important;
+	background-position: center;
+}
+
+.custom-google-login span {
+	font-family: 'Roboto', sans-serif !important;
+}
+
 @media(max-width: 900px) {
 	nav {
 		flex-direction: column;
@@ -838,6 +859,10 @@ a .comment:hover {
 
 	.floating a i {
 		float: right;
+	}
+	
+	.custom-google-login .icon{
+		height: 3.05em;
 	}
 
 	.menu-bar {

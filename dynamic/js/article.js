@@ -90,6 +90,10 @@ export function setupAddArticle(targetElm, page, serverUrl) {
 function setupArticleFormSubmit(backLink, completeUrl, method) {
 	const commentForm = document.getElementById("articleForm");
 
+	if(googleUser) {
+		document.getElementById("author").value = googleUser.getBasicProfile().getName();
+	}
+
 	commentForm.addEventListener("submit", submitForm);
 
 	function submitForm(event) {

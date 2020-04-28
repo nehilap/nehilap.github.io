@@ -33,7 +33,7 @@ export default [
     {
         hash: "contact",
         target: "router-view",
-        getTemplate: displayForm
+        getTemplate: displayContactForm
     },
     {
         hash: "comments",
@@ -92,7 +92,7 @@ function displayComments(targetElm) {
     setupComments();
 }
 
-function displayForm(targetElm) {
+function displayContactForm(targetElm) {
     document.getElementById(targetElm).innerHTML = document.getElementById("template-addOpinion").innerHTML;
     setupContactForm();
 }

@@ -14,6 +14,10 @@ export function setupContactForm() {
 	const emailInput = formElement.elements.namedItem("email");
 	const imgLinkInput = formElement.elements.namedItem("imgLink");
 	const contextInput = formElement.elements.namedItem("context");
+
+	if(googleUser) {
+		nameInput.value = googleUser.getBasicProfile().getName();
+	}
 	// ONLY FOR TESTING PURPOSE
 
 	//console.log(localStorage);

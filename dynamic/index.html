@@ -4,7 +4,13 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<meta name="google-signin-client_id" content="129525277821-f2ojs08bhl9cbrvup7ae3m9rsru94fk4.apps.googleusercontent.com">
+
 	<title>Zvieratá</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+
 	<link rel="stylesheet" media="screen" href="./css/normalize.css">
 	<link rel="stylesheet" media="screen" href="./css/style.css">
 	<link rel="stylesheet" media="screen" href="./css/pathStyle.css">
@@ -19,8 +25,6 @@
 
 <body>
 
-	<script src="./js/setup.js"></script>
-	
 	<nav class="floating">
 		<a class="menu-bar"><i class="fa fa-bars"></i></a>
 
@@ -44,7 +48,15 @@
 			<span>Suchozemské živočíchy</span>
 			<i class="fa fa-pagelines" aria-hidden="true"></i>
 		</a>
-
+		<a id="customGoogleBtn" class="custom-google-login">
+			<span id="signInButton">Google sign in</span>
+			<i class="icon"></i>
+		</a>
+			
+		<a id="customLogOutButton" onclick="signOut()" title="Sign out" class="custom-google-login hidden">
+			<span id="logOutButton"></span>
+			<i class="fa fa-sign-out" aria-hidden="true"></i>
+		</a>
 	</nav>
 
 	<div class="wrapper">
@@ -588,11 +600,18 @@
 		integrity="sha256-MPgtcamIpCPKRRm1ppJHkvtNBAuE71xcOM+MmQytXi8=" crossorigin="anonymous">
 	</script>
 
-	<script type="module" src="./js/routerInit.js"></script>
+	<script src="./js/setup.js"></script>
+
+	<script type="module" src="./js/routerInit.js"></script>ň
+
+	<script src="./js/login.js"></script>
 
 	<script src="./js/responsiveMenu.js"></script>
 
 	<script src="./js/articleForm.js"></script>
+
+	<script src="https://apis.google.com/js/api:client.js?onload=initLogin"></script>
+
 </body>
 
 </html>
