@@ -1,9 +1,4 @@
 export function setupComments() {
-	let databaseUrl = "https://parseapi.back4app.com/classes/opinions";
-	let databaseHeaders = {
-		"X-Parse-Application-Id": "ygvQv5SiQusJl5Ba5QIB6IFstE716eRGK3lfBOgy",
-		"X-Parse-REST-API-Key": "S7scxlRO6lBd4UECAIx2u9bvCyxGmjuADQvFOLSY"
-	}
 
 	let formRequests = [];
 	let commentsContainer = document.getElementById("commentsContainer");
@@ -25,7 +20,8 @@ export function setupComments() {
 			keyWord: comment.keyWord,
 			ratingMessage: comment.rating == "" ? "" : ", hodnotenie: " + comment.rating + "/5",
 			context: comment.context,
-			created: (new Date(comment.created)).toLocaleString()
+			created: (new Date(comment.createdAt)).toLocaleString(),
+			updated: (new Date(comment.updatedAt)).toLocaleString()
 		};
 
 		const template = document.getElementById("commentTemplate").innerHTML;

@@ -1,5 +1,4 @@
 export function setupContactForm() {
-	let databaseUrl = "https://parseapi.back4app.com/classes/opinions";
 
 	let alertBar = document.getElementById("alertBar");
 	let alertSpan = document.getElementById("alertSpan");
