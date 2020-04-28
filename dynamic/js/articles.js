@@ -13,8 +13,7 @@ export function setupArticles(targetElm, page, serverUrl) {
 	const url = serverUrl + "/articles";
 	let fetchUrl = url + `/?max=20&offset=${offset}`;
 
-	const tagsToFilter = JSON.parse(localStorage.filteredTags);
-	tagsToFilter.forEach((tag) => {
+	filteredTags.forEach((tag) => {
 		fetchUrl += `&tag=${tag}`
 	}); 
 
@@ -63,8 +62,7 @@ export function setupArticles(targetElm, page, serverUrl) {
 			article.articleLink = `#article/${article.id}/${page}/1`;
 			article.created = (new Date(article.dateCreated)).toLocaleString();
 				
-			const tagsToFilter = JSON.parse(localStorage.filteredTags);
-			article.tags = article.tags.filter(tag => !tagsToFilter.includes(tag));
+			article.tags = article.tags.filter(tag => !filteredTags.includes(tag));
 
 			parsedHTML += Mustache.render(document.getElementById("template-article").innerHTML, article);
 		})

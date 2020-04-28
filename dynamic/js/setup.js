@@ -1,1 +1,1 @@
-localStorage.filteredTags = JSON.stringify([]);
+const filteredTags = [];

@@ -703,7 +703,7 @@ a .comment:hover {
 	position: relative;
 	display: flex;
 
-	left: -10em;
+	left: -12em;
 	transition: all 0.15s linear;
 }
 
@@ -713,10 +713,15 @@ a .comment:hover {
 	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 5px rgba(0, 0, 0, 0.1) inset;
 }
 
+.floating a:hover i {
+	border-left: 2px solid black;
+}
+
 .floating a span {
 	font-family: "Arvo", sans-serif;
 	padding: 1em;
-	width: 10em;
+	padding-right: 0.25em;
+	width: 12em;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -729,8 +734,6 @@ a .comment:hover {
 	padding: 0 1em;
 	margin: 1em 0;
 	text-align: center;
-
-	border-left: 2px solid black;
 }
 
 .menu-bar {

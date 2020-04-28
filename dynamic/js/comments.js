@@ -1,13 +1,15 @@
 export function setupComments() {
+	let databaseUrl = "https://parseapi.back4app.com/classes/opinions";
+	let databaseHeaders = {
+		"X-Parse-Application-Id": "ygvQv5SiQusJl5Ba5QIB6IFstE716eRGK3lfBOgy",
+		"X-Parse-REST-API-Key": "S7scxlRO6lBd4UECAIx2u9bvCyxGmjuADQvFOLSY"
+	}
+
 	let formRequests = [];
 	let commentsContainer = document.getElementById("commentsContainer");
 	let delCommentsButton = document.getElementById("delOldComments");
 
-	if (localStorage.formComments) {
-		formRequests = JSON.parse(localStorage.formComments);
-	}
-
-	commentsContainer.innerHTML = parseRequests(formRequests);
+	fetchComments();
 
 	if (delCommentsButton) {
 		showHideDelCommentsButton();
@@ -65,5 +67,32 @@ export function setupComments() {
 			delCommentsButton.classList.remove("hidden");
 		}
 
+	}
+
+	function fetchComments() {
+		const options = {
+			headers: {
+				"X-Parse-Application-Id": "Tvs5yreyzTAKVdSumV0RbETbaTbjxf2pSAPgjgD2",
+				"X-Parse-REST-API-Key": "T9ghaIz8pmyjcD6RBd0vZA5BJXxNBKHuHgYYjI2z"
+			}
+		}
+
+		fetch(databaseUrl, options)
+			.then(response => {
+				if (response.ok) {
+					return response.json();
+				} else {
+					return Promise.reject(new Error(`Server answered with ${response.status}: ${response.statusText}.`));
+				}
+			})
+			.then(responseJSON => {
+				formRequests = responseJSON.results;
+
+				commentsContainer.innerHTML = parseRequests(formRequests);
+				return Promise.resolve();
+			})
+			.catch(error => { ////here we process all the failed promises
+				commentsContainer.innerHTML = error;
+			});
 	}
 }

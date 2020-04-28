@@ -44,8 +44,7 @@ export function setupArticle(targetElm, articleId, page, editMode, serverUrl, co
 
 		article.updated = (new Date(article.lastUpdated)).toLocaleString();
 
-		const tagsToFilter = JSON.parse(localStorage.filteredTags);
-		article.tags = article.tags.filter(tag => !tagsToFilter.includes(tag));
+		article.tags = article.tags.filter(tag => !filteredTags.includes(tag));
 
 		article.back = `#articles/${page}/`;
 		article.edit = `#artEdit/${article.id}/${page}/`;
@@ -65,8 +64,7 @@ export function setupArticle(targetElm, articleId, page, editMode, serverUrl, co
 		article.back = `#article/${article.id}/${page}/${sessionStorage.latestCommentPage}/`;
 		article.delete = `#artDelete/${article.id}/${page}/`;
 
-		const tagsToFilter = JSON.parse(localStorage.filteredTags);
-		article.tags = article.tags.filter(tag => !tagsToFilter.includes(tag));
+		article.tags = article.tags.filter(tag => !filteredTags.includes(tag));
 
 		targetElm.innerHTML = Mustache.render(document.getElementById("template-article-edit").innerHTML, article);
 
@@ -125,7 +123,7 @@ function setupArticleFormSubmit(backLink, completeUrl, method) {
 			delete articleData.tags;
 		} else {
 			articleData.tags = articleData.tags.split(",").map(tag => tag.trim()).filter(tag => tag);
-			articleData.tags.concat(JSON.parse(localStorage.filteredTags));
+			articleData.tags.concat(filteredTags);
 			if (articleData.tags.length == 0) {
 				delete articleData.tags;
 			}

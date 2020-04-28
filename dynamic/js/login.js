@@ -6,12 +6,13 @@ function signOut() {
 	if (auth2.disconnect) auth2.disconnect();
 
 	googleUser = null;
+	document.getElementById('signInButton').innerText = "Google prihlásenie";
 }
 
 function userChanged() {
 	if(auth2.isSignedIn.get()) {
 		googleUser = auth2.currentUser.get();
-		document.getElementById('logOutButton').innerText = "Signed in: " + googleUser.getBasicProfile().getName();
+		document.getElementById('signInButton').innerText = "Prihlásený: " + googleUser.getBasicProfile().getName();
 	}
 }
 
@@ -21,7 +22,7 @@ function updateSignIn() {
 		document.getElementById("customLogOutButton").classList.remove("hidden");
 
 		if(googleUser) {
-			document.getElementById('logOutButton').innerText = "Signed in: " + googleUser.getBasicProfile().getName();
+			document.getElementById('signInButton').innerText = "Prihlásený: " + googleUser.getBasicProfile().getName();
 		}
 	} else {
 		document.getElementById("customLogOutButton").classList.add("hidden");
@@ -30,7 +31,7 @@ function updateSignIn() {
 
 function onSuccess(googleUser) {
 	document.getElementById("customLogOutButton").classList.remove("hidden");
-	document.getElementById('logOutButton').innerText = "Signed in: " + googleUser.getBasicProfile().getName();
+	document.getElementById('signInButton').innerText = "Prihlásený: " + googleUser.getBasicProfile().getName();
 }
 
 function onFailure(error) {

@@ -66,6 +66,10 @@ export function setupArticleComments(targetElm, articleId, page, commentPage, se
 export function setupAddComment(targetElm, articleId, page, serverUrl) {
 	const commentForm = document.getElementById("addCommentForm");
 
+	if(googleUser) {
+		document.getElementById("author").value = googleUser.getBasicProfile().getName();
+	}
+
 	commentForm.addEventListener("submit", submitComment);
 
 	function submitComment(event) {

@@ -36,7 +36,7 @@ export default [
         getTemplate: displayContactForm
     },
     {
-        hash: "comments",
+        hash: "opinions",
         target: "router-view",
         getTemplate: displayComments
     },

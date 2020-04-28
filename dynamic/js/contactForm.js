@@ -1,10 +1,5 @@
 export function setupContactForm() {
-	let formRequests = [];
-
-	if (localStorage.formComments) {
-		formRequests = JSON.parse(localStorage.formComments);
-	}
-	// delete(localStorage.formComments);
+	let databaseUrl = "https://parseapi.back4app.com/classes/opinions";
 
 	let alertBar = document.getElementById("alertBar");
 	let alertSpan = document.getElementById("alertSpan");
@@ -15,18 +10,9 @@ export function setupContactForm() {
 	const imgLinkInput = formElement.elements.namedItem("imgLink");
 	const contextInput = formElement.elements.namedItem("context");
 
-	if(googleUser) {
+	if (googleUser) {
 		nameInput.value = googleUser.getBasicProfile().getName();
 	}
-	// ONLY FOR TESTING PURPOSE
-
-	//console.log(localStorage);
-	//console.log(formRequests);
-
-	/*
-	formRequests.pop();
-	localStorage.formComments = JSON.stringify(formRequests);
-	*/
 
 	formElement.addEventListener("submit", submitFormData);
 
@@ -65,24 +51,36 @@ export function setupContactForm() {
 			rating: ratingVal,
 			sendMail: sendMailVal,
 			context: contextVal,
-			created: new Date()
 		};
 
-		formRequests.push(request);
+		const options = {
+			headers: {
+				"X-Parse-Application-Id": "Tvs5yreyzTAKVdSumV0RbETbaTbjxf2pSAPgjgD2",
+				"X-Parse-REST-API-Key": "T9ghaIz8pmyjcD6RBd0vZA5BJXxNBKHuHgYYjI2z",
+				"Content-Type": "application/json"
+			},
+			method: 'POST',
+			body: JSON.stringify(request)
+		};
 
-		localStorage.formComments = JSON.stringify(formRequests);
+		console.log(options);
+		fetch(databaseUrl, options)
+			.then(response => {
+				if (response.status == 201) {
+					formElement.reset();
 
-		// ONLY FOR TESTING PURPOSE
+					showSubmitSuccess();
 
-		//console.log(localStorage);
-		//console.log(formRequests);
-
-		formElement.reset();
-
-		showSubmitSuccess();
-
-		window.location.hash = "#comments";
-		// setTimeout(hideSlowlyAlert, 4000);
+					window.location.hash = "#comments";
+					return Promise.resolve();
+				} else {
+					return Promise.reject(new Error(`Server answered with ${response.status}: ${response.statusText}.`));
+				}
+			})
+			.catch(error => { 
+				setErrorAlert();
+				alertSpan.innerText = error;
+			});
 	}
 
 	function showError(nameInput, emailInput, contextInput, imgLinkInput) {
