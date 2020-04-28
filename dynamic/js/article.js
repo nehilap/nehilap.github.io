@@ -121,7 +121,7 @@ function setupArticleFormSubmit(backLink, completeUrl, method) {
 			delete articleData.tags;
 		} else {
 			articleData.tags = articleData.tags.split(",").map(tag => tag.trim()).filter(tag => tag);
-			articleData.tags.concat(localStorage.filteredTags);
+			articleData.tags.concat(JSON.parse(localStorage.filteredTags));
 			if (articleData.tags.length == 0) {
 				delete articleData.tags;
 			}
