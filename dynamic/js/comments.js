@@ -7,8 +7,6 @@ export function setupComments() {
 	fetchComments();
 
 	if (delCommentsButton) {
-		showHideDelCommentsButton();
-
 		delCommentsButton.addEventListener("click", removeAndRefreshComments);
 	}
 
@@ -85,6 +83,8 @@ export function setupComments() {
 				formRequests = responseJSON.results;
 
 				commentsContainer.innerHTML = parseRequests(formRequests);
+				
+				showHideDelCommentsButton();
 				return Promise.resolve();
 			})
 			.catch(error => { ////here we process all the failed promises
