@@ -1,6 +1,6 @@
 import {
     setupComments
-} from './comments.js';
+} from './opinions.js';
 import {
     setupContactForm
 } from './contactForm.js';

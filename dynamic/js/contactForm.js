@@ -11,6 +11,7 @@ export function setupContactForm() {
 
 	if (googleUser) {
 		nameInput.value = googleUser.getBasicProfile().getName();
+		emailInput.value = googleUser.getBasicProfile().getEmail();
 	}
 
 	formElement.addEventListener("submit", submitFormData);
@@ -54,8 +55,7 @@ export function setupContactForm() {
 
 		const options = {
 			headers: {
-				"X-Parse-Application-Id": "Tvs5yreyzTAKVdSumV0RbETbaTbjxf2pSAPgjgD2",
-				"X-Parse-REST-API-Key": "T9ghaIz8pmyjcD6RBd0vZA5BJXxNBKHuHgYYjI2z",
+				...back4AppHeaders,
 				"Content-Type": "application/json"
 			},
 			method: 'POST',
@@ -154,35 +154,5 @@ export function setupContactForm() {
 		}
 
 		alertSpan.innerText = errorMessage;
-	}
-
-	function showSubmitSuccess() {
-		setSuccessAlert();
-		alertSpan.innerText = "Uspešné odoslanie komentára";
-	}
-
-	function hideAlert() {
-		alertBar.classList.add("invis", "hidden");
-	}
-
-	function hideSlowlyAlert() {
-		alertBar.classList.add("invis");
-		setTimeout(() => alertBar.classList.add("hidden"), 500);
-	}
-
-	function showAlert() {
-		alertBar.classList.remove("invis", "hidden");
-	}
-
-	function setSuccessAlert() {
-		showAlert();
-		alertBar.classList.remove("error");
-		alertBar.classList.add("success");
-	}
-
-	function setErrorAlert() {
-		showAlert();
-		alertBar.classList.add("error");
-		alertBar.classList.remove("success");
 	}
 }

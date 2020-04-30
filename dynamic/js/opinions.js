@@ -41,14 +41,13 @@ export function setupComments() {
 	}
 
 	function removeAndRefreshComments() {
-		//formRequests.forEach(comment => console.log(new Date() - new Date(comment.created)));
-		//console.log(24 * 3600 * 1000);
+		let formRequestsToDel = formRequests.filter(comment => (new Date() - new Date(comment.createdAt)) > (24 * 3600 * 1000));
+		console.log(formRequestsToDel);
+		formRequestsToDel.forEach(comment => {
+			deleteComment(comment.objectId);
+		});
 
-		formRequests = formRequests.filter(comment => (new Date() - new Date(comment.created)) < (24 * 3600 * 1000));
-
-		localStorage.formComments = JSON.stringify(formRequests);
-
-		commentsContainer.innerHTML = parseRequests(formRequests);
+		fetchComments();
 
 		showHideDelCommentsButton();
 	}
@@ -66,8 +65,7 @@ export function setupComments() {
 	function fetchComments() {
 		const options = {
 			headers: {
-				"X-Parse-Application-Id": "Tvs5yreyzTAKVdSumV0RbETbaTbjxf2pSAPgjgD2",
-				"X-Parse-REST-API-Key": "T9ghaIz8pmyjcD6RBd0vZA5BJXxNBKHuHgYYjI2z"
+				...back4AppHeaders
 			}
 		}
 
@@ -86,6 +84,28 @@ export function setupComments() {
 				
 				showHideDelCommentsButton();
 				return Promise.resolve();
+			})
+			.catch(error => { ////here we process all the failed promises
+				commentsContainer.innerHTML = error;
+			});
+	}
+
+	function deleteComment(commentId) {
+		const options = {
+			headers: {
+				...back4AppHeaders
+			},
+			method: 'DELETE'
+		}
+		let deleteUrl = databaseUrl + '/' +commentId;
+		console.log(deleteUrl);
+		fetch(deleteUrl, options)
+			.then(response => {
+				if (response.ok) {
+					return Promise.resolve();
+				} else {
+					return Promise.reject(new Error(`Server answered with ${response.status}: ${response.statusText}.`));
+				}
 			})
 			.catch(error => { ////here we process all the failed promises
 				commentsContainer.innerHTML = error;

@@ -53,6 +53,12 @@ function uploadImg(url) {
 			});
 	}
 }
+function showSubmitSuccess() {
+	const alertBar = document.getElementById("alertSpan");
+
+	setSuccessAlert();
+	alertSpan.innerText = "Uspešné odoslanie komentára";
+}
 
 function hideAlert() {
 	document.getElementById("alertBar").classList.add("invis", "hidden");

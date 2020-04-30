@@ -660,7 +660,8 @@ a .comment:hover {
 	line-height: 1.44em;
 }
 
-.comment-text pre, .comment-text span {
+.comment-text pre,
+.comment-text span {
 	white-space: pre-wrap;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
@@ -821,7 +822,7 @@ a .comment:hover {
 	color: black !important;
 }
 
-.custom-google-login .icon{
+.custom-google-login .icon {
 	display: inline-block;
 	margin: 0 !important;
 	border: none !important;
@@ -833,6 +834,12 @@ a .comment:hover {
 
 .custom-google-login span {
 	font-family: 'Roboto', sans-serif !important;
+}
+
+.comment-text.short {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space:nowrap
 }
 
 @media(max-width: 900px) {
@@ -863,8 +870,8 @@ a .comment:hover {
 	.floating a i {
 		float: right;
 	}
-	
-	.custom-google-login .icon{
+
+	.custom-google-login .icon {
 		height: 3.05em;
 	}
 
@@ -961,6 +968,7 @@ a .comment:hover {
 }
 
 @media(max-width: 650px) {
+
 	.content-section {
 		padding: 2.5% 4%;
 	}
