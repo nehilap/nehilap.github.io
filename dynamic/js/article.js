@@ -105,6 +105,11 @@ function setupArticleFormSubmit(backLink, completeUrl, method) {
 			imageLink: document.getElementById("imageLink").value.trim(),
 			tags: document.getElementById("tags").value.trim()
 		};
+
+		filteredTags.forEach(tag => {
+			articleData.tags += (',' + tag);
+		});
+		console.log(articleData.tags);
 	
 		if (!(articleData.title && articleData.content)) {
 			window.alert("Please, enter article title and content");
@@ -123,7 +128,6 @@ function setupArticleFormSubmit(backLink, completeUrl, method) {
 			delete articleData.tags;
 		} else {
 			articleData.tags = articleData.tags.split(",").map(tag => tag.trim()).filter(tag => tag);
-			articleData.tags.concat(filteredTags);
 			if (articleData.tags.length == 0) {
 				delete articleData.tags;
 			}

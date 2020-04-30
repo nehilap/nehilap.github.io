@@ -660,7 +660,7 @@ a .comment:hover {
 	line-height: 1.44em;
 }
 
-.comment-text * {
+.comment-text pre, .comment-text span {
 	white-space: pre-wrap;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
