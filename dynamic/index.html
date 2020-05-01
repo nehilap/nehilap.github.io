@@ -249,6 +249,19 @@
 		</section>
 	</script>
 
+	<script id="template-article-comment-add" type="text/template">
+		<div class="page-nav article-comm-flex">
+			<div class="flex-holder">
+				{{#previousComm}}
+					<a href="{{previousCommLink}}">&#8592 Previous</a>
+				{{/previousComm}}
+				{{#nextComm}}
+					<a class="flex-end" href="{{nextCommLink}}">Next &#8594</a>	
+				{{/nextComm}}
+			</div>
+		</div>
+	</script>
+
 	<script id="template-article-comment" type="text/template">
 		<section class="comment">
 			<h5>{{author}}</h5>
@@ -343,7 +356,7 @@
 		</section>
 	</script>
 
-	<script id="commentTemplate" type="text/template">
+	<script id="template-opinion" type="text/template">
 		<section class="comment">
 			<h4>{{name}}</h4>
 			<span title="Last update: {{updated}}" class="info">{{created}}, {{email}}{{ratingMessage}}</span>

@@ -22,7 +22,7 @@ export function setupComments() {
 			updated: (new Date(comment.updatedAt)).toLocaleString()
 		};
 
-		const template = document.getElementById("commentTemplate").innerHTML;
+		const template = document.getElementById("template-opinion").innerHTML;
 		return Mustache.render(template, commentTmp);
 	}
 

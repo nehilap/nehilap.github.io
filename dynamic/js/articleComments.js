@@ -36,25 +36,17 @@ export function setupArticleComments(targetElm, articleId, page, commentPage, se
 		});
 
 	function setupCommentNav(meta) {
-		const navTemplate = 
-		`<div class="page-nav article-comm-flex">
-			<div class="flex-holder">
-				{{#previousComm}}
-					<a href="#artComment/${articleId}/${page}/{{previousComm}}">&#8592 Previous</a>
-				{{/previousComm}}
-				{{#nextComm}}
-					<a class="flex-end" href="#artComment/${articleId}/${page}/{{nextComm}}">Next &#8594</a>	
-				{{/nextComm}}
-			</div>
-		</div>`
+		const navTemplate = document.getElementById("template-article-comment-add").innerHTML;
 
 		let obj = {};
 
 		if (Number(meta.offset) + 10 < meta.totalCount) {
 			obj.nextComm = Number(commentPage) + 1;
+			obj.nextCommLink = `#artComment/${articleId}/${page}/${obj.nextComm}`;
 		}
 		if (commentPage > 1) {
 			obj.previousComm = Number(commentPage) - 1;
+			obj.previousCommLink = `#artComment/${articleId}/${page}/${obj.previousComm}`;
 		}
 		
 		if(obj.nextComm || obj.previousComm) {
