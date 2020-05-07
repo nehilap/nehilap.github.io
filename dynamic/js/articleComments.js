@@ -1,6 +1,6 @@
 export function setupArticleComments(targetElm, articleId, page, commentPage, serverUrl) {
-	let commentOffset = (Number(commentPage) - 1) * 10;
-	fetch(`${serverUrl}/article/${articleId}/comment/?max=10&offset=${commentOffset}`)
+	let commentOffset = (Number(commentPage) - 1) * commentsPerPage;
+	fetch(`${serverUrl}/article/${articleId}/comment/?max=${commentsPerPage}&offset=${commentOffset}`)
 		.then(response => {
 			if (response.ok) {
 				return response.json();
@@ -40,7 +40,7 @@ export function setupArticleComments(targetElm, articleId, page, commentPage, se
 
 		let obj = {};
 
-		if (Number(meta.offset) + 10 < meta.totalCount) {
+		if (Number(meta.offset) + commentsPerPage < meta.totalCount) {
 			obj.nextComm = Number(commentPage) + 1;
 			obj.nextCommLink = `#artComment/${articleId}/${page}/${obj.nextComm}`;
 		}

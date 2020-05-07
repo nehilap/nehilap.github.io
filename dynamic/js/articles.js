@@ -4,14 +4,14 @@ import {
 } from './scrollingNav.js';
 
 export function setupArticles(targetElm, page, serverUrl) {
-	let offset = (Number(page) - 1) * 20;
+	let offset = (Number(page) - 1) * articlesPerPage;
 	let articlesElement = document.getElementById("articlesContainer");
 	let pageNavElement = document.getElementById("pageNav")
 
 	setupScrollBehaviour(articlesElement);
 
 	const url = serverUrl + "/articles";
-	let fetchUrl = url + `/?max=20&offset=${offset}`;
+	let fetchUrl = url + `/?max=${articlesPerPage}&offset=${offset}`;
 
 	filteredTags.forEach((tag) => {
 		fetchUrl += `&tag=${tag}`
@@ -89,7 +89,7 @@ export function setupArticles(targetElm, page, serverUrl) {
 	function setupPageNav(offset, totalCount) {
 		let obj = {};
 
-		if (Number(offset) + 20 < totalCount) {
+		if (Number(offset) + articlesPerPage < totalCount) {
 			obj.next = Number(page) + 1;
 		}
 		if (page > 1) {
