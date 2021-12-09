@@ -3,7 +3,6 @@ body {
     margin: 0;
     height: 100%;
     width: 100%;
-
     font-family: 'Courier New', monospace;
     font-size: 1em;
 }
@@ -40,27 +39,29 @@ canvas {
     left: 0;
     width: 30%;
     height: 100%;
-}
-
-.menu>* {
-    margin-top: 0.5em;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
 }
 
 .wide {
     width: 100%;
 }
 
-.hidden, .hidden * {
-    display: none;
+.hidden,
+.hidden * {
+    display: none !important;
 }
 
 .button {
-    font-size: 1em;
-    margin: 1em;
-    padding: 0.6em 0.6em 0.4em 0.6em;
+    font-size: 1.15em;
+    margin: 0.5em;
     background-color: orange;
-    border-radius: 1em;
+    border-radius: 1.15em;
     transition: background-color 0.2s ease-in;
+    padding: 0.5em;
+    display: flex;
+    align-items: center;
 }
 
 button:hover,
@@ -72,7 +73,9 @@ button:hover,
 #animal_builder {
     display: block;
     position: relative;
+    font-size: 1.25em;
     margin: 0.5em;
+    margin-top: 0;
 }
 
 #smallCanvas {
@@ -86,6 +89,8 @@ button:hover,
     width: 100%;
     height: 100%;
     position: absolute;
+    border: rgb(221, 147, 9) solid 1px;
+    border-radius: 1em;
 }
 
 .white {
@@ -94,44 +99,47 @@ button:hover,
 
 .right {
     position: absolute;
-    right: 0.5em;
+    right: 0em;
+    border-radius: 0 1em 1em 0em;
 }
 
 .left {
     position: absolute;
-    left: 0.5em;
+    left: 0em;
+    border-radius: 1em 0 0em 1em;
 }
 
 .top-half {
-    position: absolute;
     top: 45%;
+    justify-self: center;
 }
 
-.full-h, .full-w{
+.full-h,
+.full-w {
     transition: background-color 0.3s ease-in;
 }
 
 .full-h {
     height: 100%;
-    width: 15%;
 }
 
 .full-w {
     width: 100%;
-    height: 15%;
     text-align: center;
 }
 
-.full-h:hover, .full-w:hover{
+.full-h:hover,
+.full-w:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
 .bottom {
     position: absolute;
     bottom: 0%;
+    border-radius: 0 0 1em 1em;
 }
 
-.bottom.full-w > .center{
+.bottom.full-w>.center {
     margin-bottom: 0;
     margin-left: 0;
 }
@@ -143,10 +151,61 @@ button:hover,
 }
 
 .round {
-    border-radius: 1em;
+    border-radius: 50%;
+    width: 1em;
+    height: 1em;
+    text-align: center;
+    justify-content: center;
 }
 
-.bottom.full-w {
+.center-flex {
     display: flex;
     justify-content: center;
+}
+
+.right.full-h,
+.left.full-h {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.flex-top {
+    position: absolute;
+    top: 0;
+    right: 0;
+    justify-self: flex-start;
+}
+
+.status {
+    height: 2em;
+    line-height: 2em;
+    font-size: 1.5em;
+    border-radius: 0 0 0.5em 0.5em;
+    background-color: rgba(0, 0, 0, 0.55);
+    color: white;
+    padding: 0 1em 0 1em;
+}
+
+.fl-right {
+    float: right;
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.green {
+    color: green;
+}
+
+.badge {
+    width: 1.5em;
+    text-align: center;
+    font-size: 1.15em !important;
+}
+
+.footer {
+    margin-top: auto;
+    padding: 0.2em;
 }

@@ -23,31 +23,41 @@
 	<body>
 		<canvas id="canvas" class="canvas"></canvas>
 
-		<div id="mainCanvas" class="mainCanvas"></div>
+		<div id="mainCanvas" class="mainCanvas center-flex">
+			<div id='gameStatus' class="status"></div>
+		</div>
 		<div id="menu" class="menu">
 			<h1>Skladanie zvieratiek</h1>
-			<div class="button" onclick="toggleSky()">Zmeniť oblohu</div>
-			<div class="button" onclick="toggleLight()">Zmeniť svetlo</div>
-			<div id="animal_parts" class="wide" >
-				<div class="button" onclick="toggleAnimalBuilder()">Stavanie zvieratiek</div>
+			<div class="button" onclick="toggleSky()"><i class="fa fa-cloud badge" aria-hidden="true"></i>Zmeniť oblohu</div>
+			<div class="button" onclick="toggleLight()"><i class="fa fa-lightbulb-o badge" aria-hidden="true"></i>Zmeniť svetlo</div>
+			<div class="button" onclick="takeScreenshot()"><i class="fa fa-camera badge" aria-hidden="true"></i>Vytvoriť obrázok</div>
+			<div class="button" onclick="setGameMode('free')"><i class="fa fa-cubes badge" aria-hidden="true"></i>Voľné skladanie<i id="freeCheckBox" class="fa fa-check fl-right green badge" aria-hidden="true"></i></div>
+			<div class="button" onclick="setGameMode('animal')"><i class="fa fa-gamepad badge" aria-hidden="true"></i>Začať hru<i id="animalCheckBox" class="fa fa-check fl-right green badge" aria-hidden="true"></i></div>
+			<div id="animal_parts" class="wide">
+				<div class="button" onclick="toggleAnimalBuilder()"><i class="fa fa-cube badge" aria-hidden="true"></i>Menu skladania</div>
 				<span id="animal_builder">
 					<canvas height="80" width="100" id="smallCanvas"></canvas>
 					<div class="controls">
 						<div class="left full-h">
-							<div class="left top-half round button" onclick="switchAnimalPartLeft()"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
+							<div class="top-half round button" onclick="switchAnimalPartLeft()"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
 						</div>
 						<div class="right full-h">
-							<div id="stopRotationButton" class="right round button" onclick="stopRotation()"><i class="fa fa-pause" aria-hidden="true"></i></div>
-							<div class="right top-half round button" onclick="switchAnimalPartRight()"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>
+							<div id="stopRotationButton" class="round button flex-top" onclick="stopRotation()"><i class="fa fa-pause" aria-hidden="true"></i></div>
+							<div class="top-half round button" onclick="switchAnimalPartRight()"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>
 						</div>
-						<div class="bottom full-w">
+						<div class="bottom full-w center-flex">
 							<div class="round button" onclick="setPart()"><i class="fa fa-check" aria-hidden="true"></i></div>
 							<div class="round button" onclick="switchAnimalPartCategory()"><i class="fa fa-arrow-down" aria-hidden="true"></i></div>
 							<div class="round button" onclick="removePart()"><i class="fa fa-times" aria-hidden="true"></i></div>
+							<div class="round button" onclick="resetAllParts()"><i class="fa fa-undo" aria-hidden="true"></i></div>
 						</div>
 					</div>
 				</span>
 			</div>
+			<div class="button" onclick="saveBuild()"><i class="fa fa-bookmark badge" aria-hidden="true"></i>Uložiť aktuálne zvieratko</div>
+			<div class="button" onclick="readBuild()"><i class="fa fa-upload badge" aria-hidden="true"></i>Načítať zvieratko</div>
+			
+			<div class="footer">Autor: Peter Nehila</div>
 		</div>
 
 		<script src="js/main.js"></script>
