@@ -80,7 +80,7 @@ function init() {
     controls.maxDistance = 50;
     //controls.enablePan = false;
     controls.panSpeed = 0.3;
-    controls.rotateSpeed = 0.1;
+    controls.rotateSpeed = 0.3;
     controls.maxPolarAngle = Math.PI / 2.01;
     controls.enableDamping = true;
     controls.dampingFactor = 0.5;
@@ -699,11 +699,17 @@ function resetAllParts() {
 }
 
 function takeScreenshot() {
-    camera.aspect = window.innerWidth / window.innerHeight;
+
+    let tempWidth = 1920;
+    let tempHeight = 1080;
+
+    renderer.setSize(tempWidth, tempHeight);
+
+    camera.aspect = tempWidth / tempHeight;
     camera.updateProjectionMatrix();
 
-    renderer.setScissor(0, 0, window.innerWidth, window.innerHeight);
-    renderer.setViewport(0, 0, window.innerWidth, window.innerHeight);
+    renderer.setScissor(0, 0, tempWidth, tempHeight);
+    renderer.setViewport(0, 0, tempWidth, tempHeight);
 
     renderer.render(scene, camera);
     camera.lookAt(scene.position.x, scene.position.y, scene.position.z);
@@ -711,13 +717,16 @@ function takeScreenshot() {
 
     try {
         let strMime = "image/jpeg";
-        imgData = renderer.domElement.toDataURL(strMime);
+        console.log(renderer.domElement);
+        imgData = renderer.domElement.toDataURL(strMime, 1.0);
 
         download("obrazok.jpg", imgData.replace(strMime, "image/octet-stream"));
     } catch (e) {
         console.log(e);
         return;
     }
+
+    renderer.setSize(window.innerWidth, window.innerHeight);
 }
 
 function saveBuild() {
@@ -736,7 +745,7 @@ function download(filename, data) {
 
     element.style.display = 'none';
     document.body.appendChild(element);
-    console.log("here");
+    
     element.click();
 
     document.body.removeChild(element);
@@ -751,9 +760,9 @@ function readSingleFileFromDrive(e) {
     reader.onload = function (e) {
         let contents = e.target.result;
         try {
-            currentAnimalParts = JSON.parse(contents);
 
             resetAllParts();
+            currentAnimalParts = JSON.parse(contents);
             for (let index = 0; index < currentAnimalParts.length; index++) {
                 if (currentAnimalParts[index] == null) {
                     continue;
