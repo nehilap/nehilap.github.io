@@ -2,12 +2,25 @@ html,
 body {
     margin: 0;
     font-family: 'Courier New', monospace;
+    font-weight: 600;
     font-size: 1em;
-    overflow:auto;
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+}
+
+a, a:visited {
+    color: inherit;
+}
+
+.screen-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
 }
 
 h1 {
-    margin-left: 1em;
+    text-align: center;
 }
 
 canvas {
@@ -23,24 +36,20 @@ canvas {
     position: fixed;
 }
 
-.mainCanvas {
-    width: 70%;
+.main-canvas {
+    flex-grow: 10;
     height: 100%;
-    left: 30%;
     top: 0;
-    display: block;
-    position: absolute;
 }
 
 .menu {
-    position: fixed;
     top: 0;
     left: 0;
-    width: 30%;
     height: 100%;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    flex: 4 1 0px
 }
 
 .wide {
@@ -55,18 +64,20 @@ canvas {
 .button {
     font-size: 1.15em;
     margin: 0.5em;
-    background-color: orange;
+    background: linear-gradient(170deg, #f5940d 30%, #e2247d 70%);
+    background-size: 200% 100%;
+    background-position: 0px 0px;
     border-radius: 1.15em;
-    transition: background-color 0.2s ease-in;
     padding: 0.5em;
     display: flex;
     align-items: center;
+    transition: background 0.2s ease-in;
 }
 
-button:hover,
-.button:hover {
+.button:hover,
+button:hover {
     cursor: pointer;
-    background-color: rgb(221, 147, 9);
+    background-position-x: 40%;
 }
 
 #animal_builder {
@@ -88,7 +99,7 @@ button:hover,
     width: 100%;
     height: 100%;
     position: absolute;
-    border: rgb(221, 147, 9) solid 1px;
+    border: #f5940d solid 1px;
     border-radius: 1em;
 }
 
@@ -124,11 +135,9 @@ button:hover,
 
 .full-w {
     width: 100%;
-    text-align: center;
 }
 
-.full-h:hover,
-.full-w:hover {
+.darker-hover:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -151,6 +160,7 @@ button:hover,
 
 .round {
     border-radius: 50%;
+    background: #f5940d;
     width: 1em;
     height: 1em;
     text-align: center;
@@ -195,7 +205,7 @@ button:hover,
 }
 
 .green {
-    color: green;
+    color: rgb(29, 168, 2);
 }
 
 .badge {
@@ -207,4 +217,69 @@ button:hover,
 .footer {
     margin-top: auto;
     padding: 0.2em;
+}
+
+.flex-row {
+    font-size: 1.15em;
+    margin: 0.5em;
+    padding: 0em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.flex-row>* {
+    margin: 0.2em;
+}
+
+.center-flex-item {
+    align-self: center;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.credits {
+    font-size: 1.25em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.88);
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.clear {
+    background: transparent;
+    align-items: initial;
+    border-radius: 0;
+}
+
+table {
+    width: 100%;
+}
+
+table, th, td {
+    border: none;
+    border-collapse: collapse; 
+}
+
+td {
+    padding: 0;
+}
+
+.dark-button {
+    transition: all 0.15s ease-out;
+}
+
+.dark-button:hover {
+  box-shadow: 0.2em 0.2em 0.2em 0em white;
 }

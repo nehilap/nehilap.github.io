@@ -12,12 +12,11 @@ var stopRotationButton;
 var currentRotation = 0.01;
 
 var clock = new THREE.Clock();
+let delta = 0;
+// 60 fps
+let interval = 1 / 60;
 var keyboard = new THREEx.KeyboardState();
 
-
-var skyIndex = 0;
-var lightIndex = 0;
-const skyTextures = ['texture/sky.jpg', 'texture/sky_day-min.png', 'texture/sky_sunset-min.png', 'texture/cropped-starglobe-maya-render.jpg'];
 var animals = ['giraffe', 'elephant', 'kangaroo'];
 var animalNames = [
     ['Žirafa', 'giraffe'],
@@ -52,9 +51,6 @@ function init() {
     animal_builder = document.getElementById("animal_builder");
     smallCanvas = document.getElementById("smallCanvas");
     mainCanvas = document.getElementById("mainCanvas");
-
-    mainCanvas.width = window.innerWidth / 100 * mainCanvasWidth
-    mainCanvas.height = window.innerHeight;
 
     camera = new THREE.PerspectiveCamera(60, (window.innerWidth / 100 * mainCanvasWidth) / window.innerHeight, 0.01, 1000);
     camera.position.set(8, 6, 6);
@@ -144,15 +140,21 @@ function smallRender() {
 }
 
 function render() {
-    resizeRendererToDisplaySize(renderer);
+    delta += clock.getDelta();
 
-    renderer.setScissorTest(false);
-    renderer.clear(true, true);
-    renderer.setScissorTest(true);
+    if (delta  > interval) {
+        resizeRendererToDisplaySize(renderer);
 
-    mainRender();
-    smallRender();
+        renderer.setScissorTest(false);
+        renderer.clear(true, true);
+        renderer.setScissorTest(true);
 
+        mainRender();
+        smallRender();
+
+ 
+        delta = delta % interval;
+    }
     requestAnimationFrame(render);
     update();
 }
@@ -201,243 +203,9 @@ function update() {
     controls.update();
 }
 
-function toggleLight() {
-    for (let i = 0; i < currentLights.length; i++) {
-        scene.remove(currentLights[i]);
-    }
-    currentLights = [];
 
-    if (lightIndex == 0) {
-        let ambientLight = new THREE.AmbientLight(0xeeeeee, 0.7);
-        scene.add(ambientLight);
-
-        lightTarget = new THREE.Object3D();
-        lightTarget.position.set(0, 0, 0);
-        scene.add(lightTarget);
-
-        let spotlight = new THREE.PointLight('rgb(255,255,255)');
-        spotlight.angle = Math.PI / 3;
-        spotlight.position.set(63.5, 40, -70);
-        spotlight.intensity = 0.8;
-        spotlight.penumbra = 0.4;
-        spotlight.target = lightTarget;
-        spotlight.castShadow = true;
-
-        spotlight.shadow.bias = -0.0001;
-        spotlight.shadow.mapSize.width = 1024 * 4;
-        spotlight.shadow.mapSize.height = 1024 * 4;
-
-        scene.add(spotlight);
-
-        currentLights.push(ambientLight, spotlight);
-
-        lightIndex = 1;
-    } else if (lightIndex == 1) {
-        const skyColor = 'rgb(255, 200, 50)';
-        const groundColor = 0xB1E1FF;
-        const intensity = 0.7;
-        const hemiLight = new THREE.HemisphereLight(skyColor, groundColor, intensity);
-        scene.add(hemiLight);
-
-        const pointLight = new THREE.PointLight('rgb(255,255,255)');
-        pointLight.position.set(+150, 50, -25);
-        pointLight.intensity = 1;
-        pointLight.penumbra = 0.4;
-        pointLight.castShadow = true;
-        pointLight.penumbra = 1;
-
-        pointLight.shadow.bias = -0.0001;
-        pointLight.shadow.mapSize.width = 1024 * 4;
-        pointLight.shadow.mapSize.height = 1024 * 4;
-
-        scene.add(pointLight);
-
-        currentLights.push(hemiLight, pointLight);
-
-        lightIndex = 2;
-    } else if (lightIndex == 2) {
-        let ambientLight = new THREE.AmbientLight(0xaaaaaa, 0.3);
-        scene.add(ambientLight);
-
-        lightTarget = new THREE.Object3D();
-        lightTarget.position.set(0, 0, 0);
-        scene.add(lightTarget);
-
-        let spotlight = new THREE.SpotLight('rgb(220,220,220)');
-        spotlight.angle = Math.PI / 3;
-        spotlight.position.set(13.5, 10, -10);
-        spotlight.intensity = 0.4;
-        spotlight.penumbra = 0.2;
-        spotlight.target = lightTarget;
-        spotlight.castShadow = true;
-
-        spotlight.shadow.bias = -0.0001;
-        spotlight.shadow.mapSize.width = 1024 * 4;
-        spotlight.shadow.mapSize.height = 1024 * 4;
-
-        scene.add(spotlight);
-
-        currentLights.push(ambientLight, spotlight);
-
-        lightIndex = 3;
-    } else {
-
-        let ambientLight = new THREE.AmbientLight(0xeeeeee, 0.6);
-        scene.add(ambientLight);
-
-        lightTarget = new THREE.Object3D();
-        lightTarget.position.set(0, 0, 0);
-        scene.add(lightTarget);
-
-        let spotlight = new THREE.SpotLight('rgb(255,255,255)');
-        spotlight.angle = Math.PI / 3;
-        spotlight.position.set(13.5, 10, -10);
-        spotlight.intensity = 0.4;
-        spotlight.penumbra = 0.4;
-        spotlight.target = lightTarget;
-        spotlight.castShadow = true;
-
-        spotlight.shadow.bias = -0.0001;
-        spotlight.shadow.mapSize.width = 1024 * 4;
-        spotlight.shadow.mapSize.height = 1024 * 4;
-
-        scene.add(spotlight);
-
-        let spotlight2 = new THREE.SpotLight('rgb(255,255,255)');
-        spotlight2.angle = Math.PI / 3;
-        spotlight2.position.set(-13.5, 10, +13);
-        spotlight2.intensity = 0.7;
-        spotlight2.penumbra = 0.4;
-        spotlight2.target = lightTarget;
-        spotlight2.castShadow = true;
-
-        spotlight2.shadow.bias = -0.0001;
-        spotlight2.shadow.mapSize.width = 1024 * 4;
-        spotlight2.shadow.mapSize.height = 1024 * 4;
-
-        scene.add(spotlight2);
-
-        currentLights.push(ambientLight, spotlight, spotlight2);
-
-        lightIndex = 0;
-    }
-}
-
-function toggleSky() {
-    skyIndex = skyIndex % skyTextures.length;
-
-    sphere.traverse(function (child) {
-        if (child instanceof THREE.Mesh) {
-            child.material.map = THREE.ImageUtils.loadTexture(skyTextures[skyIndex]);
-            child.material.needsUpdate = true;
-        }
-    });
-    skyIndex++;
-}
-
-function loadFullObj(animal, scene) {
-    let mtlLoader = new THREE.MTLLoader();
-    let path = './models/' + animal + '/';
-    mtlLoader.setPath(path);
-    mtlLoader.load(animal + '.mtl',
-        function (materials) {
-            materials.preload();
-
-            let loader = new THREE.OBJLoader();
-            loader.setMaterials(materials)
-            loader.setPath(path);
-
-            loadObj(loader, animal + '.obj', scene);
-        }
-    );
-}
-
-function loadAnimalAllParts(animal, position, scale, scene) {
-    let mtlLoader = new THREE.MTLLoader();
-    let path = './models/' + animal + '/';
-    mtlLoader.setPath(path);
-    mtlLoader.load(animal + '.mtl',
-        function (materials) {
-            materials.preload();
-
-            let loader = new THREE.OBJLoader();
-            loader.setMaterials(materials);
-            loader.setPath(path);
-
-            for (let i = 0; i < animalParts.length; i++) {
-                loadObj(loader, animal + '_' + animalParts[i] + '.obj', position, scale, scene);
-            }
-        }
-    );
-}
-
-function loadAnimalPartObj(animal, part, position, scale, scene, animalName) {
-    let mtlLoader = new THREE.MTLLoader();
-    let path = './models/' + animal + '/';
-    mtlLoader.setPath(path);
-    mtlLoader.load(animal + '.mtl',
-        function (materials) {
-            materials.preload();
-
-            let loader = new THREE.OBJLoader();
-            loader.setMaterials(materials);
-            loader.setPath(path);
-
-            loadObj(loader, animal + '_' + part + '.obj', position, scale, scene, animalName);
-        }
-    );
-}
-
-function loadObj(loader, animal, position, scale, scene, animalName, center) {
-    loader.load(animal,
-        function (object) {
-            object.position.set(position.x, position.y, position.z);
-            object.scale.set(scale, scale, scale);
-
-            object.traverse(function (child) {
-                if (child.isMesh) {
-                    child.castShadow = true;
-                    child.receiveShadow = true;
-
-                    if (child.material.map) child.material.map.anisotropy = 16;
-                }
-            });
-
-            if (animalName != undefined) {
-                object.name = animalName;
-            } else {
-                object.name = animal;
-            }
-
-            scene.add(object);
-
-
-            if (loadingSmall) {
-                smallScenePart = smallScene.getObjectByName("smallSceneAnimal");
-                if (center) {
-                    let mesh = object.children[0];
-                    let geometry = mesh.geometry;
-                    geometry.computeBoundingBox();
-
-                    let box = new THREE.Box3().setFromObject(mesh);
-                    box.center(mesh.position); // this re-sets the mesh position
-                    mesh.position.multiplyScalar(-1);
-
-                    fitCameraToObject(smallCamera, object, 0.4);
-                }
-            }
-            loadingSmall = false;
-        },
-        function () {},
-        function (err) {
-            console.log(err);
-        }
-    );
-}
-
-function toggleAnimalBuilder() {
+function toggleAnimalBuilder() {    
     if (animal_builder.classList.contains("hidden")) {
-
         animal_builder.classList.remove("hidden");
         smallCanvas.classList.remove("hidden");
         loadAnimalPartIntoSmallScene();
@@ -676,6 +444,8 @@ function checkStatusOfBuild() {
 
     setGameMode('free');
     gameStatusNode.textContent = "Gratulujeme!! Úspešne ste postavili zvieratko";
+    let audio = new Audio('sound/' + targetAnimal[1] + '.mp3');
+    audio.play();
 }
 
 function arraysIdentical(a, b) {
@@ -717,7 +487,7 @@ function takeScreenshot() {
 
     try {
         let strMime = "image/jpeg";
-        console.log(renderer.domElement);
+        
         imgData = renderer.domElement.toDataURL(strMime, 1.0);
 
         download("obrazok.jpg", imgData.replace(strMime, "image/octet-stream"));
@@ -738,50 +508,6 @@ function saveBuild() {
     }
 }
 
-function download(filename, data) {
-    let element = document.createElement('a');
-    element.setAttribute('href', data);
-    element.setAttribute('download', filename);
-
-    element.style.display = 'none';
-    document.body.appendChild(element);
-    
-    element.click();
-
-    document.body.removeChild(element);
-}
-
-function readSingleFileFromDrive(e) {
-    let file = e.target.files[0];
-    if (!file) {
-        return;
-    }
-    let reader = new FileReader();
-    reader.onload = function (e) {
-        let contents = e.target.result;
-        try {
-
-            resetAllParts();
-            currentAnimalParts = JSON.parse(contents);
-            for (let index = 0; index < currentAnimalParts.length; index++) {
-                if (currentAnimalParts[index] == null) {
-                    continue;
-                }
-                let [animal, part] = currentAnimalParts[index].split("_");
-                loadAnimalPartObj(animal, part, position = {
-                    x: 0,
-                    y: -0.01,
-                    z: 0
-                }, scale = 1, scene, "current" + part);
-            }
-        } catch (e) {
-            console.log(e);
-            return;
-        }
-    };
-    reader.readAsText(file);
-}
-
 function readBuild() {
     let f = document.createElement('input');
     f.style.display = 'none';
@@ -792,4 +518,39 @@ function readBuild() {
     f.addEventListener('change', readSingleFileFromDrive, false);
     f.click();
     document.body.removeChild(f);
+}
+
+function toggleCaret(id) {
+    let element = document.getElementById(id);
+
+    if(element.classList.contains("fa-caret-right")){
+        element.classList.remove("fa-caret-right");
+        element.classList.add("fa-caret-down");
+    }else {
+        element.classList.add("fa-caret-right");
+        element.classList.remove("fa-caret-down");
+    }
+}
+
+function toggleMenu() {
+    let menuElem = document.getElementById("menu");
+    let buttonElement = document.getElementById("hideMenuButton");
+
+    if(menuElem.classList.contains("hidden")){
+        menuElem.classList.remove("hidden");
+        buttonElement.classList.add("hidden");
+    } else {
+        menuElem.classList.add("hidden");
+        buttonElement.classList.remove("hidden");
+    }
+}
+
+function toggleCredits(){
+    let elem = document.getElementById("credits");
+
+    if(elem.classList.contains("hidden")){
+        elem.classList.remove("hidden");
+    } else {
+        elem.classList.add("hidden");
+    }
 }

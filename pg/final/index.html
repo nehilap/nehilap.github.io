@@ -7,7 +7,8 @@
 		<link rel="stylesheet" href="./font-awesome/css/font-awesome.min.css">
 
 
-		<title>PC Grafika ThreeJS </title>
+		<title>PC Grafika</title>
+		<link rel="icon" type="image/x-icon" href="/img/favicon.ico">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 
@@ -23,43 +24,89 @@
 	<body>
 		<canvas id="canvas" class="canvas"></canvas>
 
-		<div id="mainCanvas" class="mainCanvas center-flex">
-			<div id='gameStatus' class="status"></div>
-		</div>
-		<div id="menu" class="menu">
-			<h1>Skladanie zvieratiek</h1>
-			<div class="button" onclick="toggleSky()"><i class="fa fa-cloud badge" aria-hidden="true"></i>Zmeniť oblohu</div>
-			<div class="button" onclick="toggleLight()"><i class="fa fa-lightbulb-o badge" aria-hidden="true"></i>Zmeniť svetlo</div>
-			<div class="button" onclick="takeScreenshot()"><i class="fa fa-camera badge" aria-hidden="true"></i>Vytvoriť obrázok</div>
-			<div class="button" onclick="setGameMode('free')"><i class="fa fa-cubes badge" aria-hidden="true"></i>Voľné skladanie<i id="freeCheckBox" class="fa fa-check fl-right green badge" aria-hidden="true"></i></div>
-			<div class="button" onclick="setGameMode('animal')"><i class="fa fa-gamepad badge" aria-hidden="true"></i>Začať hru<i id="animalCheckBox" class="fa fa-check fl-right green badge" aria-hidden="true"></i></div>
-			<div id="animal_parts" class="wide">
-				<div class="button" onclick="toggleAnimalBuilder()"><i class="fa fa-cube badge" aria-hidden="true"></i>Menu skladania</div>
-				<span id="animal_builder">
-					<canvas height="80" width="100" id="smallCanvas"></canvas>
-					<div class="controls">
-						<div class="left full-h">
-							<div class="top-half round button" onclick="switchAnimalPartLeft()"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
-						</div>
-						<div class="right full-h">
-							<div id="stopRotationButton" class="round button flex-top" onclick="stopRotation()"><i class="fa fa-pause" aria-hidden="true"></i></div>
-							<div class="top-half round button" onclick="switchAnimalPartRight()"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>
-						</div>
-						<div class="bottom full-w center-flex">
-							<div class="round button" onclick="setPart()"><i class="fa fa-check" aria-hidden="true"></i></div>
-							<div class="round button" onclick="switchAnimalPartCategory()"><i class="fa fa-arrow-down" aria-hidden="true"></i></div>
-							<div class="round button" onclick="removePart()"><i class="fa fa-times" aria-hidden="true"></i></div>
-							<div class="round button" onclick="resetAllParts()"><i class="fa fa-undo" aria-hidden="true"></i></div>
-						</div>
-					</div>
-				</span>
+		<div id="credits" class="credits hidden">
+			<h2>Autorstvo</h2>
+			<div class="button clear top left dark-button" onclick="toggleCredits()"><i class="fa fa-times" aria-hidden="true"></i>&emsp; Zatvoriť</div>
+			<div>
+				<p>Autor webu: Peter Nehila</p>
+				<p>Design webu: Peter Nehila</p>
+				<p>Zdroje modelov:
+					<table>
+						<tbody>
+							<tr>
+								<td>Žirafa</td>
+								<td>Peter Nehila</td>
+							</tr>
+							<tr>
+								<td>Slon</td>
+								<td>Peter Nehila</td>
+							</tr>
+							<tr>
+								<td>Kengura</td>
+								<td>Peter Nehila</td>
+							</tr>
+						</tbody>
+					</table>
+				</p>
+				<p>Modely zvierat vytvorené v aplikácii Blender</p>
+				<p>Zvukové efekty: <a href="https://freeanimalsounds.org/" target="_blank">https://freeanimalsounds.org/</a></p>
+				<p>Ikonky použité na webe: Font Awesome by Dave Gandy - <a href="http://fontawesome.io" target="_blank">http://fontawesome.io</a></p>
+				<p>Ikonka web stránky z webu: <a href="https://openclipart.org/" target="_blank">https://openclipart.org/</a></p>
 			</div>
-			<div class="button" onclick="saveBuild()"><i class="fa fa-bookmark badge" aria-hidden="true"></i>Uložiť aktuálne zvieratko</div>
-			<div class="button" onclick="readBuild()"><i class="fa fa-upload badge" aria-hidden="true"></i>Načítať zvieratko</div>
-			
-			<div class="footer">Autor: Peter Nehila</div>
+		</div>
+		<div class="screen-container">
+			<div id="menu" class="menu">
+				<h1>Skladanie zvieratiek</h1>
+				<div class="button" onclick="toggleSky()"><i class="fa fa-cloud badge" aria-hidden="true"></i>Zmeniť oblohu</div>
+				<div class="button" onclick="toggleLight()"><i class="fa fa-lightbulb-o badge" aria-hidden="true"></i>Zmeniť svetlo</div>
+				<div class="button" onclick="takeScreenshot()"><i class="fa fa-camera badge" aria-hidden="true"></i>Vytvoriť obrázok</div>
+				<div class="button" onclick="setGameMode('free')"><i class="fa fa-cubes badge" aria-hidden="true"></i>Voľné skladanie<i id="freeCheckBox" class="fa fa-check fl-right green badge" aria-hidden="true"></i></div>
+				<div class="button" onclick="setGameMode('animal')"><i class="fa fa-gamepad badge" aria-hidden="true"></i>Začať hru<i id="animalCheckBox" class="fa fa-check fl-right green badge" aria-hidden="true"></i></div>
+				<div id="animal_parts" class="wide">
+					<div class="button" onclick="toggleAnimalBuilder();toggleCaret('animalBuilderCaret')"><i class="fa fa-cube badge" aria-hidden="true"></i><span class="full-w">Menu skladania<i id="animalBuilderCaret" class="fa fa-caret-right badge fl-right" aria-hidden="true"></i></span></div>
+					<span id="animal_builder">
+						<canvas height="80" width="100" id="smallCanvas"></canvas>
+						<div class="controls">
+							<div class="left full-h darker-hover">
+								<div class="top-half round button" onclick="switchAnimalPartLeft()"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
+							</div>
+							<div class="right full-h darker-hover">
+								<div id="stopRotationButton" class="round button flex-top" onclick="stopRotation()"><i class="fa fa-pause" aria-hidden="true"></i></div>
+								<div class="top-half round button" onclick="switchAnimalPartRight()"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>
+							</div>
+							<div class="bottom full-w center-flex darker-hover">
+								<div class="round button" onclick="setPart()"><i class="fa fa-check" aria-hidden="true"></i></div>
+								<div class="round button" onclick="switchAnimalPartCategory()"><i class="fa fa-arrow-down" aria-hidden="true"></i></div>
+								<div class="round button" onclick="removePart()"><i class="fa fa-times" aria-hidden="true"></i></div>
+								<div class="round button" onclick="resetAllParts()"><i class="fa fa-undo" aria-hidden="true"></i></div>
+							</div>
+						</div>
+					</span>
+				</div>
+				<div class="button" onclick="saveBuild()"><i class="fa fa-bookmark badge" aria-hidden="true"></i>Uložiť aktuálne zvieratko</div>
+				<div class="button" onclick="readBuild()"><i class="fa fa-upload badge" aria-hidden="true"></i>Načítať zvieratko</div>
+
+				<!-- Bottom round menu buttons -->
+				<div class="flex-row">
+					<div class="round button" title="Skryť menu" onclick="toggleMenu()"><i class="fa fa-backward" aria-hidden="true"></i></div>
+					<div class="round button" title="Návod"><i class="fa fa-question" aria-hidden="true"></i></div>
+					<div class="round button" title="Zdroje" onclick="toggleCredits()"><i class="fa fa-list" aria-hidden="true"></i></div>
+				</div>
+				
+				<footer title="All sounds credits go to https://freeanimalsounds.org/" class="footer">Autor: Peter Nehila</footer>
+			</div>
+			<div id="hideMenuButton" class="hidden round button center-flex-item fixed" title="Zobraziť menu" onclick="toggleMenu()">
+				<i class="fa fa-forward" aria-hidden="true"></i>
+			</div>
+			<div id="mainCanvas" class="main-canvas center-flex">
+				<div id='gameStatus' class="status"></div>
+			</div>
 		</div>
 
+		<script src="js/modules/files.js"></script>
+		<script src="js/modules/sky.js"></script>
+		<script src="js/modules/lights.js"></script>
+		<script src="js/modules/models.js"></script>
 		<script src="js/main.js"></script>
 	</body>
 
