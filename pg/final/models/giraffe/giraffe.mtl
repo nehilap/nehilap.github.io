@@ -10,7 +10,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd giraffe_dark_fade.png
+map_Kd giraffe_dark_fade.jpg
 
 newmtl Material.005
 Ns 30.411980
@@ -21,7 +21,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd giraffe_skin.png
+map_Kd giraffe_skin.jpg
 
 newmtl Material.008
 Ns 8.223395
@@ -42,7 +42,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd giraffe_skin_grad.png
+map_Kd giraffe_skin_grad.jpg
 
 newmtl Material.010
 Ns 225.000000
@@ -53,7 +53,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd giraffe_skin_grad2.png
+map_Kd giraffe_skin_grad2.jpg
 
 newmtl Material.012
 Ns 225.000000

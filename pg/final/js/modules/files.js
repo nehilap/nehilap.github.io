@@ -1,4 +1,3 @@
-
 function download(filename, data) {
     let element = document.createElement('a');
     element.setAttribute('href', data);
@@ -6,7 +5,7 @@ function download(filename, data) {
 
     element.style.display = 'none';
     document.body.appendChild(element);
-    
+
     element.click();
 
     document.body.removeChild(element);

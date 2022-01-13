@@ -1,95 +1,142 @@
-/**
- * @author mrdoob / http://mrdoob.com/
- */
+class LoadingManager {
 
-function LoadingManager( onLoad, onProgress, onError ) {
+	constructor( onLoad, onProgress, onError ) {
 
-	var scope = this;
+		const scope = this;
 
-	var isLoading = false;
-	var itemsLoaded = 0;
-	var itemsTotal = 0;
-	var urlModifier = undefined;
+		let isLoading = false;
+		let itemsLoaded = 0;
+		let itemsTotal = 0;
+		let urlModifier = undefined;
+		const handlers = [];
 
-	this.onStart = undefined;
-	this.onLoad = onLoad;
-	this.onProgress = onProgress;
-	this.onError = onError;
+		// Refer to #5689 for the reason why we don't set .onStart
+		// in the constructor
 
-	this.itemStart = function ( url ) {
+		this.onStart = undefined;
+		this.onLoad = onLoad;
+		this.onProgress = onProgress;
+		this.onError = onError;
 
-		itemsTotal ++;
+		this.itemStart = function ( url ) {
 
-		if ( isLoading === false ) {
+			itemsTotal ++;
 
-			if ( scope.onStart !== undefined ) {
+			if ( isLoading === false ) {
 
-				scope.onStart( url, itemsLoaded, itemsTotal );
+				if ( scope.onStart !== undefined ) {
 
-			}
+					scope.onStart( url, itemsLoaded, itemsTotal );
 
-		}
-
-		isLoading = true;
-
-	};
-
-	this.itemEnd = function ( url ) {
-
-		itemsLoaded ++;
-
-		if ( scope.onProgress !== undefined ) {
-
-			scope.onProgress( url, itemsLoaded, itemsTotal );
-
-		}
-
-		if ( itemsLoaded === itemsTotal ) {
-
-			isLoading = false;
-
-			if ( scope.onLoad !== undefined ) {
-
-				scope.onLoad();
+				}
 
 			}
 
-		}
+			isLoading = true;
 
-	};
+		};
 
-	this.itemError = function ( url ) {
+		this.itemEnd = function ( url ) {
 
-		if ( scope.onError !== undefined ) {
+			itemsLoaded ++;
 
-			scope.onError( url );
+			if ( scope.onProgress !== undefined ) {
 
-		}
+				scope.onProgress( url, itemsLoaded, itemsTotal );
 
-	};
+			}
 
-	this.resolveURL = function ( url ) {
+			if ( itemsLoaded === itemsTotal ) {
 
-		if ( urlModifier ) {
+				isLoading = false;
 
-			return urlModifier( url );
+				if ( scope.onLoad !== undefined ) {
 
-		}
+					scope.onLoad();
 
-		return url;
+				}
 
-	};
+			}
 
-	this.setURLModifier = function ( transform ) {
+		};
 
-		urlModifier = transform;
-		return this;
+		this.itemError = function ( url ) {
 
-	};
+			if ( scope.onError !== undefined ) {
+
+				scope.onError( url );
+
+			}
+
+		};
+
+		this.resolveURL = function ( url ) {
+
+			if ( urlModifier ) {
+
+				return urlModifier( url );
+
+			}
+
+			return url;
+
+		};
+
+		this.setURLModifier = function ( transform ) {
+
+			urlModifier = transform;
+
+			return this;
+
+		};
+
+		this.addHandler = function ( regex, loader ) {
+
+			handlers.push( regex, loader );
+
+			return this;
+
+		};
+
+		this.removeHandler = function ( regex ) {
+
+			const index = handlers.indexOf( regex );
+
+			if ( index !== - 1 ) {
+
+				handlers.splice( index, 2 );
+
+			}
+
+			return this;
+
+		};
+
+		this.getHandler = function ( file ) {
+
+			for ( let i = 0, l = handlers.length; i < l; i += 2 ) {
+
+				const regex = handlers[ i ];
+				const loader = handlers[ i + 1 ];
+
+				if ( regex.global ) regex.lastIndex = 0; // see #17920
+
+				if ( regex.test( file ) ) {
+
+					return loader;
+
+				}
+
+			}
+
+			return null;
+
+		};
+
+	}
 
 }
 
-var DefaultLoadingManager = new LoadingManager();
-
+const DefaultLoadingManager = new LoadingManager();
 
 export { DefaultLoadingManager, LoadingManager };

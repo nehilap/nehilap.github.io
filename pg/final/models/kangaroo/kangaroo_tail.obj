@@ -1,6 +1,6 @@
 # Blender v2.93.6 OBJ File: 'kangaroo.blend'
 # www.blender.org
-mtllib kangaroo.mtl
+mtllib kangaroo_tail.mtl
 o Plane.003
 v -0.480981 0.562272 0.081312
 v -0.264736 0.422903 0.096648

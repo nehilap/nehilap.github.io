@@ -11,6 +11,8 @@ var gameMode = 'free',
 var stopRotationButton;
 var currentRotation = 0.01;
 
+var planeDiameter = 50;
+
 var clock = new THREE.Clock();
 let delta = 0;
 // 60 fps
@@ -33,7 +35,7 @@ var currentAnimalParts = [];
 
 var animal_builder;
 
-var mainCanvasWidth = 70;
+var mainCanvasWidth;
 var loadingSmall = false;
 
 init();
@@ -52,7 +54,9 @@ function init() {
     smallCanvas = document.getElementById("smallCanvas");
     mainCanvas = document.getElementById("mainCanvas");
 
-    camera = new THREE.PerspectiveCamera(60, (window.innerWidth / 100 * mainCanvasWidth) / window.innerHeight, 0.01, 1000);
+    mainCanvasWidth = mainCanvas.offsetWidth;
+
+    camera = new THREE.PerspectiveCamera(60, (window.innerWidth / 100 * mainCanvasWidth) / window.innerHeight, 0.08, 1000);
     camera.position.set(8, 6, 6);
 
     renderer = new THREE.WebGLRenderer({
@@ -75,16 +79,14 @@ function init() {
 
     controls.maxDistance = 50;
     //controls.enablePan = false;
-    controls.panSpeed = 0.3;
     controls.rotateSpeed = 0.3;
     controls.maxPolarAngle = Math.PI / 2.01;
-    controls.enableDamping = true;
-    controls.dampingFactor = 0.5;
-    controls.target.set(0, 0, 0);
+    controls.screenSpacePanning = false;
 
     makeSmallScene();
     toggleAnimalBuilder();
     setGameMode('free');
+    toggleHidden('foliage_settings', ['foliage_settings'], []);
 }
 
 function mainRender() {
@@ -105,11 +107,9 @@ function mainRender() {
     renderer.setViewport(left, positiveYUpBottom, width, height);
 
     renderer.render(scene, camera);
-    camera.lookAt(scene.position.x, scene.position.y, scene.position.z);
 }
 
 function smallRender() {
-
     if (animal_builder.classList.contains("hidden")) {
         return
     }
@@ -125,9 +125,10 @@ function smallRender() {
 
     smallCamera.aspect = width / height;
     smallCamera.updateProjectionMatrix();
+    const positiveYUpBottom = renderer.domElement.clientHeight - bottom;
 
-    renderer.setScissor(left, top, width, height);
-    renderer.setViewport(left, top, width, height);
+    renderer.setScissor(left, positiveYUpBottom, width, height);
+    renderer.setViewport(left, positiveYUpBottom, width, height);
 
     if (smallScenePart == undefined) {
         smallScenePart = smallScene.getObjectByName("smallSceneAnimal");
@@ -142,7 +143,7 @@ function smallRender() {
 function render() {
     delta += clock.getDelta();
 
-    if (delta  > interval) {
+    if (delta > interval) {
         resizeRendererToDisplaySize(renderer);
 
         renderer.setScissorTest(false);
@@ -152,7 +153,6 @@ function render() {
         mainRender();
         smallRender();
 
- 
         delta = delta % interval;
     }
     requestAnimationFrame(render);
@@ -160,9 +160,9 @@ function render() {
 }
 
 function addObjects() {
-    var geometryPlane = new THREE.CircleGeometry(150, 150);
+    var geometryPlane = new THREE.CircleGeometry(planeDiameter, planeDiameter);
     var materialPlane = new THREE.MeshPhongMaterial({
-        color: 0xcccccc
+        color: 0x90c14d
     });
     plane = new THREE.Mesh(geometryPlane, materialPlane);
     plane.position.set(0, 0, 0);
@@ -188,23 +188,16 @@ function addObjects() {
 
     scene.add(sphere);
 
-    /*
-    for (let i = 0; i < animals.length; i++) {
-        loadAnimalAllParts(animals[i], position = {
-            x: 0,
-            y: -0.01,
-            z: 0 - 3 * i
-        }, scale = 1, scene);
-    }
-    */
+    addCounterLight();
+    redrawGrass();
+    redrawTrees();
 }
 
 function update() {
     controls.update();
 }
 
-
-function toggleAnimalBuilder() {    
+function toggleAnimalBuilder() {
     if (animal_builder.classList.contains("hidden")) {
         animal_builder.classList.remove("hidden");
         smallCanvas.classList.remove("hidden");
@@ -252,49 +245,9 @@ function switchAnimalPartCategory() {
     loadAnimalPartIntoSmallScene();
 }
 
-function switchAnimalPartLeft() {
-    animalIndex = (animalIndex - 1) < 0 ? animals.length - 1 : animalIndex - 1;
+function switchAnimalPart(index) {
+    animalIndex = (animalIndex + index) % animals.length < 0 ? animals.length - 1 : (animalIndex + index) % animals.length;
     loadAnimalPartIntoSmallScene();
-}
-
-function switchAnimalPartRight() {
-    animalIndex = (animalIndex + 1) % animals.length;
-    loadAnimalPartIntoSmallScene();
-}
-
-function loadAnimalPartIntoSmallScene() {
-    if (loadingSmall) {
-        return;
-    }
-    loadingSmall = true;
-    let smallAnimal = animals[animalIndex];
-    let animalName = smallAnimal + "_" + animalParts[animalPartIndex] + ".obj";
-    smallScenePart = smallScene.getObjectByName("smallSceneAnimal");
-
-    if (smallScenePart != undefined) {
-        smallScene.remove(smallScenePart);
-    }
-
-    let mtlLoader = new THREE.MTLLoader();
-    let path = './models/' + smallAnimal + '/';
-    mtlLoader.setPath(path);
-    mtlLoader.load(smallAnimal + '.mtl',
-        function (materials) {
-            materials.preload();
-
-            let loader = new THREE.OBJLoader();
-            loader.setMaterials(materials);
-            loader.setPath(path);
-
-            loadObj(loader, animalName, {
-                x: 0,
-                y: 0,
-                z: 0
-            }, 0.3, smallScene, "smallSceneAnimal", true);
-        }
-    );
-
-    smallScenePart = smallScene.getObjectByName("smallSceneAnimal");
 }
 
 function makeSmallScene() {
@@ -332,7 +285,7 @@ function fitCameraToObject(camera, object, offset) {
     let geometry = mesh.geometry;
     geometry.computeBoundingBox();
 
-    boundingBox = new THREE.Box3();
+    let boundingBox = new THREE.Box3();
     boundingBox.setFromObject(object);
 
     //let boundingBox = geometry.boundingBox.clone();
@@ -448,15 +401,6 @@ function checkStatusOfBuild() {
     audio.play();
 }
 
-function arraysIdentical(a, b) {
-    var i = a.length;
-    if (i != b.length) return false;
-    while (i--) {
-        if (a[i] !== b[i]) return false;
-    }
-    return true;
-};
-
 function resetAllParts() {
     for (let index = 0; index < animalParts.length; index++) {
         let currentPart = scene.getObjectByName("current" + animalParts[index]);
@@ -487,7 +431,7 @@ function takeScreenshot() {
 
     try {
         let strMime = "image/jpeg";
-        
+
         imgData = renderer.domElement.toDataURL(strMime, 1.0);
 
         download("obrazok.jpg", imgData.replace(strMime, "image/octet-stream"));
@@ -523,34 +467,69 @@ function readBuild() {
 function toggleCaret(id) {
     let element = document.getElementById(id);
 
-    if(element.classList.contains("fa-caret-right")){
+    if (element.classList.contains("fa-caret-right")) {
         element.classList.remove("fa-caret-right");
         element.classList.add("fa-caret-down");
-    }else {
+    } else {
         element.classList.add("fa-caret-right");
         element.classList.remove("fa-caret-down");
     }
 }
 
-function toggleMenu() {
-    let menuElem = document.getElementById("menu");
-    let buttonElement = document.getElementById("hideMenuButton");
+function toggleHidden(condElem, hidenElems, showingElems) {
+    let conditionElement = document.getElementById(condElem);
+    
+    if (conditionElement.classList.contains("hidden")) {
+        for(let i = 0; i < hidenElems.length; i++){
+            let elem = document.getElementById(hidenElems[i]);
 
-    if(menuElem.classList.contains("hidden")){
-        menuElem.classList.remove("hidden");
-        buttonElement.classList.add("hidden");
+            elem.classList.remove("hidden");
+        }
+        for(let i = 0; i < showingElems.length; i++){
+            let addElem = document.getElementById(showingElems[i]);
+
+            addElem.classList.add("hidden");
+        }
     } else {
-        menuElem.classList.add("hidden");
-        buttonElement.classList.remove("hidden");
+        for(let i = 0; i < hidenElems.length; i++){
+            let addElem = document.getElementById(hidenElems[i]);
+
+            addElem.classList.add("hidden");
+        }
+        for(let i = 0; i < showingElems.length; i++){
+            let elem = document.getElementById(showingElems[i]);
+
+            elem.classList.remove("hidden");
+        }
     }
 }
 
-function toggleCredits(){
-    let elem = document.getElementById("credits");
+function toggleClass(elemId, className) {
+    let elem = document.getElementById(elemId);
 
-    if(elem.classList.contains("hidden")){
-        elem.classList.remove("hidden");
+    if (elem.classList.contains(className)) {
+        elem.classList.remove(className);
     } else {
-        elem.classList.add("hidden");
+        elem.classList.add(className);
     }
 }
+
+function removeClass(elemId, className) {
+    let elem = document.getElementById(elemId);
+    elem.classList.remove(className);
+
+}
+
+function getRandomNumber(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+function arraysIdentical(a, b) {
+    var i = a.length;
+    if (i != b.length) return false;
+    while (i--) {
+        if (a[i] !== b[i]) return false;
+    }
+
+    return true;
+};
