@@ -1,4 +1,17 @@
-// https://discourse.threejs.org/t/be-solved-how-to-find-objects-return-an-array/6685
+/**
+ * 
+ * Peter Nehila
+ * file containing methods for working with models (mainly loading them)
+ * 
+ */
+
+/**
+ * Returns children containing tag as custom userData
+ * https://discourse.threejs.org/t/be-solved-how-to-find-objects-return-an-array/6685
+ * @param {String} tag 
+ * @param {array} result 
+ * @returns {array} - array of objects
+ */
 THREE.Object3D.prototype.getObjectsByTag = function (tag, result) {
 
 	// check the current object
@@ -16,10 +29,14 @@ THREE.Object3D.prototype.getObjectsByTag = function (tag, result) {
 	}
 
 	return result;
-
 };
 
-
+/**
+ * !!! currently not used !!! needs revision
+ * Loads full animal object into scene
+ * @param {String} animal - animal name
+ * @param {scene} scene - scene to use
+ */
 function loadFullObj(animal, scene) {
 	let mtlLoader = new THREE.MTLLoader();
 	let path = './models/' + animal + '/';
@@ -41,6 +58,15 @@ function loadFullObj(animal, scene) {
 	);
 }
 
+/**
+ * 
+ * !!! currently not used !!! needs revision
+ * Loads all animals part objects int oscene
+ * @param {string} animal - animal name
+ * @param {Object} position - attribute
+ * @param {number} scale - attribute
+ * @param {Scene} scene - scene to use
+ */
 function loadAnimalAllParts(animal, position, scale, scene) {
 	let mtlLoader = new THREE.MTLLoader();
 	let path = './models/' + animal + '/';
@@ -60,6 +86,15 @@ function loadAnimalAllParts(animal, position, scale, scene) {
 	);
 }
 
+/**
+ * Loads animal part object into scene
+ * @param {string} animal - animal file name
+ * @param {string} part - part name
+ * @param {Object} position - attributes
+ * @param {number} scale - attributes
+ * @param {Scene} scene - scene to use
+ * @param {string} animalName - custom object name
+ */
 function loadAnimalPartObj(animal, part, position, scale, scene, animalName) {
 	let mtlLoader = new THREE.MTLLoader();
 	let path = './models/' + animal + '/';
@@ -77,11 +112,19 @@ function loadAnimalPartObj(animal, part, position, scale, scene, animalName) {
 	);
 }
 
+/**
+ * Replaces animal part based on current part and animal indexes into small scene
+ * global variables: loadingSmall, smallScene, animals, animalIndex, animalParts, animalPartIndex, smallScenePart
+ * @returns nothing
+ */
 function loadAnimalPartIntoSmallScene() {
+	// prevents method being called multiple times at once due to input lag / called too fast
+	// this needs to be here, because loading object from file is async, meaning you could load multiple objects into small scene if you click too fast
 	if (loadingSmall) {
 		return;
 	}
 	loadingSmall = true;
+
 	let smallAnimal = animals[animalIndex];
 	let animalName = smallAnimal + "_" + animalParts[animalPartIndex] + ".obj";
 	smallScenePart = smallScene.getObjectByName("smallSceneAnimal");
@@ -109,17 +152,26 @@ function loadAnimalPartIntoSmallScene() {
 			}, 0.3, smallScene, "smallSceneAnimal", true);
 		}
 	);
-
-	smallScenePart = smallScene.getObjectByName("smallSceneAnimal");
 }
 
+/**
+ * Function that uses provided loader, loads object and sets its attributes
+ * @param {ObjectLoader} loader 
+ * @param {string} objName - name of file to be loaded
+ * @param {Object} position - attributes
+ * @param {number} scale - attributes
+ * @param {Scene} scene - scene to load into
+ * @param {string} objCustomName - custom name to be given to object
+ * @param {boolean} center - whether object should be centered with it's bounding box
+ * global variables: loadingSmall, smallScenePart, smallScene
+ */
 function loadObj(loader, objName, position, scale, scene, objCustomName, center) {
 	loader.load(objName,
 		function (object) {
 			object.position.set(position.x, position.y, position.z);
 			object.scale.set(scale, scale, scale);
 
-			object.traverse(function (child) {
+			object.traverse(function (child) { // adds shadows
 				if (child.isMesh) {
 					child.castShadow = true;
 					child.receiveShadow = true;
@@ -136,9 +188,9 @@ function loadObj(loader, objName, position, scale, scene, objCustomName, center)
 
 			scene.add(object);
 
-			if (loadingSmall) {
+			if (loadingSmall) { // if loading into small scene, set global variable
 				smallScenePart = smallScene.getObjectByName("smallSceneAnimal");
-				if (center != undefined && center) {
+				if (center != undefined && center) { // if needs to be centered
 					let mesh = object.children[0];
 					let geometry = mesh.geometry;
 					geometry.computeBoundingBox();
@@ -147,10 +199,10 @@ function loadObj(loader, objName, position, scale, scene, objCustomName, center)
 					box.center(mesh.position); // this re-sets the mesh position
 					mesh.position.multiplyScalar(-1);
 
-					fitCameraToObject(smallCamera, object);
+					fitCameraToObject(smallCamera, object); // fits camera to object
 				}
+				loadingSmall = false;
 			}
-			loadingSmall = false;
 		},
 		function () {},
 		function (err) {
@@ -159,6 +211,12 @@ function loadObj(loader, objName, position, scale, scene, objCustomName, center)
 	);
 }
 
+/**
+ * Randomizes position, rotation, scale in matrix4
+ * https://stackoverflow.com/questions/5837572/generate-a-random-point-within-a-circle-uniformly
+ * @param {Object} copySettings - settings containing constraints on scale, position, rotation
+ * @param {matrix4} matrix - matrix object that has it's values randomized
+ */
 const randomizeMatrix = function () {
 
 	const position = new THREE.Vector3();
@@ -167,8 +225,6 @@ const randomizeMatrix = function () {
 	const scale = new THREE.Vector3();
 
 	return function (copySettings, matrix) {
-
-		// https://stackoverflow.com/questions/5837572/generate-a-random-point-within-a-circle-uniformly
 		let distFromCenter = Math.sqrt(getRandomNumber(copySettings.randPosition.min ** 2, copySettings.randPosition.max ** 2));
 		let angle = Math.random() * 2 * Math.PI;
 
@@ -188,10 +244,19 @@ const randomizeMatrix = function () {
 
 }();
 
+/**
+ * Loads foliage with int oscene
+ * @param {string} objName - name of object
+ * @param {string} mtlName - material name
+ * @param {number} nTufts - number of instances
+ * @param {Scene} scene - target scene
+ * @param {Object} copySettings - settings for instances, used for randomizing
+ * @param {string} customTag - tag for objects
+ */
 function loadFoliage(objName, mtlName, nTufts, scene, copySettings, customTag) {
 	let mtlLoader = new THREE.MTLLoader();
 	let path = './models/foliage/';
-	//console.log(copySettings);
+
 	mtlLoader.setPath(path);
 	mtlLoader.load(mtlName + '.mtl',
 		function (materials) {
@@ -203,15 +268,15 @@ function loadFoliage(objName, mtlName, nTufts, scene, copySettings, customTag) {
 
 			loader.load(objName + ".obj",
 				function (object) {
+					// sets default position, scale, will be changed later
 					object.position.set(0, -0.1, 0);
 					object.scale.set(1, 1, 1);
-
-					//console.log(object.children);
 
 					let matrixMatrix = []; // matrix of matrixes
 					for (let i = 0; i < object.children.length; i++) {
 						const matrix = new THREE.Matrix4();
 
+						// creates instances in mesh
 						const mesh = new THREE.InstancedMesh(object.children[i].geometry, object.children[i].material, nTufts);
 
 						mesh.receiveShadow = true;
@@ -220,7 +285,8 @@ function loadFoliage(objName, mtlName, nTufts, scene, copySettings, customTag) {
 						} else {
 							mesh.castShadow = false;
 						}
-						//console.log(matrixMatrix);
+
+						// randomizes matrix for each instance
 						for (let j = 0; j < nTufts; j++) {
 
 							if (i == 0) {
@@ -252,7 +318,6 @@ function loadFoliage(objName, mtlName, nTufts, scene, copySettings, customTag) {
 					console.log(err);
 				}
 			);
-
 		}
 	);
 }

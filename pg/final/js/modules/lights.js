@@ -1,5 +1,15 @@
+/**
+ * 
+ * Peter Nehila
+ * file containing methods for working with lights
+ * 
+ */
 var lightIndex = 0;
 
+/**
+ * Replaces current lights, increments lightIndex
+ * global variables: scene, lightIndex
+ */
 function toggleLight() {
     for (let i = 0; i < currentLights.length; i++) {
         scene.remove(currentLights[i]);
@@ -9,15 +19,15 @@ function toggleLight() {
     if (lightIndex == 0) {
         currentLights = basicLights();
 
-        lightIndex = 1;
+        lightIndex++;
     } else if (lightIndex == 1) {
         currentLights = sunsetLights();
 
-        lightIndex = 2;
+        lightIndex++;
     } else if (lightIndex == 2) {
         currentLights = nightLights();
 
-        lightIndex = 3;
+        lightIndex++;
     } else {
         currentLights = lookoutLights();
 
@@ -25,7 +35,10 @@ function toggleLight() {
     }
 }
 
-function addCounterLight(){
+/**
+ * Adds weak counterlights
+ */
+function addCounterLight() {
     // protisvetlo aby neboli objekty "neviditelne" z druhej strany
     let spotlight1 = new THREE.PointLight('rgb(255,255,255)');
     spotlight1.angle = Math.PI / 3;
@@ -33,7 +46,7 @@ function addCounterLight(){
     spotlight1.intensity = 0.075;
     spotlight1.lookAt(0, 0, 0);
     scene.add(spotlight1);
-    
+
     let spotlight2 = new THREE.PointLight('rgb(255,255,255)');
     spotlight2.angle = Math.PI / 3;
     spotlight2.position.set(+70, 30, +150);
@@ -41,6 +54,11 @@ function addCounterLight(){
     spotlight2.lookAt(0, 0, 0);
     scene.add(spotlight2);
 }
+
+/**
+ * LIGHTS
+ * functions for specific lights
+ */
 
 function basicLights() {
     let ambientLight = new THREE.AmbientLight(0xeeeeee, 0.8);
@@ -57,10 +75,9 @@ function basicLights() {
     spotlight.penumbra = 0.4;
     spotlight.target = lightTarget;
     spotlight.castShadow = true;
-
     spotlight.shadow.bias = -0.0001;
-    spotlight.shadow.mapSize.width = 1024 * 4;
-    spotlight.shadow.mapSize.height = 1024 * 4;
+    spotlight.shadow.mapSize.width = maxShadowMapSize;
+    spotlight.shadow.mapSize.height = maxShadowMapSize;
 
     scene.add(spotlight);
 
@@ -68,22 +85,24 @@ function basicLights() {
 }
 
 function sunsetLights() {
+    // yellow hemisphere light adds effect of sunset
     const skyColor = 'rgb(255, 200, 50)';
     const groundColor = 0xB1E1FF;
     const intensity = 0.7;
     const hemiLight = new THREE.HemisphereLight(skyColor, groundColor, intensity);
     scene.add(hemiLight);
 
-    const pointLight = new THREE.PointLight('rgb(255,255,255)');
-    pointLight.position.set(+150, 50, -15);
+    // switched to spotlight for better shadow quality
+    const pointLight = new THREE.SpotLight('rgb(255,255,255)');
+    pointLight.position.set(+70, 30, -15);
     pointLight.intensity = 1;
     pointLight.penumbra = 0.4;
     pointLight.castShadow = true;
-    pointLight.penumbra = 1;
+    pointLight.penumbra = 0.5;
 
     pointLight.shadow.bias = -0.0001;
-    pointLight.shadow.mapSize.width = 1024 * 4;
-    pointLight.shadow.mapSize.height = 1024 * 4;
+    pointLight.shadow.mapSize.width = maxShadowMapSize;
+    pointLight.shadow.mapSize.height = maxShadowMapSize;
 
     scene.add(pointLight);
 
@@ -108,8 +127,8 @@ function nightLights() {
     spotlight.castShadow = true;
 
     spotlight.shadow.bias = -0.0001;
-    spotlight.shadow.mapSize.width = 1024 * 4;
-    spotlight.shadow.mapSize.height = 1024 * 4;
+    spotlight.shadow.mapSize.width = maxShadowMapSize;
+    spotlight.shadow.mapSize.height = maxShadowMapSize;
 
     scene.add(spotlight);
 
@@ -134,8 +153,8 @@ function lookoutLights() {
     spotlight.castShadow = true;
 
     spotlight.shadow.bias = -0.0001;
-    spotlight.shadow.mapSize.width = 1024 * 4;
-    spotlight.shadow.mapSize.height = 1024 * 4;
+    spotlight.shadow.mapSize.width = maxShadowMapSize;
+    spotlight.shadow.mapSize.height = maxShadowMapSize;
 
     scene.add(spotlight);
 
@@ -148,8 +167,8 @@ function lookoutLights() {
     //spotlight2.castShadow = true;
 
     spotlight2.shadow.bias = -0.0001;
-    spotlight2.shadow.mapSize.width = 1024 * 4;
-    spotlight2.shadow.mapSize.height = 1024 * 4;
+    spotlight2.shadow.mapSize.width = maxShadowMapSize;
+    spotlight2.shadow.mapSize.height = maxShadowMapSize;
 
     scene.add(spotlight2);
 

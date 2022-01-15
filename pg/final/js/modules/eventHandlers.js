@@ -1,3 +1,13 @@
+/**
+ * 
+ * Peter Nehila
+ * file containing methods for setting handlers to html elements
+ * 
+ */
+
+/**
+ * Sets onclick and other handlers to html elements
+ */
 function addEventHandlers() {
     document.getElementById("close_credits").addEventListener("click", function () {
         toggleHidden('credits', ['credits'], []);
@@ -108,6 +118,11 @@ function addEventHandlers() {
         redrawGrass();
         toggleClass('grass_dark', 'active');
     });
+    document.getElementById("tree_normal").addEventListener("click", function () {
+        toggleEnvAttrInArr('treeMtl', 'normal_tree');
+        redrawTrees();
+        toggleClass('tree_normal', 'active');
+    });
     document.getElementById("tree_savannah").addEventListener("click", function () {
         toggleEnvAttrInArr('treeMtl', 'savannah_tree1');
         redrawTrees();
@@ -120,8 +135,30 @@ function addEventHandlers() {
     });
     document.getElementById("tree_spruce").addEventListener("click", function () {
         toggleEnvAttrInArr('treeMtl', 'spruce_tree1');
+        toggleEnvAttrInArr('treeMtl', 'spruce_tree2');
         redrawTrees();
         toggleClass('tree_spruce', 'active');
+    });
+    document.getElementById("ground_normal").addEventListener("click", function () {
+        setEnvAttribute('groundColor', 0x90c14d);
+        reSetPlaneColor();
+        toggleClass('ground_normal', 'active');
+        removeClass('ground_dark', 'active');
+        removeClass('ground_yellow', 'active');
+    });
+    document.getElementById("ground_yellow").addEventListener("click", function () {
+        setEnvAttribute('groundColor', 0xbeac3f);
+        reSetPlaneColor();
+        toggleClass('ground_yellow', 'active');
+        removeClass('ground_dark', 'active');
+        removeClass('ground_normal', 'active');
+    });
+    document.getElementById("ground_dark").addEventListener("click", function () {
+        setEnvAttribute('groundColor', 0x2e6431);
+        reSetPlaneColor();
+        toggleClass('ground_dark', 'active');
+        removeClass('ground_yellow', 'active');
+        removeClass('ground_normal', 'active');
     });
     document.getElementById("save_build").addEventListener("click", function () {
         saveBuild();
@@ -136,10 +173,16 @@ function addEventHandlers() {
         toggleHidden('credits', ['credits'], []);
     });
     document.getElementById("show_tutorial").addEventListener("click", function () {
-        // TODO
+        toggleHidden('tutorial', ['tutorial'], []);
     });
     document.getElementById("hideMenuButton").addEventListener("click", function () {
         toggleHidden('menu', ['menu'], ['hideMenuButton']);
+    });
+    document.getElementById("toggle_sound").addEventListener("click", function () {
+        toggleSound();
+    });
+    document.getElementById("close_tutorial").addEventListener("click", function () {
+        toggleHidden('tutorial', ['tutorial'], []);
     });
 }
 

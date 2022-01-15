@@ -25,7 +25,7 @@
 
 	<div id="credits" class="credits hidden">
 		<h2>Autorstvo</h2>
-		<div id="close_credits" class="button clear top left dark-button">
+		<div id="close_credits" class="button clear top left dark-button fixed">
 			<i class="fa fa-times" aria-hidden="true"></i>&emsp; Zatvoriť</div>
 		<div class="half-width">
 			<p>Autor webu: Peter Nehila</p>
@@ -43,6 +43,14 @@
 						</tr>
 						<tr>
 							<td>Kengura</td>
+							<td>Peter Nehila</td>
+						</tr>
+						<tr>
+							<td>Kôň</td>
+							<td>Peter Nehila</td>
+						</tr>
+						<tr>
+							<td>Vlk</td>
 							<td>Peter Nehila</td>
 						</tr>
 						<tr>
@@ -78,11 +86,183 @@
 			</p>
 		</div>
 	</div>
+	
+	<div id="tutorial" class="credits hidden">
+		<h2>Návod k hre</h2>
+		<div class="top left fixed quarter-width">
+			<div id="close_tutorial" class="button clear dark-button">
+				<i class="fa fa-times" aria-hidden="true"></i>&emsp; Zatvoriť</div>
+			<ol>
+				<li><a href="#ciel">Cieľ hry</a></li>
+				<li><a href="#rozdelenie">Rozdelenie obrazovky</a></li>
+				<li><a href="#skladanie">Menu skladania</a></li>
+				<li><a href="#okolie">Menu nastavenia okolia</a></li>
+				<li><a href="#ovladanie">Ovládanie a pohyb v hre</a></li>
+			</ol>
+		</div>
+		<div class="half-width">
+			<h3 id="ciel">Cieľ hry</h3>
+			<p>
+				Cieľom hry je poskladať z častí tela zvieratko. Ak je poskladané celé zvieratko úspešne, prehrá sa zvuk, ktorý toto zvieratko vydáva.
+				<span class="warning">Niektoré zvuky môžu byť hlasné, takže je potrebné si dať pozor na nastavenia hlasitosti.</span>
+			</p>
+			<h3 id="rozdelenie">Rozdelenie obrazovky</h3>
+			<p>Obrazovka je rozdelená na dve časti: v ľavej časti je menu, zvyšok tvorí obrazovka, kde sa zobrazujú zvieratká.</p>
+			<p>Menu obsahuje nasledovné tlačidlá a ich funkcie:
+				<table>
+					<tbody>
+						<tr>
+							<td>Voľné skladanie</td>
+							<td>Nastaví herný mód na voľné skladanie</td>
+						</tr>
+						<tr>
+							<td>Začať hru</td>
+							<td>Náhodne vyberie zvieratko a zadá cieľ skladania</td>
+						</tr>
+						<tr>
+							<td>Menu skladania</td>
+							<td>Otvorí menu, kde je možné vyberať jednotlivé časti zvieratiek, pridávať a odstraňovať ich</td>
+						</tr>
+						<tr>
+							<td>Nastavenia okolia</td>
+							<td>Otvorí menu s možnosťami úpravy okolitého prostredia</td>
+						</tr>
+						<tr>
+							<td>Vytvoriť obrázok</td>
+							<td>Vytvorí obrázok aktuálnej obrazovky, ktorý je možné uložiť</td>
+						</tr>
+						<tr>
+							<td>Uložiť aktuálne zvieratko</td>
+							<td>Slúži na uloženie aktuálne rozoskladaného zvieratka</td>
+						</tr>
+						<tr>
+							<td>Načitať zvieratko</td>
+							<td>Slúži na načítanie uloženého zvieratka z počítača. <span class="warning">Pozor, je možné načítať zvieratko len ak ste si ho predtým už uložili</span></td>
+						</tr>
+						<tr>
+							<td><i class="fa fa-backward" aria-hidden="true"></i></td>
+							<td>Tlačidlo na skrytie menu</td>
+						</tr>
+						<tr>
+							<td><i class="fa fa-question" aria-hidden="true"></i></td>
+							<td>Otvorí obrazovku s návodom k hre (aktuálna obrazovka)</td>
+						</tr>
+						<tr>
+							<td><i class="fa fa-list" aria-hidden="true"></i></td>
+							<td>Otvorí obrazovku so zoznamom zdrojov, z ktorých bola táto stránka vytvorená</td>
+						</tr>
+						<tr>
+							<td><i class="fa fa-music" aria-hidden="true"></i></td>
+							<td>Tlačidlo na vypnutie zvukov</td>
+						</tr>
+					</tbody>
+				</table>
+			</p>
+			<h3 id="skladanie">Menu skladania</h3>
+			<p>Menu skladania sa ďalej delí na:
+				<table>
+					<tbody>
+						<tr>
+							<td><i class="fa fa-arrow-left" aria-hidden="true"></i> <i class="fa fa-arrow-right" aria-hidden="true"></i></td>
+							<td>Prepínanie medzi jednotlivými zvieratkami</td>
+						</tr>
+						<tr>
+							<td><i class="fa fa-arrow-down" aria-hidden="true"></i></td>
+							<td>Zmena časti tela</td>
+						</tr>
+						<tr>
+							<td><i class="fa fa-pause" aria-hidden="true"></i> <i class="fa fa-play" aria-hidden="true"></i></td>
+							<td>Zastavnie a spustenie otáčania časti</td>
+						</tr>
+						<tr>
+							<td><i class="fa fa-check" aria-hidden="true"></td>
+							<td>Pridanie časti tela na obrazovku. <span class="warning">V prípade, že vybraná časť tela sa už na obrazovke nachádza, nahradí ju.</span></td>
+						</tr>
+						<tr>
+							<td><i class="fa fa-times" aria-hidden="true"></td>
+							<td>Odstránenie konkrétnej časti tela</td>
+						</tr>
+						<tr>
+							<td><i class="fa fa-undo" aria-hidden="true"></i></td>
+							<td>Odstránenie všetkých častí na obrazovke</td>
+						</tr>
+					</tbody>
+				</table>
+			</p>
+			<h3 id="okolie">Menu nastavenia okolia</h3>
+			<p>Menu nastavenia okolia sa ďalej delí na:
+				<table>
+					<tbody>
+						<tr>
+							<td>Zmeniť oblohu</td>
+							<td>Umožňuje prepínať medzi rôznymi oblohami</td>
+						</tr>
+						<tr>
+							<td>Zmeniť svetlo</td>
+							<td>Umožňuje prepínať medzi rôznymi nastaveniami svetla</td>
+						</tr>
+						<tr>
+							<td class="flex-row">
+								<span class="round button white-bg black" title="0">
+									0
+								</span>
+								<span class="round button white-bg" title="-500">
+									<img class="text-sized-img" src="./images/minus.png">
+								</span>
+								<div class="round button white-bg" title="+100">
+									<img class="text-sized-img" src="./images/plus.png">
+								</div>
+								<div class="round button white-bg" title="+1000">
+									<img class="text-sized-img" src="./images/plusplus.png">
+								</div>
+								<div class="round button white-bg" title="+10000">
+									<img class="text-sized-img" src="./images/plusplusplus.png">
+								</div></td>
+							<td>Tlačidlá slúžia na pridávanie a odoberanie častí okolia ako napríklad stromy, tráva</td>
+						</tr>
+						<tr>
+							<td class="flex-row">
+								<div class="round button white-bg" title="Žltkastá">
+									<span class="grass_yellow">▇</span>
+								</div>
+							</td>
+							<td>Zmena farby. Je možné meniť farbu trávy a zeme</td>
+						</tr>
+						<tr>
+							<td class="flex-row">
+								<div class="round button white-bg">
+									<img class="text-sized-img" src="./images/normal_tree.png">
+								</div>
+								<div class="round button white-bg">
+									<img class="text-sized-img" src="./images/savannah_tree.png">
+								</div>
+								<div class="round button  white-bg">
+									<img class="text-sized-img" src="./images/pine_tree.png">
+								</div>
+								<div class="round button  white-bg">
+									<img class="text-sized-img" src="./images/spruce_tree.png">
+								</div>
+							</td>
+							<td>Nastavenie typov stromov, ktoré sa zobrazujú</td>
+						</tr>
+					</tbody>
+				</table>
+			</p>
+			<h3 id="ovladanie">Ovládanie a pohyb v hre</h3>
+			<p>
+				Kameru je možné ovládať pomocou myši:
+				<ul>
+					<li>držaním ľavého tlačidla myši a hýbaním myšou je možné otáčať kameru</li>
+					<li>držaním pravého tlačidla myši a hýbaním myšou je možný pohyb po mape</li>
+					<li>kolieskom myši je možné približovať a oddiaľovať kameru</li>
+					<li>pohyb je možný aj pomocou šípiek klávesnice</li>
+				</ul>
+			</p>
+		</div>
+	</div>
 	<div class="screen-container">
 		<div id="menu" class="menu">
 			<h1>Skladanie zvieratiek</h1>
-			<div id="take_screenshot" class="button">
-				<i class="fa fa-camera badge" aria-hidden="true"></i>Vytvoriť obrázok</div>
 			<div id="free_mode" class="button">
 				<i class="fa fa-cubes badge" aria-hidden="true"></i>Voľné skladanie
 				<i id="freeCheckBox" class="fa fa-check fl-right green badge" aria-hidden="true"></i>
@@ -101,6 +281,9 @@
 				<span id="animal_builder" class="drop-down-menu">
 					<canvas height="80" width="100" id="smallCanvas"></canvas>
 					<div class="controls">
+						<div class="top full-w center-flex">
+							<span id="current_part" class="status small-text">Hlava</span>
+						</div>
 						<div class="left full-h darker-hover">
 							<div id="switch_animal_part_left" class="round button">
 								<i class="fa fa-arrow-left" aria-hidden="true"></i>
@@ -133,7 +316,7 @@
 			</div>
 			<div class="wide">
 				<div id="toggle_foliage_settings" class="button">
-					<i class="fa fa-tree badge" aria-hidden="true"></i>
+					<i class="fa fa-picture-o badge" aria-hidden="true"></i>
 					<span class="full-w">Nastavenia okolia
 						<i id="foliageCaret" class="fa fa-caret-right badge fl-right" aria-hidden="true"></i>
 					</span>
@@ -193,9 +376,12 @@
 						<div id="+++_tree" class="round button" title="+100">
 							<img class="text-sized-img" src="./images/plusplusplus.png">
 						</div>
-					</div>					
+					</div>
 					<div>Typy stromov:</div>
 					<div class="flex-row">
+						<div id="tree_normal" class="round button active">
+							<img class="text-sized-img" src="./images/normal_tree.png">
+						</div>
 						<div id="tree_savannah" class="round button active">
 							<img class="text-sized-img" src="./images/savannah_tree.png">
 						</div>
@@ -206,15 +392,30 @@
 							<img class="text-sized-img" src="./images/spruce_tree.png">
 						</div>
 					</div>
+					<div>Farby zeme:</div>
+					<div class="flex-row">
+						<div id="ground_yellow" class="round button" title="Žltkastá">
+							<span class="ground_yellow">▇</span>
+						</div>
+						<div id="ground_normal" class="round button active" title="Normálna">
+							<span class="ground_normal">▇</span>
+						</div>
+						<div id="ground_dark" class="round button" title="Tmavá">
+							<span class="ground_dark">▇</span>
+						</div>
+					</div>
 				</span>
 			</div>
+			<div id="take_screenshot" class="button">
+				<i class="fa fa-camera badge" aria-hidden="true"></i>Vytvoriť obrázok</div>
 			<div id="save_build" class="button">
 				<i class="fa fa-bookmark badge" aria-hidden="true"></i>Uložiť aktuálne zvieratko</div>
 			<div id="load_build" class="button">
 				<i class="fa fa-upload badge" aria-hidden="true"></i>Načítať zvieratko</div>
+				
 
 			<!-- Bottom round menu buttons -->
-			<div class="flex-row">
+			<div class="flex-row" id="general_menu">
 				<div id="hide_menu" class="round button" title="Skryť menu">
 					<i class="fa fa-backward" aria-hidden="true"></i>
 				</div>
@@ -224,9 +425,12 @@
 				<div id="show_credits" class="round button" title="Zdroje">
 					<i class="fa fa-list" aria-hidden="true"></i>
 				</div>
+				<div id="toggle_sound" class="round button active" title="Zvuky">
+					<i class="fa fa-music" aria-hidden="true"></i>
+				</div>
 			</div>
 
-			<footer title="All sounds credits go to https://freeanimalsounds.org/" class="footer">Autor: Peter Nehila</footer>
+			<footer title="All sounds credits go to https://freeanimalsounds.org/" class="footer">Autor: Peter Nehila <i class="fa fa-heart" aria-hidden="true"></i></footer>
 		</div>
 		<div id="hideMenuButton" class="hidden round button center-flex-item fixed" title="Zobraziť menu">
 			<i class="fa fa-forward" aria-hidden="true"></i>

@@ -1,3 +1,16 @@
+/**
+ * 
+ * Peter Nehila
+ * file containing methods for working with files (reading / downloading)
+ * 
+ */
+
+
+/**
+ * Opens download dialogue
+ * @param {string} filename - name of file 
+ * @param {Object} data - data in correct form with mime type defined
+ */
 function download(filename, data) {
     let element = document.createElement('a');
     element.setAttribute('href', data);
@@ -11,8 +24,14 @@ function download(filename, data) {
     document.body.removeChild(element);
 }
 
-function readSingleFileFromDrive(e) {
-    let file = e.target.files[0];
+/**
+ * Reads a single file
+ * @param {Object} event - event triggered from file reader
+ * @param {Function} onLoadFunction - function to be called after file is loaded, contents are provided as argument to this function
+ * @returns 
+ */
+function readSingleFileFromDrive(event, onLoadFunction) {
+    let file = event.target.files[0];
     if (!file) {
         return;
     }
@@ -20,20 +39,7 @@ function readSingleFileFromDrive(e) {
     reader.onload = function (e) {
         let contents = e.target.result;
         try {
-
-            resetAllParts();
-            currentAnimalParts = JSON.parse(contents);
-            for (let index = 0; index < currentAnimalParts.length; index++) {
-                if (currentAnimalParts[index] == null) {
-                    continue;
-                }
-                let [animal, part] = currentAnimalParts[index].split("_");
-                loadAnimalPartObj(animal, part, position = {
-                    x: 0,
-                    y: -0.01,
-                    z: 0
-                }, scale = 1, scene, "current" + part);
-            }
+            onLoadFunction(contents);
         } catch (e) {
             console.log(e);
             return;
