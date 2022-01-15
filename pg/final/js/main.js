@@ -84,6 +84,7 @@ function init() {
 
 	renderer = new THREE.WebGLRenderer({
 		canvas: document.getElementById("canvas"),
+		powerPreference: "high-performance",
 		antialias: true,
 		alpha: true
 	});
