@@ -252,8 +252,9 @@ const randomizeMatrix = function () {
  * @param {Scene} scene - target scene
  * @param {Object} copySettings - settings for instances, used for randomizing
  * @param {string} customTag - tag for objects
+ * @param {string} materialType - if defined, set the type of material, currently only supports Lambert
  */
-function loadFoliage(objName, mtlName, nTufts, scene, copySettings, customTag) {
+function loadFoliage(objName, mtlName, nTufts, scene, copySettings, customTag, materialType) {
 	let mtlLoader = new THREE.MTLLoader();
 	let path = './models/foliage/';
 
@@ -276,8 +277,21 @@ function loadFoliage(objName, mtlName, nTufts, scene, copySettings, customTag) {
 					for (let i = 0; i < object.children.length; i++) {
 						const matrix = new THREE.Matrix4();
 
+						let oldMaterial = object.children[i].material;
+						let newMaterial;
+						if(materialType){
+							if(materialType == "Lambert"){
+								newMaterial = new THREE.MeshLambertMaterial({color: oldMaterial.color, name: oldMaterial.name});
+							}else {
+								// Phong works the same, rest is not supported / not needed for now
+								newMaterial = oldMaterial;
+							}
+						}else {
+							newMaterial = oldMaterial;
+						}
+						//let materialL = new THREE.MeshLambertMaterial({color: oldMaterial.color, name: oldMaterial.name});
 						// creates instances in mesh
-						const mesh = new THREE.InstancedMesh(object.children[i].geometry, object.children[i].material, nTufts);
+						const mesh = new THREE.InstancedMesh(object.children[i].geometry, newMaterial, nTufts);
 
 						mesh.receiveShadow = true;
 						if (copySettings.shadows) {

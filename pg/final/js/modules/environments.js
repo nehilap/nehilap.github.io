@@ -87,7 +87,7 @@ function redrawGrass() {
                 max: 360.
             },
             shadows: false
-        }, envSettings.grassTag);
+        }, envSettings.grassTag, "Lambert");
     }
 }
 
@@ -120,7 +120,7 @@ function redrawTrees() {
                 max: 360.
             },
             shadows: true
-        }, envSettings.treeTag);
+        }, envSettings.treeTag, false);
     }
 }
 
