@@ -26,6 +26,12 @@ function addEventHandlers() {
     });
     document.getElementById("play_mode").addEventListener("click", function () {
         setGameMode('animal');
+        showBuilder();
+		loadAnimalPartIntoSmallScene();
+        let caretElement = document.getElementById("animalBuilderCaret");
+        if(caretElement.classList.contains("fa-caret-right")) {
+            openCaret(caretElement);
+        }
     });
     document.getElementById("toggle_animal_builder").addEventListener("click", function () {
         toggleAnimalBuilder();
@@ -175,6 +181,9 @@ function addEventHandlers() {
     document.getElementById("show_tutorial").addEventListener("click", function () {
         toggleHidden('tutorial', ['tutorial'], []);
     });
+    document.getElementById("show_tutorial2").addEventListener("click", function () {
+        toggleHidden('tutorial', ['tutorial'], []);
+    });
     document.getElementById("hideMenuButton").addEventListener("click", function () {
         toggleHidden('menu', ['menu'], ['hideMenuButton']);
     });
@@ -183,6 +192,9 @@ function addEventHandlers() {
     });
     document.getElementById("close_tutorial").addEventListener("click", function () {
         toggleHidden('tutorial', ['tutorial'], []);
+    });
+    document.getElementById("close_alert").addEventListener("click", function () {
+        toggleHidden('alert', ['alert'], []);
     });
 }
 

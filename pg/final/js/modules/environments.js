@@ -8,15 +8,15 @@
 var envSettings = {
     grassTag: "grass",
     grassMtl: ["grass_normal"], // 1+
-    grassN: 30000,
+    grassN: 20000,
     treeTag: "tree",
     treeMtl: ["pine_tree", "spruce_tree1", "spruce_tree2", "savannah_tree1", "normal_tree"], // 1+
     treeN: 20,
     groundColor: 0x90c14d,
 };
 
-var grassTypes = ['grass_yellow', 'grass_normal', 'grass_lively', 'grass_dark'];
-var treeTypes = ['normal_tree', 'savannah_tree1', 'pine_tree', 'spruce_tree1', 'spruce_tree2'];
+const grassTypes = ['grass_yellow', 'grass_normal', 'grass_lively', 'grass_dark'];
+const treeTypes = ['normal_tree', 'savannah_tree1', 'pine_tree', 'spruce_tree1', 'spruce_tree2'];
 
 /**
  * Sets value of 1 attribute in object envSettings

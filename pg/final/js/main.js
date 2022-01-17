@@ -56,13 +56,19 @@ init();
 animate();
 
 /**
+ * ==========================
  * INIT, RENDERS, RENDER LOOP
+ * ==========================
  */
 
 /**
  * Initializes scene with default settings, addsObjects to scene, initializes some global vars
  */
 function init() {
+	screen.lockOrientationUniversal = screen.lockOrientation || screen.mozLockOrientation || screen.msLockOrientation;
+
+	screen.lockOrientationUniversal("landscape");
+
 	for (let i = 0; i < animalParts.length; i++) {
 		currentAnimalParts.push(null)
 	}
@@ -244,7 +250,7 @@ function update() {
 /**
  * Changes renderer size in case screen has been resized
  * @param {Renderer} renderer
- * @returns 
+ * @returns {boolean}
  */
 function resizeRendererToDisplaySize(renderer) {
 	const canvas = renderer.domElement;
@@ -258,7 +264,9 @@ function resizeRendererToDisplaySize(renderer) {
 }
 
 /**
+ * ======================
  * ANIMAL BUILDER METHODS
+ * ======================
  */
 
 /**
@@ -266,13 +274,20 @@ function resizeRendererToDisplaySize(renderer) {
  */
 function toggleAnimalBuilder() {
 	if (animal_builder.classList.contains("hidden")) {
-		animal_builder.classList.remove("hidden");
-		smallCanvas.classList.remove("hidden");
+		showBuilder();
 		loadAnimalPartIntoSmallScene();
 	} else {
 		animal_builder.classList.add("hidden");
 		smallCanvas.classList.add("hidden");
 	}
+}
+
+/**
+ * Shows small canvas and menu
+ */
+function showBuilder() {
+	animal_builder.classList.remove("hidden");
+	smallCanvas.classList.remove("hidden");
 }
 
 /**
@@ -376,13 +391,7 @@ function fitCameraToObject(camera, object, offset) {
 
 	const size = boundingBox.getSize(new THREE.Vector3());
 	const center = boundingBox.getCenter(new THREE.Vector3());
-	/*
-	var cube;
-	const maxSize = Math.max( size.x, size.y, size.z );
-	const fitHeightDistance = maxSize / ( 2 * Math.atan( Math.PI * camera.fov / 360 ) );
-	const fitWidthDistance = fitHeightDistance / camera.aspect;
-	const distance = fitOffset * Math.max( fitHeightDistance, fitWidthDistance );
-	*/
+
 	if (debug) {
 
 		if (cube != undefined) {
@@ -431,7 +440,9 @@ function resetAllParts() {
 }
 
 /**
- * GENERAL MENU METHODS
+ * =============================
+ * GENERAL FUNCTIONALITY METHODS
+ * =============================
  */
 
 /**
@@ -546,7 +557,9 @@ function takeScreenshot() {
 }
 
 /**
+ * =====================
  * LOADING / SAVING GAME
+ * =====================
  */
 
 /**
@@ -590,33 +603,38 @@ function readBuild() {
  * @param {string} contents - unparsed content from file
  */
 function loadBuild(contents) {
-	parsedData = JSON.parse(contents);
+	try{
+		parsedData = JSON.parse(contents);
 
-	resetAllParts();
-	let animalParts = parsedData.parts;
-	for (let index = 0; index < animalParts.length; index++) {
-		if (animalParts[index] == null) {
-			continue;
+		resetAllParts();
+		let animalParts = parsedData.parts;
+		for (let index = 0; index < animalParts.length; index++) {
+			if (animalParts[index] == null) {
+				continue;
+			}
+			let [animal, part] = animalParts[index].split("_");
+			loadAnimalPartObj(animal, part, position = {
+				x: 0,
+				y: -0.01,
+				z: 0
+			}, scale = 1, scene, "current" + part);
 		}
-		let [animal, part] = animalParts[index].split("_");
-		loadAnimalPartObj(animal, part, position = {
-			x: 0,
-			y: -0.01,
-			z: 0
-		}, scale = 1, scene, "current" + part);
+
+		envSettings = parsedData.env;
+		lightIndex = parsedData.light;
+		skyIndex = parsedData.sky;
+
+		redrawGrass();
+		redrawTrees();
+		reSetPlaneColor();
+		toggleLight();
+		toggleSky();
+
+		setFoliageButtonsActiveClass();
+
+	}catch(ex) {
+		customAlert("Nepodarilo sa spracovať súbor!!");
 	}
-
-	envSettings = parsedData.env;
-	lightIndex = parsedData.light;
-	skyIndex = parsedData.sky;
-
-	redrawGrass();
-	redrawTrees();
-	reSetPlaneColor();
-	toggleLight();
-	toggleSky();
-
-	setFoliageButtonsActiveClass();
 }
 
 /**
@@ -650,9 +668,21 @@ function setFoliageButtonsActiveClass() {
 }
 
 /**
+ * ==================================
  * UTILS
  * functions used for general purpose
+ * ==================================
  */
+
+/**
+ * Shows alert
+ * @param {string} alertMessage 
+ */
+function customAlert(alertMessage) {
+	document.getElementById("alertContent").textContent = alertMessage;
+
+	removeClass('alert', 'hidden');
+}
 
 /**
  * Shuffles given array
@@ -688,12 +718,28 @@ function toggleCaret(id) {
 	let element = document.getElementById(id);
 
 	if (element.classList.contains("fa-caret-right")) {
-		element.classList.remove("fa-caret-right");
-		element.classList.add("fa-caret-down");
+		openCaret(element);
 	} else {
-		element.classList.add("fa-caret-right");
-		element.classList.remove("fa-caret-down");
+		closeCaret(element);
 	}
+}
+
+/**
+ * Adds open carets to element
+ * @param {Object} element
+ */
+function openCaret(element) {
+	element.classList.remove("fa-caret-right");
+	element.classList.add("fa-caret-down");
+}
+
+/**
+ * Adds close carets to elements
+ * @param {Object} element
+ */
+function closeCaret(element) {
+	element.classList.add("fa-caret-right");
+	element.classList.remove("fa-caret-down");
 }
 
 /**

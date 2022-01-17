@@ -7,10 +7,10 @@
 	<link rel="stylesheet" href="./font-awesome/css/font-awesome.min.css">
 
 
-	<title>PC Grafika</title>
+	<title>3D zvieratká</title>
 	<link rel="icon" type="image/x-icon" href="./images/favicon.ico">
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0">
 
 </head>
 
@@ -23,11 +23,18 @@
 <body>
 	<canvas id="canvas" class="canvas"></canvas>
 
+	<div id="alert" class="alert danger-alert hidden">
+		<div id="alertContent" class="alertContent"></div>
+		<a class="close_alert" id="close_alert">&times;</a>
+	</div>
+
 	<div id="credits" class="credits hidden">
 		<h2>Autorstvo</h2>
 		<div id="close_credits" class="button clear top left dark-button fixed">
 			<i class="fa fa-times" aria-hidden="true"></i>&emsp; Zatvoriť</div>
 		<div class="half-width">
+			<p>Aplikácia vytvorená v rámci semestrálneho zadania z predmetu Počítačová grafika. Katedra počítačov a Informatiky, Technická univerzita v Košiciach
+				Fakulta elektrotechniky a informatiky, 2021/2022</p>
 			<p>Autor webu: Peter Nehila</p>
 			<p>Design webu: Peter Nehila</p>
 			<p>Zdroje modelov, textúr:
@@ -64,7 +71,7 @@
 					</tbody>
 				</table>
 			</p>
-			<p>Modely zvierat vytvorené v aplikácii Blender</p>
+			<p>Modely zvierat vytvorené v aplikácii <a href="https://www.blender.org/" target="_blank">Blender</a></p>
 			<p>Zvukové efekty:
 				<a href="https://freeanimalsounds.org/" target="_blank">https://freeanimalsounds.org/</a>
 			</p>
@@ -111,6 +118,10 @@
 			<p>Menu obsahuje nasledovné tlačidlá a ich funkcie:
 				<table>
 					<tbody>
+						<tr>
+							<td>Návod</td>
+							<td>Otvorí obrazovku s návodom k hre (aktuálna obrazovka)</td>
+						</tr>
 						<tr>
 							<td>Voľné skladanie</td>
 							<td>Nastaví herný mód na voľné skladanie</td>
@@ -263,6 +274,10 @@
 	<div class="screen-container">
 		<div id="menu" class="menu">
 			<h1>Skladanie zvieratiek</h1>
+
+			<div id="show_tutorial2" class="button" title="Návod">
+				<i class="fa fa-question badge" aria-hidden="true"></i>Návod
+			</div>
 			<div id="free_mode" class="button">
 				<i class="fa fa-cubes badge" aria-hidden="true"></i>Voľné skladanie
 				<i id="freeCheckBox" class="fa fa-check fl-right green badge" aria-hidden="true"></i>
@@ -412,7 +427,7 @@
 				<i class="fa fa-bookmark badge" aria-hidden="true"></i>Uložiť aktuálne zvieratko</div>
 			<div id="load_build" class="button">
 				<i class="fa fa-upload badge" aria-hidden="true"></i>Načítať zvieratko</div>
-				
+
 
 			<!-- Bottom round menu buttons -->
 			<div class="flex-row" id="general_menu">

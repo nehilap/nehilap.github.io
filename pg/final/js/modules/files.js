@@ -35,6 +35,12 @@ function readSingleFileFromDrive(event, onLoadFunction) {
     if (!file) {
         return;
     }
+
+    if(!checkFileType(file.name, ['txt'])){
+        customAlert("Nesprávny typ súboru!!");
+        return;
+    }
+
     let reader = new FileReader();
     reader.onload = function (e) {
         let contents = e.target.result;
@@ -47,3 +53,22 @@ function readSingleFileFromDrive(event, onLoadFunction) {
     };
     reader.readAsText(file);
 }
+
+/**
+ * Checks if file is of any of the provided types
+ * @param {string} filename - name of file
+ * @param {array[string]} fileTypes - list of accepted file types
+ * @returns {boolean} - true if file is of type provided in array
+ */
+function checkFileType(filename, fileTypes) {
+    let parts = filename.split('.');
+    let fileType = parts[parts.length - 1];
+
+    for(let i = 0; i < fileTypes.length; i++) {
+        if(fileTypes[i] == fileType.toLowerCase()){
+            return true;
+        }
+    }
+
+    return false;
+  }
