@@ -104,7 +104,7 @@ function sunsetLights() {
 
     scene.add(spotLight);
 
-    return [hemiLight, spotLight];
+    return [ambientLight, spotLight];
 
 }
 
