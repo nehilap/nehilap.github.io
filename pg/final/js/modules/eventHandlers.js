@@ -67,20 +67,19 @@ function addEventHandlers() {
         redrawGrass();
     });
     document.getElementById("-").addEventListener("click", function () {
-        let val = envSettings.grassN - 500 < 0 ? 0 : envSettings.grassN - 500;
-        setEnvAttribute('grassN', val);
+        setEnvAttribute('grassN', Math.max(envSettings.grassN - 2000, 0));
         redrawGrass();
     });
     document.getElementById("+").addEventListener("click", function () {
-        setEnvAttribute('grassN', envSettings.grassN + 100);
+        setEnvAttribute('grassN', Math.min(envSettings.grassN + 100, maxGrassN));
         redrawGrass();
     });
     document.getElementById("++").addEventListener("click", function () {
-        setEnvAttribute('grassN', envSettings.grassN + 1000);
+        setEnvAttribute('grassN', Math.min(envSettings.grassN + 1000, maxGrassN));
         redrawGrass();
     });
     document.getElementById("+++").addEventListener("click", function () {
-        setEnvAttribute('grassN', envSettings.grassN + 10000);
+        setEnvAttribute('grassN', Math.min(envSettings.grassN + 10000, maxGrassN));
         redrawGrass();
     });
     document.getElementById("0_tree").addEventListener("click", function () {
@@ -88,20 +87,19 @@ function addEventHandlers() {
         redrawTrees();
     });
     document.getElementById("-_tree").addEventListener("click", function () {
-        let val = envSettings.treeN - 50 < 0 ? 0 : envSettings.treeN - 50;
-        setEnvAttribute('treeN', val);
+        setEnvAttribute('treeN', Math.max(envSettings.treeN - 50, 0));
         redrawTrees();
     });
     document.getElementById("+_tree").addEventListener("click", function () {
-        setEnvAttribute('treeN', envSettings.treeN + 5);
+        setEnvAttribute('treeN', Math.min(envSettings.treeN + 5, maxTreeN));
         redrawTrees();
     });
     document.getElementById("++_tree").addEventListener("click", function () {
-        setEnvAttribute('treeN', envSettings.treeN + 20);
+        setEnvAttribute('treeN', Math.min(envSettings.treeN + 20, maxTreeN));
         redrawTrees();
     });
     document.getElementById("+++_tree").addEventListener("click", function () {
-        setEnvAttribute('treeN', envSettings.treeN + 100);
+        setEnvAttribute('treeN', Math.min(envSettings.treeN + 100, maxTreeN));
         redrawTrees();
     });
     document.getElementById("grass_yellow").addEventListener("click", function () {
@@ -148,23 +146,17 @@ function addEventHandlers() {
     document.getElementById("ground_normal").addEventListener("click", function () {
         setEnvAttribute('groundColor', 0x90c14d);
         reSetPlaneColor();
-        toggleClass('ground_normal', 'active');
-        removeClass('ground_dark', 'active');
-        removeClass('ground_yellow', 'active');
+        setGroundColorButtonsActive();
     });
     document.getElementById("ground_yellow").addEventListener("click", function () {
         setEnvAttribute('groundColor', 0xbeac3f);
         reSetPlaneColor();
-        toggleClass('ground_yellow', 'active');
-        removeClass('ground_dark', 'active');
-        removeClass('ground_normal', 'active');
+        setGroundColorButtonsActive();
     });
     document.getElementById("ground_dark").addEventListener("click", function () {
         setEnvAttribute('groundColor', 0x2e6431);
         reSetPlaneColor();
-        toggleClass('ground_dark', 'active');
-        removeClass('ground_yellow', 'active');
-        removeClass('ground_normal', 'active');
+        setGroundColorButtonsActive();
     });
     document.getElementById("save_build").addEventListener("click", function () {
         saveBuild();

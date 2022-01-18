@@ -5,29 +5,36 @@
  * contains render loop, initializes scenes, functions that didn't belong to a separate file
  * 
  */
-var debug = false;
-var cube;
 
-var camera, scene, renderer, controls, mainCanvas;
+// Debug variables (cube is boundingBox in smallScene)
+var debug = false;
+var stats;
+var cubeBoundingBox; // box of object in small canvas
+
+var renderer;
+var camera, 		scene, 		mainCanvas, 	controls;
+var smallCamera, 	smallScene, smallCanvas, 	smallScenePart;
 var skyBox;
+
+var currentLights = [];
 var maxShadowMapSize;
-var smallCanvas, smallScene, smallCamera, smallScenePart;
-var boundingBox, boxCurve; // box of object in small canvas
+
+// HTML dom elements
 var gameStatusNode, currentPartNode;
 var freeCheckBox, animalCheckBox;
-var gameMode = 'free',
-	targetAnimal;
-
+var animal_builder;
 var stopRotationButton;
-var currentRotation = 0.01;
 
+// game settings
+var gameMode = 'free';
+var	targetAnimal;
+
+var currentRotation = 0.01;
 var planeDiameter = 50;
 
 var clock = new THREE.Clock();
 let delta = 0;
-// 60 fps
-let interval = 1 / 60;
-var keyboard = new THREEx.KeyboardState();
+let interval = 1 / 60; // 60 fps
 
 var animals = ['giraffe', 'elephant', 'kangaroo', "horse", "wolf"];
 var animalNames = [
@@ -42,14 +49,11 @@ var animalParts = ['head', 'body', 'legs', 'tail'];
 var animalPartsSk = ['Hlava', 'Telo', 'Končatiny', 'Chvost'];
 var animalPartIndex = 0;
 var animalIndex = 0;
-var currentLights = [];
 
 var currentAnimalParts = [];
 
-var animal_builder;
-
 var loadingSmall = false;
-var defaultAudioVolume = 0.5;
+const defaultAudioVolume = 0.5;
 var audioVolume = defaultAudioVolume;
 
 init();
@@ -79,6 +83,7 @@ function init() {
 	currentPartNode = document.getElementById("current_part");
 	stopRotationButton = document.getElementById("stopRotationButton");
 	animal_builder = document.getElementById("animal_builder");
+
 	smallCanvas = document.getElementById("smallCanvas");
 	mainCanvas = document.getElementById("mainCanvas");
 
@@ -119,6 +124,8 @@ function init() {
 	toggleAnimalBuilder();
 	setGameMode('free');
 	toggleHidden('foliage_settings', ['foliage_settings'], []);
+
+	stats = new Stats();
 }
 
 /**
@@ -245,6 +252,7 @@ function addObjects() {
  */
 function update() {
 	controls.update();
+	stats.update();
 }
 
 /**
@@ -394,8 +402,8 @@ function fitCameraToObject(camera, object, offset) {
 
 	if (debug) {
 
-		if (cube != undefined) {
-			smallScene.remove(cube);
+		if (cubeBoundingBox != undefined) {
+			smallScene.remove(cubeBoundingBox);
 		}
 		const geom = new THREE.BoxGeometry(size.x, size.y, size.z);
 		const material = new THREE.MeshBasicMaterial({
@@ -403,9 +411,9 @@ function fitCameraToObject(camera, object, offset) {
 			wireframe: true,
 			transparent: true
 		});
-		cube = new THREE.Mesh(geom, material);
-		cube.position.set(boundingBox.min.x, boundingBox.min.y, boundingBox.min.z);
-		smallScene.add(cube);
+		cubeBoundingBox = new THREE.Mesh(geom, material);
+		cubeBoundingBox.position.set(boundingBox.min.x, boundingBox.min.y, boundingBox.min.z);
+		smallScene.add(cubeBoundingBox);
 
 		console.log(size, boundingBox, center);
 	}
@@ -603,7 +611,7 @@ function readBuild() {
  * @param {string} contents - unparsed content from file
  */
 function loadBuild(contents) {
-	try{
+	try {
 		parsedData = JSON.parse(contents);
 
 		resetAllParts();
@@ -632,8 +640,9 @@ function loadBuild(contents) {
 
 		setFoliageButtonsActiveClass();
 
-	}catch(ex) {
+	} catch (ex) {
 		customAlert("Nepodarilo sa spracovať súbor!!");
+		console.log(ex);
 	}
 }
 
@@ -641,18 +650,7 @@ function loadBuild(contents) {
  * Sets environment menu buttons class active accordingly to envSettings
  */
 function setFoliageButtonsActiveClass() {
-	removeClass('ground_normal', 'active');
-	removeClass('ground_dark', 'active');
-	removeClass('ground_yellow', 'active');
-
-	if (envSettings["groundColor"] == 0x90c14d) {
-		toggleClass('ground_normal', 'active');
-	} else if (envSettings["groundColor"] == 0xbeac3f) {
-		toggleClass('ground_yellow', 'active');
-	} else if (envSettings["groundColor"] == 0x2e6431) {
-		toggleClass('ground_dark', 'active');
-	}
-
+	setGroundColorButtonsActive();
 	// mapped to treeTypes
 	let treeButtons = ['tree_normal', 'tree_savannah', 'tree_pine', 'tree_spruce', 'tree_spruce'];
 	for (let index = 0; index < treeTypes.length; index++) {
@@ -664,6 +662,20 @@ function setFoliageButtonsActiveClass() {
 	for (let index = 0; index < envSettings.grassMtl.length; index++) {
 		removeClass(envSettings.grassMtl[index], "active");
 		toggleClass(envSettings.grassMtl[index], "active");
+	}
+}
+
+function setGroundColorButtonsActive() {
+	removeClass('ground_normal', 'active');
+	removeClass('ground_dark', 'active');
+	removeClass('ground_yellow', 'active');
+
+	if (envSettings["groundColor"] == 0x90c14d) {
+		toggleClass('ground_normal', 'active');
+	} else if (envSettings["groundColor"] == 0xbeac3f) {
+		toggleClass('ground_yellow', 'active');
+	} else if (envSettings["groundColor"] == 0x2e6431) {
+		toggleClass('ground_dark', 'active');
 	}
 }
 
@@ -844,3 +856,17 @@ function arraysIdentical(a, b) {
 
 	return true;
 };
+
+/**
+ * Shows Stats dom element
+ */
+function showStats() {
+	document.body.appendChild(stats.dom);
+}
+
+/**
+ * Hides Stats dom element
+ */
+function hideStats() {
+	stats.dom.parentElement.removeChild(stats.dom);
+}

@@ -40,19 +40,19 @@ function toggleLight() {
  */
 function addCounterLight() {
     // protisvetlo aby neboli objekty "neviditelne" z druhej strany
-    let spotlight1 = new THREE.PointLight('rgb(255,255,255)');
-    spotlight1.angle = Math.PI / 3;
-    spotlight1.position.set(-163.5, 30, +70);
-    spotlight1.intensity = 0.075;
-    spotlight1.lookAt(0, 0, 0);
-    scene.add(spotlight1);
+    let spotLight1 = new THREE.SpotLight('rgb(255,255,255)');
+    spotLight1.angle = Math.PI / 3;
+    spotLight1.position.set(-163.5, 30, +70);
+    spotLight1.intensity = 0.075;
+    spotLight1.lookAt(0, 0, 0);
+    scene.add(spotLight1);
 
-    let spotlight2 = new THREE.PointLight('rgb(255,255,255)');
-    spotlight2.angle = Math.PI / 3;
-    spotlight2.position.set(+70, 30, +150);
-    spotlight2.intensity = 0.075;
-    spotlight2.lookAt(0, 0, 0);
-    scene.add(spotlight2);
+    let spotLight2 = new THREE.SpotLight('rgb(255,255,255)');
+    spotLight2.angle = Math.PI / 3;
+    spotLight2.position.set(+70, 30, +150);
+    spotLight2.intensity = 0.075;
+    spotLight2.lookAt(0, 0, 0);
+    scene.add(spotLight2);
 }
 
 /**
@@ -68,20 +68,20 @@ function basicLights() {
     lightTarget.position.set(0, 0, 0);
     scene.add(lightTarget);
 
-    let spotlight = new THREE.PointLight('rgb(255,255,255)');
-    spotlight.angle = Math.PI / 3;
-    spotlight.position.set(63.5, 40, -70);
-    spotlight.intensity = 0.8;
-    spotlight.penumbra = 0.4;
-    spotlight.target = lightTarget;
-    spotlight.castShadow = true;
-    spotlight.shadow.bias = -0.0001;
-    spotlight.shadow.mapSize.width = maxShadowMapSize;
-    spotlight.shadow.mapSize.height = maxShadowMapSize;
+    let pointLight = new THREE.PointLight('rgb(255,255,255)');
+    pointLight.angle = Math.PI / 3;
+    pointLight.position.set(63, 40, -70);
+    pointLight.intensity = 0.8;
+    pointLight.target = lightTarget;
 
-    scene.add(spotlight);
+    pointLight.castShadow = true;
+    pointLight.shadow.bias = -0.0003;
+    pointLight.shadow.mapSize.width = maxShadowMapSize;
+    pointLight.shadow.mapSize.height = maxShadowMapSize;
 
-    return [ambientLight, spotlight];
+    scene.add(pointLight);
+
+    return [ambientLight, pointLight];
 }
 
 function sunsetLights() {
@@ -93,20 +93,19 @@ function sunsetLights() {
     scene.add(hemiLight);
 
     // switched to spotlight for better shadow quality
-    const pointLight = new THREE.SpotLight('rgb(255,255,255)');
-    pointLight.position.set(+70, 30, -15);
-    pointLight.intensity = 1;
-    pointLight.penumbra = 0.4;
-    pointLight.castShadow = true;
-    pointLight.penumbra = 0.5;
+    let spotLight = new THREE.SpotLight('rgb(255,255,255)');
+    spotLight.position.set(+70, 30, -15);
+    spotLight.intensity = 1;
+    spotLight.penumbra = 0.2;
+    spotLight.castShadow = true;
 
-    pointLight.shadow.bias = -0.0001;
-    pointLight.shadow.mapSize.width = maxShadowMapSize;
-    pointLight.shadow.mapSize.height = maxShadowMapSize;
+    spotLight.shadow.bias = 0.0000;
+    spotLight.shadow.mapSize.width = maxShadowMapSize;
+    spotLight.shadow.mapSize.height = maxShadowMapSize;
 
-    scene.add(pointLight);
+    scene.add(spotLight);
 
-    return [hemiLight, pointLight];
+    return [hemiLight, spotLight];
 
 }
 
@@ -120,13 +119,13 @@ function nightLights() {
 
     let spotlight = new THREE.SpotLight('rgb(150,150,150)');
     spotlight.angle = Math.PI / 3;
-    spotlight.position.set(53.5, 50, -50);
+    spotlight.position.set(53, 50, -50);
     spotlight.intensity = 0.3;
     spotlight.penumbra = 0.2;
     spotlight.target = lightTarget;
     spotlight.castShadow = true;
 
-    spotlight.shadow.bias = -0.0001;
+    spotlight.shadow.bias = 0.0000;
     spotlight.shadow.mapSize.width = maxShadowMapSize;
     spotlight.shadow.mapSize.height = maxShadowMapSize;
 

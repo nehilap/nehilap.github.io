@@ -15,7 +15,10 @@ var envSettings = {
     groundColor: 0x90c14d,
 };
 
+const maxGrassN = 200 * 1000;
 const grassTypes = ['grass_yellow', 'grass_normal', 'grass_lively', 'grass_dark'];
+
+const maxTreeN = 1 * 1000;
 const treeTypes = ['normal_tree', 'savannah_tree1', 'pine_tree', 'spruce_tree1', 'spruce_tree2'];
 
 /**
@@ -71,7 +74,7 @@ function redrawGrass() {
     }
 
     // calculate how many tufts each color should have, then generates grass of each color
-    let grassTufts = envSettings.grassN / envSettings.grassMtl.length;
+    let grassTufts = Math.min(envSettings.grassN, maxGrassN) / envSettings.grassMtl.length;
     for (let index = 0; index < envSettings.grassMtl.length; index++) {
         loadFoliage("grass", envSettings.grassMtl[index], grassTufts, scene, copySettings = {
             randPosition: {
@@ -104,7 +107,7 @@ function redrawTrees() {
     }
 
     // calculate how many tufts each tree type should have, then generates trees of each type
-    let treeTufts = envSettings.treeN / envSettings.treeMtl.length;
+    let treeTufts = Math.min(envSettings.treeN, maxTreeN) / envSettings.treeMtl.length;
     for (let index = 0; index < envSettings.treeMtl.length; index++) {
         loadFoliage(envSettings.treeMtl[index], envSettings.treeMtl[index], treeTufts, scene, copySettings = {
             randPosition: {
