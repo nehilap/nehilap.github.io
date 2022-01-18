@@ -85,21 +85,20 @@ function basicLights() {
 }
 
 function sunsetLights() {
-    // yellow hemisphere light adds effect of sunset
+    // yellow ambientLight light adds effect of sunset
     const skyColor = 'rgb(255, 200, 50)';
-    const groundColor = 0xB1E1FF;
     const intensity = 0.7;
-    const hemiLight = new THREE.HemisphereLight(skyColor, groundColor, intensity);
-    scene.add(hemiLight);
+    const ambientLight = new THREE.AmbientLight(skyColor, intensity);
+    scene.add(ambientLight);
 
     // switched to spotlight for better shadow quality
     let spotLight = new THREE.SpotLight('rgb(255,255,255)');
-    spotLight.position.set(+70, 30, -15);
+    spotLight.position.set(+70, 30, -5);
     spotLight.intensity = 1;
     spotLight.penumbra = 0.2;
     spotLight.castShadow = true;
 
-    spotLight.shadow.bias = 0.0000;
+    spotLight.shadow.bias = -0.00001;
     spotLight.shadow.mapSize.width = maxShadowMapSize;
     spotLight.shadow.mapSize.height = maxShadowMapSize;
 

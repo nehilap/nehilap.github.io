@@ -298,32 +298,32 @@
 					<canvas height="80" width="100" id="smallCanvas"></canvas>
 					<div class="controls">
 						<div class="top full-w center-flex">
-							<span id="current_part" class="status small-text">Hlava</span>
+							<span aria-label="Aktuálna časť" id="current_part" class="status small-text">Hlava</span>
 						</div>
 						<div class="left full-h darker-hover">
-							<div id="switch_animal_part_left" class="round button">
+							<div title="Prepnúť zvieratko vľavo" aria-label="Prepnúť zvieratko vľavo" id="switch_animal_part_left" class="round button">
 								<i class="fa fa-arrow-left" aria-hidden="true"></i>
 							</div>
 						</div>
 						<div class="right full-h darker-hover">
-							<div id="stopRotationButton" class="round button flex-top">
+							<div title="Pozastaviť / prehrať otáčanie" aria-label="Pozastaviť / prehrať otáčanie" id="stopRotationButton" class="round button flex-top">
 								<i class="fa fa-pause" aria-hidden="true"></i>
 							</div>
-							<div id="switch_animal_part_right" class="round button">
+							<div title="Prepnúť zvieratko vpravo" aria-label="Prepnúť zvieratko vpravo" id="switch_animal_part_right" class="round button">
 								<i class="fa fa-arrow-right" aria-hidden="true"></i>
 							</div>
 						</div>
 						<div class="bottom full-w center-flex darker-hover">
-							<div id="set_part" class="round button">
+							<div title="Pridať časť zvieratka" aria-label="Pridať časť zvieratka" id="set_part" class="round button">
 								<i class="fa fa-check" aria-hidden="true"></i>
 							</div>
-							<div id="switch_animal_part_category" class="round button">
+							<div title="Prepnúť kategóriu" aria-label="Prepnúť kategóriu" id="switch_animal_part_category" class="round button">
 								<i class="fa fa-arrow-down" aria-hidden="true"></i>
 							</div>
-							<div id="remove_part" class="round button">
+							<div title="Odstrániť časť" aria-label="Odstrániť časť" id="remove_part" class="round button">
 								<i class="fa fa-times" aria-hidden="true"></i>
 							</div>
-							<div id="reset_all_parts" class="round button">
+							<div title="Odstrániť celé zvieratko" aria-label="Odstrániť celé zvieratko" id="reset_all_parts" class="round button">
 								<i class="fa fa-undo" aria-hidden="true"></i>
 							</div>
 						</div>
@@ -344,52 +344,52 @@
 						<i class="fa fa-lightbulb-o badge" aria-hidden="true"></i>Zmeniť svetlo</div>
 					<div>Hustota trávnika:</div>
 					<div class="flex-row">
-						<div id="0" class="round button" title="0">
+						<div id="0" class="round button" title="0"  aria-label="0">
 							0
 						</div>
-						<div id="-" class="round button" title="-2000">
+						<div id="-" class="round button" title="-2000"  aria-label="-2000">
 							<img class="text-sized-img" src="./images/minus.png">
 						</div>
-						<div id="+" class="round button" title="+100">
+						<div id="+" class="round button" title="+100"  aria-label="+100">
 							<img class="text-sized-img" src="./images/plus.png">
 						</div>
-						<div id="++" class="round button" title="+1000">
+						<div id="++" class="round button" title="+1000"  aria-label="+1000">
 							<img class="text-sized-img" src="./images/plusplus.png">
 						</div>
-						<div id="+++" class="round button" title="+10000">
+						<div id="+++" class="round button" title="+10000"  aria-label="+10000">
 							<img class="text-sized-img" src="./images/plusplusplus.png">
 						</div>
 					</div>
 					<div>Farby trávnika:</div>
 					<div class="flex-row">
-						<div id="grass_yellow" class="round button" title="Žltkastá">
+						<div id="grass_yellow" class="round button" title="Žltkastá"  aria-label="Žltkastá">
 							<span class="grass_yellow">▇</span>
 						</div>
-						<div id="grass_normal" class="round button active" title="Normálna">
+						<div id="grass_normal" class="round button active" title="Normálna"  aria-label="Normálna">
 							<span class="grass_normal">▇</span>
 						</div>
-						<div id="grass_lively" class="round button" title="Jasná zelená">
+						<div id="grass_lively" class="round button" title="Jasná zelená"  aria-label="Jasná zelená">
 							<span class="grass_lively">▇</span>
 						</div>
-						<div id="grass_dark" class="round button" title="Tmavá zelená">
+						<div id="grass_dark" class="round button" title="Tmavá zelená"  aria-label="Tmavá zelená">
 							<span class="grass_dark">▇</span>
 						</div>
 					</div>
 					<div>Hustota Stromov:</div>
 					<div class="flex-row">
-						<div id="0_tree" class="round button" title="0">
+						<div id="0_tree" class="round button" title="0"  aria-label="0">
 							0
 						</div>
-						<div id="-_tree" class="round button" title="-50">
+						<div id="-_tree" class="round button" title="-50"  aria-label="-50">
 							<img class="text-sized-img" src="./images/minus.png">
 						</div>
-						<div id="+_tree" class="round button" title="+5">
+						<div id="+_tree" class="round button" title="+5"  aria-label="+5">
 							<img class="text-sized-img" src="./images/plus.png">
 						</div>
-						<div id="++_tree" class="round button" title="+20">
+						<div id="++_tree" class="round button" title="+20"  aria-label="+20">
 							<img class="text-sized-img" src="./images/plusplus.png">
 						</div>
-						<div id="+++_tree" class="round button" title="+100">
+						<div id="+++_tree" class="round button" title="+100"  aria-label="+100">
 							<img class="text-sized-img" src="./images/plusplusplus.png">
 						</div>
 					</div>
@@ -410,13 +410,13 @@
 					</div>
 					<div>Farby zeme:</div>
 					<div class="flex-row">
-						<div id="ground_yellow" class="round button" title="Žltkastá">
+						<div id="ground_yellow" class="round button" title="Žltkastá" aria-label="Žltkastá">
 							<span class="ground_yellow">▇</span>
 						</div>
-						<div id="ground_normal" class="round button active" title="Normálna">
+						<div id="ground_normal" class="round button active" title="Normálna zelená" aria-label="Normálna zelená">
 							<span class="ground_normal">▇</span>
 						</div>
-						<div id="ground_dark" class="round button" title="Tmavá">
+						<div id="ground_dark" class="round button" title="Tmavá zelená" aria-label="Tmavá zelená">
 							<span class="ground_dark">▇</span>
 						</div>
 					</div>
@@ -432,16 +432,16 @@
 
 			<!-- Bottom round menu buttons -->
 			<div class="flex-row" id="general_menu">
-				<div id="hide_menu" class="round button" title="Skryť menu">
+				<div title="Skryť menu" aria-label="Skryť menu" id="hide_menu" class="round button" title="Skryť menu">
 					<i class="fa fa-backward" aria-hidden="true"></i>
 				</div>
-				<div id="show_tutorial" class="round button" title="Návod">
+				<div title="Otvoriť návod" aria-label="Otvoriť návod" id="show_tutorial" class="round button" title="Návod">
 					<i class="fa fa-question" aria-hidden="true"></i>
 				</div>
-				<div id="show_credits" class="round button" title="Zdroje">
+				<div title="O nás, zdroje" aria-label="O nás, zdroje" id="show_credits" class="round button" title="Zdroje">
 					<i class="fa fa-list" aria-hidden="true"></i>
 				</div>
-				<div id="toggle_sound" class="round button active" title="Zvuky">
+				<div title="Vypnúť / zapnúť zvuky" aria-label="Vypnúť / zapnúť zvuky" id="toggle_sound" class="round button active" title="Zvuky">
 					<i class="fa fa-music" aria-hidden="true"></i>
 				</div>
 			</div>
@@ -452,7 +452,7 @@
 			<i class="fa fa-forward" aria-hidden="true"></i>
 		</div>
 		<div id="mainCanvas" class="main-canvas center-flex">
-			<div id='gameStatus' class="status"></div>
+			<div aria-label="Cieľ hry" id='gameStatus' class="status"></div>
 		</div>
 	</div>
 

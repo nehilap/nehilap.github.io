@@ -69,10 +69,6 @@ animate();
  * Initializes scene with default settings, addsObjects to scene, initializes some global vars
  */
 function init() {
-	screen.lockOrientationUniversal = screen.lockOrientation || screen.mozLockOrientation || screen.msLockOrientation;
-
-	screen.lockOrientationUniversal("landscape");
-
 	for (let i = 0; i < animalParts.length; i++) {
 		currentAnimalParts.push(null)
 	}
