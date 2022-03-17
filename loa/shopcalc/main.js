@@ -32,6 +32,7 @@ form.addEventListener("submit", function (event) {
 
 	localStorage.setItem("history", JSON.stringify(history));
 	setHistory(history);
+	addUrlParameters(data);
 });
 
 function setHistory(history) {
