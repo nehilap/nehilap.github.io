@@ -23,16 +23,16 @@
 	
 			<form class="wrapper" id="calculateForm">
 				<label class="required" for="nItems">Number of items:</label>
-				<input type="number" id="nItems" name="nItems" required>
+				<input type="number" id="nItems" name="nItems" required  step="0.01">
 				<label class="required" for="cCost">Crystal cost:</label>
-				<input type="number" id="cCost" name="cCost" required>
+				<input type="number" id="cCost" name="cCost" required  step="0.01">
 				<label class="required" for="cPrice">Price of crystals (per 95):</label>
-				<input type="number" id="cPrice" name="cPrice" required>
-				<label class="required" for="iCost">Market item cost (per 1):</label>
-				<input type="number" id="iCost" name="iCost" required>
-				<label for="iCraft">Craft item cost (per 1):</label>
+				<input type="number" id="cPrice" name="cPrice" required  step="0.01">
+				<label class="required" for="iCost">Market item cost (per 1, not bundle):</label>
+				<input type="number" id="iCost" name="iCost" required  step="0.01">
+				<label for="iCraft">Craft item cost (per 1, not bundle):</label>
 				<input type="number" id="iCraft" name="iCraft">
-				<input class="button w-50" type="submit" value="Submit">
+				<input class="button w-50" type="submit" value="Submit"  step="0.01">
 			</form>
 	
 			<div>
