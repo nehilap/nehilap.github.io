@@ -18,6 +18,7 @@ form.addEventListener("submit", function (event) {
 		nItems: document.getElementById("nItems").value,
 		cCost: document.getElementById("cCost").value,
 		cPrice: document.getElementById("cPrice").value,
+		nBundle: document.getElementById("nBundle").value,
 		iCost: document.getElementById("iCost").value,
 		iCraft: document.getElementById("iCraft").value
 	}
@@ -62,6 +63,7 @@ function reuseData(data) {
 	document.getElementById("nItems").value = data.nItems;
 	document.getElementById("cCost").value = data.cCost;
 	document.getElementById("cPrice").value = data.cPrice;
+	document.getElementById("nBundle").value = data.nBundle;
 	document.getElementById("iCost").value = data.iCost;
 	document.getElementById("iCraft").value = data.iCraft;
 
@@ -70,7 +72,7 @@ function reuseData(data) {
 
 function calculateOut(data) {
 	outCCost.innerText = (data.cPrice / 95 * data.cCost).toFixed(3);
-	outCValue.innerText = (data.nItems * data.iCost).toFixed(3);
+	outCValue.innerText = (data.nItems * data.iCost / data.nBundle).toFixed(3);
 	outCrCost.innerText = (data.nItems * data.iCraft).toFixed(3);
 }
 
