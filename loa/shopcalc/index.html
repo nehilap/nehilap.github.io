@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>LOA calc</title>
+	<link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<h1>Lost ark cost calculator</h1>
+
+		<form class="wrapper" id="calculateForm">
+			<label for="nItems">Number of items:</label>
+			<input type="number" id="nItems" name="nItems" required>
+			<label for="cCost">Crystal cost:</label>
+			<input type="number" id="cCost" name="cCost" required>
+			<label for="cPrice">Price of crystals (per 95):</label>
+			<input type="number" id="cPrice" name="cPrice" required>
+			<label for="iCost">Market item cost (per 1):</label>
+			<input type="number" id="iCost" name="iCost" required>
+			<label for="iCraft">Craft item cost (per 1):</label>
+			<input type="number" id="iCraft" name="iCraft">
+			<input class="button w-50" type="submit" value="Submit">
+		</form>
+	
+		<div>
+			<table>
+				<tr>
+					<th>Crystal cost</th>
+					<th>Crystal market value</th>
+					<th>Total craft cost</th>
+				</tr>
+				<tr>
+					<td id="outCCost"></td>
+					<td id="outCValue"></td>
+					<td id="outCrCost"></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+</body>
+<script src="./main.js"></script>
+
+</html>

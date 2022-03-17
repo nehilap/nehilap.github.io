@@ -1,0 +1,88 @@
+html,
+body {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+    font-size: 1em;
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.wrapper{
+	margin-top: 2em;
+
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.wrapper label{
+	align-self: flex-start;
+}
+
+.wrapper > *{
+	width: 50%;
+}
+
+.wrapper form > *{
+	width: 100%;
+}
+
+
+input[type=submit] {
+	border: none;
+}
+
+.button {
+    font-size: 1.15em;
+    margin: 0.5em;
+    background: linear-gradient(170deg, #f5940d 30%, #e2247d 70%);
+    background-size: 200% 100%;
+    background-position: 0px 0px;
+    border-radius: 1.15em;
+    padding: 0.5em;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease-in;
+    position: relative;
+}
+
+.button:hover,
+button:hover {
+    cursor: pointer;
+    background-position-x: 40%;
+}
+
+.button::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: -0.3em;
+    height: 100%;
+    width: 45%;
+    opacity: 0;
+    border-radius: inherit;
+    /* Declaring our shadow color inherit from the parent (button) */
+    background: inherit;
+    /* Transition for the magic */
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+.w-50 {
+	width: 50% !important;
+}
