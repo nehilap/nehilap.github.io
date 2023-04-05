@@ -1,0 +1,230 @@
+html,
+body {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+    font-size: 1em;
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+	font-size: 1.15em;
+}
+
+.organizer {
+	display: flex;
+	flex: 1 1;
+}
+
+.organizer.inside {
+    flex: 0 0;
+}
+
+input[type=submit], button {
+	font: inherit
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.wrapper{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.wrapper label{
+	align-self: flex-start;
+}
+
+.wrapper > *{
+	width: 100%;
+}
+
+input[type=submit], button {
+	border: none;
+}
+
+input[type=number] {
+	border: none;
+	margin-bottom: 1em;
+	margin-top: 0.5em;
+	border-bottom: 2px solid rgb(54, 54, 54);
+	font-size: 0.9em;
+}
+
+.required:after {
+    content:" *";
+    color: red;
+  }
+
+.button {
+    font-size: 1em;
+    margin: 0.5em;
+    background: linear-gradient(170deg, rgb(22, 24, 48) 30%, #24dce2 70%);
+    background-size: 200% 100%;
+    background-position: 0px 0px;
+    border-radius: 1.15em;
+    padding: 0.5em;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease-in;
+    position: relative;
+    color:rgb(218, 218, 218);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button:hover,
+button:hover {
+    cursor: pointer;
+    background-position-x: 60%;
+}
+
+.button::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: -0.3em;
+    height: 100%;
+    width: 45%;
+    opacity: 0;
+    border-radius: inherit;
+    /* Declaring our shadow color inherit from the parent (button) */
+    background: inherit;
+    /* Transition for the magic */
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+.button:hover::after {
+    /* Changing blur effect */
+    -webkit-filter: blur(4px);
+    -moz-filter: blur(4px);
+    -o-filter: blur(4px);
+    -ms-filter: blur(4px);
+    filter: blur(4px);
+    /* And change the style properties */
+    opacity: 0.8;
+    width: 99%;
+}
+
+
+table {
+    width: 100%;
+	font-size: 1em;
+}
+
+table,
+th,
+td,
+thead {
+    border: none;
+    border-collapse: collapse;
+}
+
+thead {
+	border-bottom: black solid 2px;
+	padding-bottom: 5em;
+}
+
+td {
+    padding: 0;
+	text-align: right;
+}
+
+.top {
+    position: absolute;
+    top: 0%;
+    border-radius: 1em 1em 0 0;
+}
+
+.left {
+    position: absolute;
+    left: 0em;
+    border-radius: 1em 0 0em 1em;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.w-50 {
+	width: 50% !important;
+}
+
+.w-25 {
+	width: 25% !important;
+}
+
+.box {
+	height: 100vh;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+.menu a{
+	overflow-wrap: anywhere;
+	padding-bottom: 0.5em;
+}
+
+/*
+a,
+a:visited {
+    color: inherit;
+	text-decoration: none;
+}
+*/
+footer {
+    width: 100%;
+    height: 2.5em;
+    line-height: 2.5em;
+    text-align: center;
+    font-size: 1em;
+    background-color: rgb(22, 24, 48);
+    color: rgb(218, 218, 218);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.hidden,
+.hidden * {
+    display: none !important;
+}
+
+h1, .centered {
+    text-align: center;
+}
+
+.card {
+    margin: 2em;
+    transition: all 0.3s ease-out;
+}
+
+.card:hover {
+    cursor: pointer;
+    -webkit-box-shadow: 5px 4px 7px 0px rgba(0,0,0,0.68); 
+    box-shadow: 5px 4px 7px 0px rgba(0,0,0,0.68);
+}
+
+.card .img {
+    float: left;
+    width:  100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardText {
+    margin: 0.5em;
+    font-size: 0.8em;
+}
