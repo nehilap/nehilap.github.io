@@ -22,8 +22,9 @@ var searchData=
   ['ringtarget_19',['ringTarget',['../class_targets_helper.html#a3813a9b2d106f1087f53927fae47da8b',1,'TargetsHelper']]],
   ['ringtargettemplate_20',['ringTargetTemplate',['../class_targets_helper.html#a96b0169fa342dc0434185d5bf962bf40',1,'TargetsHelper']]],
   ['role_21',['role',['../struct_structs_1_1_character_message.html#ac656db21c3d87184b31a5737b89e76d4',1,'Structs::CharacterMessage']]],
-  ['rootbone_22',['rootBone',['../class_avatar_setup.html#a9ce04b978effa815801bba6d475013e9',1,'AvatarSetup']]],
-  ['rotation_23',['rotation',['../class_neuro_rehab_1_1_mappings_1_1_pos_rot_mapping.html#ad7d70ef53a778cec4e543bccc074da4c',1,'NeuroRehab::Mappings::PosRotMapping']]],
-  ['rotationdiff_24',['rotationDiff',['../class_follow_object.html#a548e4c4ff8defd3ea1a8493fd68aeeeb',1,'FollowObject']]],
-  ['rotationoffset_25',['rotationOffset',['../class_map_transforms.html#aaa57f3cae530dff671889dfc98304775',1,'MapTransforms']]]
+  ['rolesettings_22',['roleSettings',['../class_settings_manager.html#aa40d663b20d289bbfee518cf03fef646',1,'SettingsManager']]],
+  ['rootbone_23',['rootBone',['../class_avatar_setup.html#a9ce04b978effa815801bba6d475013e9',1,'AvatarSetup']]],
+  ['rotation_24',['rotation',['../class_neuro_rehab_1_1_mappings_1_1_pos_rot_mapping.html#ad7d70ef53a778cec4e543bccc074da4c',1,'NeuroRehab::Mappings::PosRotMapping']]],
+  ['rotationdiff_25',['rotationDiff',['../class_follow_object.html#a548e4c4ff8defd3ea1a8493fd68aeeeb',1,'FollowObject']]],
+  ['rotationoffset_26',['rotationOffset',['../class_map_transforms.html#aaa57f3cae530dff671889dfc98304775',1,'MapTransforms']]]
 ];

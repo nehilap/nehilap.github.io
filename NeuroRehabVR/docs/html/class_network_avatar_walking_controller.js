@@ -21,6 +21,7 @@ var class_network_avatar_walking_controller =
     [ "updateStopAnimation", "class_network_avatar_walking_controller.html#a41f828126e19e2705e25652bb84212ba", null ],
     [ "animator", "class_network_avatar_walking_controller.html#ae1a6fefd80f1cf1a0b607becf8723175", null ],
     [ "avatarModelManager", "class_network_avatar_walking_controller.html#adaf0d51938f2c7b53761636d26c5b621", null ],
+    [ "cameraTransform", "class_network_avatar_walking_controller.html#aee5213f37fdc2e226f2168ff8196991a", null ],
     [ "femaleAnimator", "class_network_avatar_walking_controller.html#abba50e1a09f28f11dcb2b96cf53be698", null ],
     [ "headMove", "class_network_avatar_walking_controller.html#ace90634fa9ed784d4cacf5a73f02fdd8", null ],
     [ "headMoveDuration", "class_network_avatar_walking_controller.html#a226b03721a29c0a123dbd2e623726a55", null ],

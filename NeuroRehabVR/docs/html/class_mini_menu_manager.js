@@ -1,6 +1,7 @@
 var class_mini_menu_manager =
 [
     [ "Awake", "class_mini_menu_manager.html#ac72153eba0d6b5944fea2008fbe71a11", null ],
+    [ "initMenu", "class_mini_menu_manager.html#a0db8ee6cd9a86f87a3707ea4204c0857", null ],
     [ "OnDisable", "class_mini_menu_manager.html#a9d3760ecfc422f2360337c28d3ae473e", null ],
     [ "OnEnable", "class_mini_menu_manager.html#ab9f8900bb995badfdbfa0352c0050be3", null ],
     [ "resetMenu", "class_mini_menu_manager.html#a37e275140077ed528fe9c826b0e61b45", null ],
@@ -11,6 +12,7 @@ var class_mini_menu_manager =
     [ "lockCursor", "class_mini_menu_manager.html#a962c67156a908ddb1fb2f01b8d465a84", null ],
     [ "menuAction", "class_mini_menu_manager.html#a2a1de10a13b8242ffd5924e96fe95295", null ],
     [ "menuHolder", "class_mini_menu_manager.html#a3c8e3b143fba818301e55ed245b44a77", null ],
+    [ "menuInitialized", "class_mini_menu_manager.html#a274d4527444eeee84b9e5e98b1e4ae0d", null ],
     [ "menuNameToShow", "class_mini_menu_manager.html#a96874fe6313d6ba2841ae21cabf08c09", null ],
     [ "menuToShow", "class_mini_menu_manager.html#a8a32eefcbeee90fa357faeba8db9fb48", null ],
     [ "miniMenuVisibilityManager", "class_mini_menu_manager.html#a2eefdc7245b937a2f03661120d3eb976", null ],

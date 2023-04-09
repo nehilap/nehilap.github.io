@@ -12,5 +12,6 @@ var searchData=
   ['spawnedmarkers_9',['spawnedMarkers',['../class_animation_settings_manager.html#ad3255b8db00316620aee75d8593a81fc',1,'AnimationSettingsManager']]],
   ['standardizedreferenceheight_10',['standardizedReferenceHeight',['../class_avatar_controller.html#a2bdf1aa1d1175de174f3099db5b797b8',1,'AvatarController']]],
   ['startvalue_11',['startValue',['../class_rig_lerp.html#acbf3736c5f6a461e8f51a5f5beb386e1',1,'RigLerp']]],
-  ['strafedirection_12',['strafeDirection',['../class_network_avatar_walking_controller.html#ab73decd652baa08ee17f06f508490102',1,'NetworkAvatarWalkingController']]]
+  ['statusmessagemanagers_12',['statusMessageManagers',['../class_message_manager.html#a5e0f825a211d047c82733c97a03ea3b0',1,'MessageManager']]],
+  ['strafedirection_13',['strafeDirection',['../class_network_avatar_walking_controller.html#ab73decd652baa08ee17f06f508490102',1,'NetworkAvatarWalkingController']]]
 ];

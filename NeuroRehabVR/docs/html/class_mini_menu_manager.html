@@ -90,21 +90,33 @@ $(document).ready(function(){initNavTree('class_mini_menu_manager.html',''); ini
 
 <div class="header">
   <div class="summary">
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_mini_menu_manager-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">MiniMenuManager Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>Inherits MonoBehaviour.</p>
+<div class="dynheader">
+Inheritance diagram for MiniMenuManager:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_mini_menu_manager.png" alt=""/>
+ </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a5b789e91576c6449d4f65867fbb48fe4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mini_menu_manager.html#a5b789e91576c6449d4f65867fbb48fe4">isMenuShowing</a> = false</td></tr>
+<tr class="separator:a5b789e91576c6449d4f65867fbb48fe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:ac72153eba0d6b5944fea2008fbe71a11"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mini_menu_manager.html#ac72153eba0d6b5944fea2008fbe71a11">Awake</a> ()</td></tr>
 <tr class="separator:ac72153eba0d6b5944fea2008fbe71a11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38e321aeefb5d1d097eed63067ed6e4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mini_menu_manager.html#a38e321aeefb5d1d097eed63067ed6e4a">Start</a> ()</td></tr>
 <tr class="separator:a38e321aeefb5d1d097eed63067ed6e4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0db8ee6cd9a86f87a3707ea4204c0857"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mini_menu_manager.html#a0db8ee6cd9a86f87a3707ea4204c0857">initMenu</a> ()</td></tr>
+<tr class="separator:a0db8ee6cd9a86f87a3707ea4204c0857"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9f8900bb995badfdbfa0352c0050be3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mini_menu_manager.html#ab9f8900bb995badfdbfa0352c0050be3">OnEnable</a> ()</td></tr>
 <tr class="separator:ab9f8900bb995badfdbfa0352c0050be3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d3760ecfc422f2360337c28d3ae473e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mini_menu_manager.html#a9d3760ecfc422f2360337c28d3ae473e">OnDisable</a> ()</td></tr>
@@ -146,8 +158,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a911aea0ac710b66748c35d6bc9c01b6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b2a9f63fd6ef31c22905d47b517a52d"><td class="memItemLeft" align="right" valign="top">Transform&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mini_menu_manager.html#a2b2a9f63fd6ef31c22905d47b517a52d">originalMenuParent</a></td></tr>
 <tr class="separator:a2b2a9f63fd6ef31c22905d47b517a52d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b789e91576c6449d4f65867fbb48fe4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mini_menu_manager.html#a5b789e91576c6449d4f65867fbb48fe4">isMenuShowing</a> = false</td></tr>
-<tr class="separator:a5b789e91576c6449d4f65867fbb48fe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a274d4527444eeee84b9e5e98b1e4ae0d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mini_menu_manager.html#a274d4527444eeee84b9e5e98b1e4ae0d">menuInitialized</a> = false</td></tr>
+<tr class="separator:a274d4527444eeee84b9e5e98b1e4ae0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ac72153eba0d6b5944fea2008fbe71a11" name="ac72153eba0d6b5944fea2008fbe71a11"></a>
@@ -161,6 +173,31 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">void MiniMenuManager.Awake </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0db8ee6cd9a86f87a3707ea4204c0857" name="a0db8ee6cd9a86f87a3707ea4204c0857"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0db8ee6cd9a86f87a3707ea4204c0857">&#9670;&#160;</a></span>initMenu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MiniMenuManager.initMenu </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -307,19 +344,11 @@ Private Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool MiniMenuManager.isMenuShowing = false</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -401,6 +430,28 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">Transform MiniMenuManager.menuHolder</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a274d4527444eeee84b9e5e98b1e4ae0d" name="a274d4527444eeee84b9e5e98b1e4ae0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a274d4527444eeee84b9e5e98b1e4ae0d">&#9670;&#160;</a></span>menuInitialized</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MiniMenuManager.menuInitialized = false</td>
         </tr>
       </table>
   </td>

@@ -9,6 +9,7 @@ var class_avatar_walking_controller =
     [ "stopAnimateLegsAction", "class_avatar_walking_controller.html#a65163183197502af0066f7c509603b6a", null ],
     [ "Update", "class_avatar_walking_controller.html#ab1098c7cc4561ed885eaceeb271c2797", null ],
     [ "animator", "class_avatar_walking_controller.html#aaa326b0600d87b5914b74d2325d60b83", null ],
+    [ "cameraTransform", "class_avatar_walking_controller.html#afdc74120677a80c1fc795dc5699bb936", null ],
     [ "headMove", "class_avatar_walking_controller.html#abc6d0466f1717e72b4790591930b880f", null ],
     [ "headMoveDuration", "class_avatar_walking_controller.html#a5b67c7fa0d2d9e81989409caf20ca207", null ],
     [ "headMoveTreshold", "class_avatar_walking_controller.html#a4bb1ae9afece163359de24d97cb0d36b", null ],

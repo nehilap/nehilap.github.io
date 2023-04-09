@@ -15,5 +15,6 @@ var class_therapist_menu_manager =
     [ "setPatientAnimatedArm", "class_therapist_menu_manager.html#af3f5132903d47b96b94bd8ec57558f9d", null ],
     [ "sitAcrossTableHandler", "class_therapist_menu_manager.html#a7743a765b4a0e3d6ece4142df5db5e4a", null ],
     [ "sitPatientHandler", "class_therapist_menu_manager.html#a6bf7d1c04c372805da8a80de3d3c837b", null ],
-    [ "stopAnimationHandler", "class_therapist_menu_manager.html#a2e6da205a8faa07ae3e16523725a51f6", null ]
+    [ "stopAnimationHandler", "class_therapist_menu_manager.html#a2e6da205a8faa07ae3e16523725a51f6", null ],
+    [ "animationCanvases", "class_therapist_menu_manager.html#aebeaa1b89da94a4a5bbc27f662dda721", null ]
 ];

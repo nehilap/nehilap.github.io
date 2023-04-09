@@ -98,8 +98,12 @@ $(document).ready(function(){initNavTree('class_network_character_manager.html',
   <div class="headertitle"><div class="title">NetworkCharacterManager Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>Inherits NetworkBehaviour.</p>
+<div class="dynheader">
+Inheritance diagram for NetworkCharacterManager:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_network_character_manager.png" alt=""/>
+ </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -140,10 +144,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a86f008a4ab1ecb68fa258d35d5bf54c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b72d29e02fe25e25d21109f3556bd25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_character_manager.html#a3b72d29e02fe25e25d21109f3556bd25">CmdStartAnimationShowcase</a> ()</td></tr>
 <tr class="separator:a3b72d29e02fe25e25d21109f3556bd25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62b716266e7a9465c066d36abcf0dff5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_character_manager.html#a62b716266e7a9465c066d36abcf0dff5">CmdStartAnimation</a> ()</td></tr>
-<tr class="separator:a62b716266e7a9465c066d36abcf0dff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a023c6d0bb3217c7f899a9ca344f61a97"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_character_manager.html#a023c6d0bb3217c7f899a9ca344f61a97">CmdStopAnimation</a> ()</td></tr>
-<tr class="separator:a023c6d0bb3217c7f899a9ca344f61a97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf6b797ba17764d4c1c47cd132c3fe39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_character_manager.html#abf6b797ba17764d4c1c47cd132c3fe39">CmdStartTraining</a> ()</td></tr>
+<tr class="separator:abf6b797ba17764d4c1c47cd132c3fe39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5672047037c04ad6f695edfa8c0be714"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_character_manager.html#a5672047037c04ad6f695edfa8c0be714">CmdStopTraining</a> ()</td></tr>
+<tr class="separator:a5672047037c04ad6f695edfa8c0be714"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacc48156bb6a2500300270c5a4c0186f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_character_manager.html#aacc48156bb6a2500300270c5a4c0186f">CmdCancelTraining</a> ()</td></tr>
+<tr class="separator:aacc48156bb6a2500300270c5a4c0186f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae09da83a53b1c9827836ec4e11caa04f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_character_manager.html#ae09da83a53b1c9827836ec4e11caa04f">CmdProgressAnimationStep</a> ()</td></tr>
 <tr class="separator:ae09da83a53b1c9827836ec4e11caa04f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae874f4913497d027a6f12e50773b9941"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_character_manager.html#ae874f4913497d027a6f12e50773b9941">CmdSetArmRestPosition</a> (NetworkIdentity patientIdentity)</td></tr>
@@ -156,9 +162,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a187096451859a924281f721e63cd31bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_character_manager.html#a187096451859a924281f721e63cd31bf">CmdMoveTable</a> (Vector3 offset, NetworkIdentity caller)</td></tr>
 <tr class="memdesc:a187096451859a924281f721e63cd31bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to move table up or down. On top of moving table we also have to change ALL markers and target object as well.  <br /></td></tr>
 <tr class="separator:a187096451859a924281f721e63cd31bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6ddf62a5b6bd9a58c17f61e848f6f74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_character_manager.html#aa6ddf62a5b6bd9a58c17f61e848f6f74">TargetMoveObject</a> (NetworkConnection connection, Vector3 offset)</td></tr>
-<tr class="memdesc:aa6ddf62a5b6bd9a58c17f61e848f6f74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving target object(s) on client.  <br /></td></tr>
-<tr class="separator:aa6ddf62a5b6bd9a58c17f61e848f6f74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2848a3600ac9b8157f55d5ed4cee209d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_character_manager.html#a2848a3600ac9b8157f55d5ed4cee209d">TargetMoveObjects</a> (NetworkConnection connection, Vector3 offset)</td></tr>
+<tr class="memdesc:a2848a3600ac9b8157f55d5ed4cee209d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving target object(s) on client.  <br /></td></tr>
+<tr class="separator:a2848a3600ac9b8157f55d5ed4cee209d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57576500889a23a66839848b6be1d73d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_character_manager.html#a57576500889a23a66839848b6be1d73d">CmdMovePatient</a> (Vector3 offset, NetworkIdentity patientId)</td></tr>
 <tr class="memdesc:a57576500889a23a66839848b6be1d73d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to move patient object by offset.  <br /></td></tr>
 <tr class="separator:a57576500889a23a66839848b6be1d73d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -167,6 +173,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae6fdb9a98e009654d07b3c81df47c5a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1af32ed85ef11c83dcf7f8663855870b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_character_manager.html#a1af32ed85ef11c83dcf7f8663855870b">CmdSetActiveArm</a> (bool isLeftAnimated, NetworkIdentity patientId)</td></tr>
 <tr class="separator:a1af32ed85ef11c83dcf7f8663855870b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b790f988326cdf9e926efa694cf867c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_character_manager.html#a0b790f988326cdf9e926efa694cf867c">TargetTransformObject</a> (NetworkConnection connection, <a class="el" href="class_neuro_rehab_1_1_mappings_1_1_pos_rot_mapping.html">PosRotMapping</a> mapping, NetworkIdentity itemId, bool resetStartPost)</td></tr>
+<tr class="separator:a0b790f988326cdf9e926efa694cf867c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4090bda718dcaad2d88d8218d2b5531"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_character_manager.html#af4090bda718dcaad2d88d8218d2b5531">startCountdown</a> (float duration, string extraText)</td></tr>
+<tr class="separator:af4090bda718dcaad2d88d8218d2b5531"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0c55df17ddc7da0607e564bd4a234bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_character_manager.html#aa0c55df17ddc7da0607e564bd4a234bc">pauseCountdown</a> (string extraText)</td></tr>
+<tr class="separator:aa0c55df17ddc7da0607e564bd4a234bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9b6262c19e3d31c8121fced36d4a7e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_character_manager.html#aa9b6262c19e3d31c8121fced36d4a7e1">stopCountdown</a> ()</td></tr>
+<tr class="separator:aa9b6262c19e3d31c8121fced36d4a7e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac559d22d4f21cc1f700e06d7af712731"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_character_manager.html#ac559d22d4f21cc1f700e06d7af712731">trainingStarted</a> ()</td></tr>
+<tr class="separator:ac559d22d4f21cc1f700e06d7af712731"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b89b51e119ddd82be2cb2e28eaa65e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_character_manager.html#a8b89b51e119ddd82be2cb2e28eaa65e6">trainingStopped</a> ()</td></tr>
+<tr class="separator:a8b89b51e119ddd82be2cb2e28eaa65e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
@@ -182,9 +200,11 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:af4ce20d2f1fa7abd93613d71ec49e2af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_character_manager.html#af4ce20d2f1fa7abd93613d71ec49e2af">setAnimationStartPosition</a> ()</td></tr>
 <tr class="memdesc:af4ce20d2f1fa7abd93613d71ec49e2af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes or Adds new start position.  <br /></td></tr>
 <tr class="separator:af4ce20d2f1fa7abd93613d71ec49e2af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1351d1633f5c7e7896e0081af6f35005"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_neuro_rehab_1_1_mappings_1_1_pos_rot_mapping.html">PosRotMapping</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_character_manager.html#a1351d1633f5c7e7896e0081af6f35005">getPosRotFromObject</a> ()</td></tr>
-<tr class="memdesc:a1351d1633f5c7e7896e0081af6f35005"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper method for getting posRot of current target object.  <br /></td></tr>
-<tr class="separator:a1351d1633f5c7e7896e0081af6f35005"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38d676fc5c4dbca9ed95b688e46cd1d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_character_manager.html#a38d676fc5c4dbca9ed95b688e46cd1d9">setAnimationStartPosition</a> (<a class="el" href="class_neuro_rehab_1_1_mappings_1_1_pos_rot_mapping.html">PosRotMapping</a> targetPosRotMapping)</td></tr>
+<tr class="separator:a38d676fc5c4dbca9ed95b688e46cd1d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd0bd6669b184d3fc60b6a56c2aa2561"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_neuro_rehab_1_1_mappings_1_1_pos_rot_mapping.html">PosRotMapping</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_character_manager.html#afd0bd6669b184d3fc60b6a56c2aa2561">getPosRotFromCurrentObject</a> ()</td></tr>
+<tr class="memdesc:afd0bd6669b184d3fc60b6a56c2aa2561"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper method for getting posRot of current target object.  <br /></td></tr>
+<tr class="separator:afd0bd6669b184d3fc60b6a56c2aa2561"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5271e4100b1d34bf542a137ccb36bbe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_character_manager.html#ad5271e4100b1d34bf542a137ccb36bbe">setLockPosition</a> (<a class="el" href="class_neuro_rehab_1_1_mappings_1_1_pos_rot_mapping.html">PosRotMapping</a> lockTargetPosRot)</td></tr>
 <tr class="memdesc:ad5271e4100b1d34bf542a137ccb36bbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the lock position at the end of synclist.  <br /></td></tr>
 <tr class="separator:ad5271e4100b1d34bf542a137ccb36bbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -202,6 +222,10 @@ Private Attributes</h2></td></tr>
 <tr class="separator:aad76855eb91eeef4c971ad4593a469f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aacf518be52741fbab7844fac131cde7f"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_character_manager.html#aacf518be52741fbab7844fac131cde7f">spawnArea</a></td></tr>
 <tr class="separator:aacf518be52741fbab7844fac131cde7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a657b6ee4fc4320ad78bd8e53c9374d08"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_countdown_manager.html">CountdownManager</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_character_manager.html#a657b6ee4fc4320ad78bd8e53c9374d08">countdownManagers</a> = new List&lt;<a class="el" href="class_countdown_manager.html">CountdownManager</a>&gt;()</td></tr>
+<tr class="separator:a657b6ee4fc4320ad78bd8e53c9374d08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb2805759ff52a34a97dd7df74fef56f"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_therapist_menu_manager.html">TherapistMenuManager</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_character_manager.html#abb2805759ff52a34a97dd7df74fef56f">therapistMenuManagers</a> = new List&lt;<a class="el" href="class_therapist_menu_manager.html">TherapistMenuManager</a>&gt;()</td></tr>
+<tr class="separator:abb2805759ff52a34a97dd7df74fef56f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a421eef57bd03ad1dd9da4d4be06b6d91"><td class="memItemLeft" align="right" valign="top">Transform&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_character_manager.html#a421eef57bd03ad1dd9da4d4be06b6d91">_mirror</a></td></tr>
 <tr class="separator:a421eef57bd03ad1dd9da4d4be06b6d91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -222,6 +246,23 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Adds new move position at the end of synclist ///. </p>
+
+</div>
+</div>
+<a id="aacc48156bb6a2500300270c5a4c0186f" name="aacc48156bb6a2500300270c5a4c0186f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacc48156bb6a2500300270c5a4c0186f">&#9670;&#160;</a></span>CmdCancelTraining()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NetworkCharacterManager.CmdCancelTraining </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -515,23 +556,6 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a62b716266e7a9465c066d36abcf0dff5" name="a62b716266e7a9465c066d36abcf0dff5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a62b716266e7a9465c066d36abcf0dff5">&#9670;&#160;</a></span>CmdStartAnimation()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void NetworkCharacterManager.CmdStartAnimation </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a3b72d29e02fe25e25d21109f3556bd25" name="a3b72d29e02fe25e25d21109f3556bd25"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3b72d29e02fe25e25d21109f3556bd25">&#9670;&#160;</a></span>CmdStartAnimationShowcase()</h2>
 
@@ -550,14 +574,31 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a023c6d0bb3217c7f899a9ca344f61a97" name="a023c6d0bb3217c7f899a9ca344f61a97"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a023c6d0bb3217c7f899a9ca344f61a97">&#9670;&#160;</a></span>CmdStopAnimation()</h2>
+<a id="abf6b797ba17764d4c1c47cd132c3fe39" name="abf6b797ba17764d4c1c47cd132c3fe39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf6b797ba17764d4c1c47cd132c3fe39">&#9670;&#160;</a></span>CmdStartTraining()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void NetworkCharacterManager.CmdStopAnimation </td>
+          <td class="memname">void NetworkCharacterManager.CmdStartTraining </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5672047037c04ad6f695edfa8c0be714" name="a5672047037c04ad6f695edfa8c0be714"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5672047037c04ad6f695edfa8c0be714">&#9670;&#160;</a></span>CmdStopTraining()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NetworkCharacterManager.CmdStopTraining </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -675,8 +716,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a1351d1633f5c7e7896e0081af6f35005" name="a1351d1633f5c7e7896e0081af6f35005"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1351d1633f5c7e7896e0081af6f35005">&#9670;&#160;</a></span>getPosRotFromObject()</h2>
+<a id="afd0bd6669b184d3fc60b6a56c2aa2561" name="afd0bd6669b184d3fc60b6a56c2aa2561"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd0bd6669b184d3fc60b6a56c2aa2561">&#9670;&#160;</a></span>getPosRotFromCurrentObject()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -685,7 +726,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_neuro_rehab_1_1_mappings_1_1_pos_rot_mapping.html">PosRotMapping</a> NetworkCharacterManager.getPosRotFromObject </td>
+          <td class="memname"><a class="el" href="class_neuro_rehab_1_1_mappings_1_1_pos_rot_mapping.html">PosRotMapping</a> NetworkCharacterManager.getPosRotFromCurrentObject </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -747,6 +788,24 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="aa0c55df17ddc7da0607e564bd4a234bc" name="aa0c55df17ddc7da0607e564bd4a234bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0c55df17ddc7da0607e564bd4a234bc">&#9670;&#160;</a></span>pauseCountdown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NetworkCharacterManager.pauseCountdown </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>extraText</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a86f008a4ab1ecb68fa258d35d5bf54c9" name="a86f008a4ab1ecb68fa258d35d5bf54c9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a86f008a4ab1ecb68fa258d35d5bf54c9">&#9670;&#160;</a></span>RpcSpawnCorrectTarget()</h2>
 
@@ -776,7 +835,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a id="af4ce20d2f1fa7abd93613d71ec49e2af" name="af4ce20d2f1fa7abd93613d71ec49e2af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4ce20d2f1fa7abd93613d71ec49e2af">&#9670;&#160;</a></span>setAnimationStartPosition()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af4ce20d2f1fa7abd93613d71ec49e2af">&#9670;&#160;</a></span>setAnimationStartPosition() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -799,6 +858,32 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Changes or Adds new start position. </p>
+
+</div>
+</div>
+<a id="a38d676fc5c4dbca9ed95b688e46cd1d9" name="a38d676fc5c4dbca9ed95b688e46cd1d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38d676fc5c4dbca9ed95b688e46cd1d9">&#9670;&#160;</a></span>setAnimationStartPosition() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NetworkCharacterManager.setAnimationStartPosition </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_neuro_rehab_1_1_mappings_1_1_pos_rot_mapping.html">PosRotMapping</a>&#160;</td>
+          <td class="paramname"><em>targetPosRotMapping</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -978,14 +1063,60 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aa6ddf62a5b6bd9a58c17f61e848f6f74" name="aa6ddf62a5b6bd9a58c17f61e848f6f74"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6ddf62a5b6bd9a58c17f61e848f6f74">&#9670;&#160;</a></span>TargetMoveObject()</h2>
+<a id="af4090bda718dcaad2d88d8218d2b5531" name="af4090bda718dcaad2d88d8218d2b5531"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4090bda718dcaad2d88d8218d2b5531">&#9670;&#160;</a></span>startCountdown()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void NetworkCharacterManager.TargetMoveObject </td>
+          <td class="memname">void NetworkCharacterManager.startCountdown </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>duration</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>extraText</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>TRAINING + COUNTDOWN </p>
+
+</div>
+</div>
+<a id="aa9b6262c19e3d31c8121fced36d4a7e1" name="aa9b6262c19e3d31c8121fced36d4a7e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9b6262c19e3d31c8121fced36d4a7e1">&#9670;&#160;</a></span>stopCountdown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NetworkCharacterManager.stopCountdown </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2848a3600ac9b8157f55d5ed4cee209d" name="a2848a3600ac9b8157f55d5ed4cee209d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2848a3600ac9b8157f55d5ed4cee209d">&#9670;&#160;</a></span>TargetMoveObjects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NetworkCharacterManager.TargetMoveObjects </td>
           <td>(</td>
           <td class="paramtype">NetworkConnection&#160;</td>
           <td class="paramname"><em>connection</em>, </td>
@@ -1078,6 +1209,80 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a0b790f988326cdf9e926efa694cf867c" name="a0b790f988326cdf9e926efa694cf867c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b790f988326cdf9e926efa694cf867c">&#9670;&#160;</a></span>TargetTransformObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NetworkCharacterManager.TargetTransformObject </td>
+          <td>(</td>
+          <td class="paramtype">NetworkConnection&#160;</td>
+          <td class="paramname"><em>connection</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_neuro_rehab_1_1_mappings_1_1_pos_rot_mapping.html">PosRotMapping</a>&#160;</td>
+          <td class="paramname"><em>mapping</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">NetworkIdentity&#160;</td>
+          <td class="paramname"><em>itemId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>resetStartPost</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac559d22d4f21cc1f700e06d7af712731" name="ac559d22d4f21cc1f700e06d7af712731"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac559d22d4f21cc1f700e06d7af712731">&#9670;&#160;</a></span>trainingStarted()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NetworkCharacterManager.trainingStarted </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8b89b51e119ddd82be2cb2e28eaa65e6" name="a8b89b51e119ddd82be2cb2e28eaa65e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b89b51e119ddd82be2cb2e28eaa65e6">&#9670;&#160;</a></span>trainingStopped()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NetworkCharacterManager.trainingStopped </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="a421eef57bd03ad1dd9da4d4be06b6d91" name="a421eef57bd03ad1dd9da4d4be06b6d91"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a421eef57bd03ad1dd9da4d4be06b6d91">&#9670;&#160;</a></span>_mirror</h2>
@@ -1123,6 +1328,28 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a657b6ee4fc4320ad78bd8e53c9374d08" name="a657b6ee4fc4320ad78bd8e53c9374d08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a657b6ee4fc4320ad78bd8e53c9374d08">&#9670;&#160;</a></span>countdownManagers</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;<a class="el" href="class_countdown_manager.html">CountdownManager</a>&gt; NetworkCharacterManager.countdownManagers = new List&lt;<a class="el" href="class_countdown_manager.html">CountdownManager</a>&gt;()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aacf518be52741fbab7844fac131cde7f" name="aacf518be52741fbab7844fac131cde7f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aacf518be52741fbab7844fac131cde7f">&#9670;&#160;</a></span>spawnArea</h2>
 
@@ -1156,6 +1383,28 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">List&lt;GameObject&gt; NetworkCharacterManager.targetPrefabs = new List&lt;GameObject&gt;()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abb2805759ff52a34a97dd7df74fef56f" name="abb2805759ff52a34a97dd7df74fef56f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb2805759ff52a34a97dd7df74fef56f">&#9670;&#160;</a></span>therapistMenuManagers</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;<a class="el" href="class_therapist_menu_manager.html">TherapistMenuManager</a>&gt; NetworkCharacterManager.therapistMenuManagers = new List&lt;<a class="el" href="class_therapist_menu_manager.html">TherapistMenuManager</a>&gt;()</td>
         </tr>
       </table>
   </td>

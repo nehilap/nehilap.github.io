@@ -99,15 +99,21 @@ $(document).ready(function(){initNavTree('class_arm_animation_controller.html','
   <div class="headertitle"><div class="title">ArmAnimationController Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>Inherits MonoBehaviour.</p>
+<div class="dynheader">
+Inheritance diagram for ArmAnimationController:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_arm_animation_controller.png" alt=""/>
+ </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a7eae5be5106a4eac47baacd8d2e0e089"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arm_animation_controller.html#a7eae5be5106a4eac47baacd8d2e0e089">alignArmRestTargetWithTable</a> ()</td></tr>
 <tr class="separator:a7eae5be5106a4eac47baacd8d2e0e089"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab36ecfc9267c4b7a7b385aa45736edaa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arm_animation_controller.html#ab36ecfc9267c4b7a7b385aa45736edaa">startAnimation</a> (bool isFakeAnimation)</td></tr>
-<tr class="separator:ab36ecfc9267c4b7a7b385aa45736edaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcc7c040c34417862beb14bff2417434"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arm_animation_controller.html#afcc7c040c34417862beb14bff2417434">initElements</a> ()</td></tr>
+<tr class="separator:afcc7c040c34417862beb14bff2417434"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafb8598050a33fade84a2487e5b4ac00"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arm_animation_controller.html#aafb8598050a33fade84a2487e5b4ac00">startAnimation</a> (bool isFakeAnimation)</td></tr>
+<tr class="separator:aafb8598050a33fade84a2487e5b4ac00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fd7c20b3ef968cc8a5a1ea64636b9e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arm_animation_controller.html#a5fd7c20b3ef968cc8a5a1ea64636b9e8">stopAnimation</a> (bool informServer=false)</td></tr>
 <tr class="separator:a5fd7c20b3ef968cc8a5a1ea64636b9e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af407009b372a6ef7dba562fbdc46fcea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arm_animation_controller.html#af407009b372a6ef7dba562fbdc46fcea">setArmRestPosition</a> (bool _isArmResting)</td></tr>
@@ -144,8 +150,6 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:abecde48d10966ff5f419c3d0833cdb08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d729e76c6cb10e0efd115a7714c8fe3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arm_animation_controller.html#a4d729e76c6cb10e0efd115a7714c8fe3">LateUpdate</a> ()</td></tr>
 <tr class="separator:a4d729e76c6cb10e0efd115a7714c8fe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afcc7c040c34417862beb14bff2417434"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arm_animation_controller.html#afcc7c040c34417862beb14bff2417434">initElements</a> ()</td></tr>
-<tr class="separator:afcc7c040c34417862beb14bff2417434"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaed2aef9540f7918abe544331b8323c8"><td class="memItemLeft" align="right" valign="top">IEnumerator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arm_animation_controller.html#aaed2aef9540f7918abe544331b8323c8">armStartAnimationLerp</a> (bool isFakeAnimation)</td></tr>
 <tr class="memdesc:aaed2aef9540f7918abe544331b8323c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coroutine for animation control. Refer to <a href="https://gamedevbeginner.com/coroutines-in-unity-when-and-how-to-use-them/">https://gamedevbeginner.com/coroutines-in-unity-when-and-how-to-use-them/</a> for more details.  <br /></td></tr>
 <tr class="separator:aaed2aef9540f7918abe544331b8323c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -220,6 +224,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a03d9e3009328db6b27f09a3d9172e8bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2628a60912f2f1ec499062f97a287de5"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arm_animation_controller.html#a2628a60912f2f1ec499062f97a287de5">armLength</a></td></tr>
 <tr class="separator:a2628a60912f2f1ec499062f97a287de5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ca369dc14d1c400688dc7882a3d7f89"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arm_animation_controller.html#a1ca369dc14d1c400688dc7882a3d7f89">initialized</a> = false</td></tr>
+<tr class="separator:a1ca369dc14d1c400688dc7882a3d7f89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a7eae5be5106a4eac47baacd8d2e0e089" name="a7eae5be5106a4eac47baacd8d2e0e089"></a>
@@ -524,9 +530,6 @@ Private Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void ArmAnimationController.initElements </td>
@@ -535,11 +538,6 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -1055,14 +1053,14 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ab36ecfc9267c4b7a7b385aa45736edaa" name="ab36ecfc9267c4b7a7b385aa45736edaa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab36ecfc9267c4b7a7b385aa45736edaa">&#9670;&#160;</a></span>startAnimation()</h2>
+<a id="aafb8598050a33fade84a2487e5b4ac00" name="aafb8598050a33fade84a2487e5b4ac00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafb8598050a33fade84a2487e5b4ac00">&#9670;&#160;</a></span>startAnimation()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ArmAnimationController.startAnimation </td>
+          <td class="memname">bool ArmAnimationController.startAnimation </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>isFakeAnimation</em></td><td>)</td>
@@ -1389,6 +1387,28 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">Rig ArmAnimationController.handRig</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1ca369dc14d1c400688dc7882a3d7f89" name="a1ca369dc14d1c400688dc7882a3d7f89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ca369dc14d1c400688dc7882a3d7f89">&#9670;&#160;</a></span>initialized</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ArmAnimationController.initialized = false</td>
         </tr>
       </table>
   </td>

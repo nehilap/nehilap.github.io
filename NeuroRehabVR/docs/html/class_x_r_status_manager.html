@@ -100,8 +100,12 @@ $(document).ready(function(){initNavTree('class_x_r_status_manager.html',''); in
   <div class="headertitle"><div class="title">XRStatusManager Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>Inherits MonoBehaviour.</p>
+<div class="dynheader">
+Inheritance diagram for XRStatusManager:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_x_r_status_manager.png" alt=""/>
+ </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -134,8 +138,12 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:a5aa092260d023c8220d48a72cebab4e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af941c04441df533589c4d18ec62a4c8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_x_r_status_manager.html#af941c04441df533589c4d18ec62a4c8f">Start</a> ()</td></tr>
 <tr class="separator:af941c04441df533589c4d18ec62a4c8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f5b44f0d7cabbbeb99d6ada50606c33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_x_r_status_manager.html#a9f5b44f0d7cabbbeb99d6ada50606c33">initialize</a> ()</td></tr>
+<tr class="separator:a9f5b44f0d7cabbbeb99d6ada50606c33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5e0ccef20b65b45c86898dbb54242a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_x_r_status_manager.html#ab5e0ccef20b65b45c86898dbb54242a2">OnApplicationQuit</a> ()</td></tr>
 <tr class="separator:ab5e0ccef20b65b45c86898dbb54242a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab191c9024a25bd1daf3ade77f0c6b5c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_x_r_status_manager.html#ab191c9024a25bd1daf3ade77f0c6b5c0">changedActiveScene</a> (Scene current, Scene next)</td></tr>
+<tr class="separator:ab191c9024a25bd1daf3ade77f0c6b5c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c3ab435698fe59a5627d973a442ec5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_x_r_status_manager.html#a7c3ab435698fe59a5627d973a442ec5e">setupRigs</a> ()</td></tr>
 <tr class="separator:a7c3ab435698fe59a5627d973a442ec5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9539e520d26661ca7b6ba6965f34257"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_x_r_status_manager.html#af9539e520d26661ca7b6ba6965f34257">setupUIAndXRElements</a> ()</td></tr>
@@ -153,6 +161,8 @@ Private Member Functions</h2></td></tr>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a27a45e73fcee53da2344460dd827d7ea"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_x_r_status_manager.html#a27a45e73fcee53da2344460dd827d7ea">foundHMD</a> = false</td></tr>
 <tr class="separator:a27a45e73fcee53da2344460dd827d7ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1eae321f1e1481f2a37fe0ddee3931d5"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_x_r_status_manager.html#a1eae321f1e1481f2a37fe0ddee3931d5">offlineSceneName</a></td></tr>
+<tr class="separator:a1eae321f1e1481f2a37fe0ddee3931d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeec517b02796fe8ff071d662b162c208"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_active_bar_groups_manager.html">ActiveBarGroupsManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_x_r_status_manager.html#aeec517b02796fe8ff071d662b162c208">activeXRButton</a></td></tr>
 <tr class="separator:aeec517b02796fe8ff071d662b162c208"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b971446aad6297b1117f090acea6f3d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_active_bar_groups_manager.html">ActiveBarGroupsManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_x_r_status_manager.html#a5b971446aad6297b1117f090acea6f3d">inactiveXRButton</a></td></tr>
@@ -165,23 +175,23 @@ Private Attributes</h2></td></tr>
 <tr class="separator:aa6a0a9ec042768d2af56845fc530882a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33cbfee67ae3fecbc9d9409b60d329c1"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_x_r_status_manager.html#a33cbfee67ae3fecbc9d9409b60d329c1">xrSetupMenu</a></td></tr>
 <tr class="separator:a33cbfee67ae3fecbc9d9409b60d329c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a696a1765f92ed90808738285e2126638"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_x_r_status_manager.html#a696a1765f92ed90808738285e2126638">xrDeviceSimulator</a></td></tr>
+<tr class="separator:a696a1765f92ed90808738285e2126638"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a424a937e74b4907d556bf9852259fd0b"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_x_r_status_manager.html#a424a937e74b4907d556bf9852259fd0b">desktopControls</a></td></tr>
 <tr class="separator:a424a937e74b4907d556bf9852259fd0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3381a1c4fcb9c5605fef4a5c7e61ce1"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_x_r_status_manager.html#aa3381a1c4fcb9c5605fef4a5c7e61ce1">xrControls</a></td></tr>
 <tr class="separator:aa3381a1c4fcb9c5605fef4a5c7e61ce1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c1bc2c6668fd61c37c738175a76e347"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_x_r_status_manager.html#a9c1bc2c6668fd61c37c738175a76e347">mockXRControls</a></td></tr>
 <tr class="separator:a9c1bc2c6668fd61c37c738175a76e347"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a696a1765f92ed90808738285e2126638"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_x_r_status_manager.html#a696a1765f92ed90808738285e2126638">xrDeviceSimulator</a></td></tr>
-<tr class="separator:a696a1765f92ed90808738285e2126638"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a171849ddda7468a0fc112f5d2168fb5a"><td class="memItemLeft" align="right" valign="top">XRLoader&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_x_r_status_manager.html#a171849ddda7468a0fc112f5d2168fb5a">activeLoader</a></td></tr>
+<tr class="separator:a171849ddda7468a0fc112f5d2168fb5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc269e7c12f3b1ceacf9d48ced8cf245"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_x_r_status_manager.html#afc269e7c12f3b1ceacf9d48ced8cf245">xrInitialized</a></td></tr>
+<tr class="separator:afc269e7c12f3b1ceacf9d48ced8cf245"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
 <tr class="memitem:a961ea6455367fe463230c36e4a0b3bf7"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_x_r_status_manager.html">XRStatusManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_x_r_status_manager.html#a961ea6455367fe463230c36e4a0b3bf7">_instance</a></td></tr>
 <tr class="separator:a961ea6455367fe463230c36e4a0b3bf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a171849ddda7468a0fc112f5d2168fb5a"><td class="memItemLeft" align="right" valign="top">static XRLoader&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_x_r_status_manager.html#a171849ddda7468a0fc112f5d2168fb5a">activeLoader</a></td></tr>
-<tr class="separator:a171849ddda7468a0fc112f5d2168fb5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc269e7c12f3b1ceacf9d48ced8cf245"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_x_r_status_manager.html#afc269e7c12f3b1ceacf9d48ced8cf245">xrInitialized</a></td></tr>
-<tr class="separator:afc269e7c12f3b1ceacf9d48ced8cf245"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a5aa092260d023c8220d48a72cebab4e2" name="a5aa092260d023c8220d48a72cebab4e2"></a>
@@ -198,6 +208,42 @@ Static Private Attributes</h2></td></tr>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab191c9024a25bd1daf3ade77f0c6b5c0" name="ab191c9024a25bd1daf3ade77f0c6b5c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab191c9024a25bd1daf3ade77f0c6b5c0">&#9670;&#160;</a></span>changedActiveScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void XRStatusManager.changedActiveScene </td>
+          <td>(</td>
+          <td class="paramtype">Scene&#160;</td>
+          <td class="paramname"><em>current</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Scene&#160;</td>
+          <td class="paramname"><em>next</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -233,6 +279,31 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initializes HMD type based on either HMD discovered or platform used. </p>
+
+</div>
+</div>
+<a id="a9f5b44f0d7cabbbeb99d6ada50606c33" name="a9f5b44f0d7cabbbeb99d6ada50606c33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f5b44f0d7cabbbeb99d6ada50606c33">&#9670;&#160;</a></span>initialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void XRStatusManager.initialize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -485,7 +556,7 @@ Static Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -702,6 +773,28 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a1eae321f1e1481f2a37fe0ddee3931d5" name="a1eae321f1e1481f2a37fe0ddee3931d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1eae321f1e1481f2a37fe0ddee3931d5">&#9670;&#160;</a></span>offlineSceneName</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string XRStatusManager.offlineSceneName</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aa3381a1c4fcb9c5605fef4a5c7e61ce1" name="aa3381a1c4fcb9c5605fef4a5c7e61ce1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa3381a1c4fcb9c5605fef4a5c7e61ce1">&#9670;&#160;</a></span>xrControls</h2>
 
@@ -761,7 +854,7 @@ Static Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

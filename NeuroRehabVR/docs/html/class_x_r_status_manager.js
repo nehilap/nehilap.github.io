@@ -1,7 +1,9 @@
 var class_x_r_status_manager =
 [
     [ "Awake", "class_x_r_status_manager.html#a5aa092260d023c8220d48a72cebab4e2", null ],
+    [ "changedActiveScene", "class_x_r_status_manager.html#ab191c9024a25bd1daf3ade77f0c6b5c0", null ],
     [ "initHMD", "class_x_r_status_manager.html#aaa545bd23a24cd96fd77ad8014f89ec5", null ],
+    [ "initialize", "class_x_r_status_manager.html#a9f5b44f0d7cabbbeb99d6ada50606c33", null ],
     [ "initObjects", "class_x_r_status_manager.html#a25587457b912c947c611e570da9aeeda", null ],
     [ "OnApplicationQuit", "class_x_r_status_manager.html#ab5e0ccef20b65b45c86898dbb54242a2", null ],
     [ "setupLoader", "class_x_r_status_manager.html#acd2012b49c8594303bd4b8c1e6e99c57", null ],
@@ -24,6 +26,7 @@ var class_x_r_status_manager =
     [ "inactiveXRButton", "class_x_r_status_manager.html#a5b971446aad6297b1117f090acea6f3d", null ],
     [ "isXRActive", "class_x_r_status_manager.html#a8ed1a365b73a1e57dd977c7939f7050f", null ],
     [ "mockXRControls", "class_x_r_status_manager.html#a9c1bc2c6668fd61c37c738175a76e347", null ],
+    [ "offlineSceneName", "class_x_r_status_manager.html#a1eae321f1e1481f2a37fe0ddee3931d5", null ],
     [ "xrControls", "class_x_r_status_manager.html#aa3381a1c4fcb9c5605fef4a5c7e61ce1", null ],
     [ "xrDeviceSimulator", "class_x_r_status_manager.html#a696a1765f92ed90808738285e2126638", null ],
     [ "xrInitialized", "class_x_r_status_manager.html#afc269e7c12f3b1ceacf9d48ced8cf245", null ],

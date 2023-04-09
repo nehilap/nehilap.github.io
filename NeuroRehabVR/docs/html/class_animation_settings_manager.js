@@ -8,6 +8,7 @@ var class_animation_settings_manager =
     [ "changeMoveDurationElements", "class_animation_settings_manager.html#a6261416a4ae109b2644f54a291c704ae", null ],
     [ "changeRepetitionsElements", "class_animation_settings_manager.html#ab1e7e1af023dbf81514b7c1aba89a449", null ],
     [ "changeWaitDurationElements", "class_animation_settings_manager.html#a3c8e14c2d7eb15c30d729de7bf3feebd", null ],
+    [ "getAllAnimationSetups", "class_animation_settings_manager.html#ab3d4201b849dcb866c8d9e2d14d7673a", null ],
     [ "getAnimationSetupByAnimType", "class_animation_settings_manager.html#a8e3d67e1856e4c0b83aaebc66281a6e6", null ],
     [ "getCurrentAnimationSetup", "class_animation_settings_manager.html#a8714ab076fcbbabf2c31f949b588ccf7", null ],
     [ "handDurationSliderHandler", "class_animation_settings_manager.html#af28f307a832d3a7407d7dd4951346bb0", null ],

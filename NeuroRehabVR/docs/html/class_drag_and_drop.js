@@ -7,6 +7,7 @@ var class_drag_and_drop =
     [ "OnEnable", "class_drag_and_drop.html#a5b51d169cefe175b443ca512d1d447cf", null ],
     [ "layersToIgnore", "class_drag_and_drop.html#ab1359dfab1c200ef16fbef0b14214d5a", null ],
     [ "mainCamera", "class_drag_and_drop.html#a917c61a2c7490ac90548913e4a484882", null ],
+    [ "miniMenuManager", "class_drag_and_drop.html#a50d4f4878055f9eff9f2bb8f6db2ee03", null ],
     [ "mouseClick", "class_drag_and_drop.html#a4e25aa5060f30c1ac758523027bd8e86", null ],
     [ "mouseDragSpeed", "class_drag_and_drop.html#ae088bc046aae71585654a07e73e84f6a", null ],
     [ "mousePhysicsDragSpeed", "class_drag_and_drop.html#a9a33937e5723c87cb045894853bb9c07", null ],

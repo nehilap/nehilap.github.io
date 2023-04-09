@@ -14,10 +14,12 @@ var searchData=
   ['targetshelperobject_11',['targetsHelperObject',['../class_arm_animation_controller.html#ab4f1c32ee286caf0dff1f17abba93f68',1,'ArmAnimationController']]],
   ['text_12',['text',['../class_custom_log.html#afaffb5da4e8107950925617df6ace410',1,'CustomLog']]],
   ['textcomponent_13',['textComponent',['../class_input_binding_text.html#a121f06ae490a8b5d7ef33b3ded264242',1,'InputBindingText']]],
-  ['textfield_14',['textField',['../class_f_p_s_counter_manager.html#a66f3a61fb5fde017f575f844afc6c415',1,'FPSCounterManager.textField()'],['../class_ping_text_manager.html#a1830e9b1916211c2fdac255ba9967fc7',1,'PingTextManager.textField()']]],
-  ['thumbik_5ftarget_5fhelper_15',['ThumbIK_target_helper',['../class_neuro_rehab_1_1_utility_1_1_target_utility.html#a44e67995f09d737c99ed89efb6d92d56',1,'NeuroRehab::Utility::TargetUtility']]],
-  ['thumbmapping_16',['thumbMapping',['../class_neuro_rehab_1_1_mappings_1_1_target_mapping_group.html#a206b126880696f49c3a6ec92d7ca5c46',1,'NeuroRehab::Mappings::TargetMappingGroup']]],
-  ['thumbtarget_17',['thumbTarget',['../class_targets_helper.html#a94563b8ceda906602ab588be16aaf6ea',1,'TargetsHelper']]],
-  ['thumbtargettemplate_18',['thumbTargetTemplate',['../class_targets_helper.html#aa795bb755315dda51d083e67c2784893',1,'TargetsHelper']]],
-  ['turnsmoothness_19',['turnSmoothness',['../class_avatar_controller.html#ace7be01433e0160394fd497758c79ff4',1,'AvatarController']]]
+  ['textfield_14',['textField',['../class_countdown_manager.html#aff7fb2c616f3ad9a7b31ed05481d3ad8',1,'CountdownManager.textField()'],['../class_f_p_s_counter_manager.html#a66f3a61fb5fde017f575f844afc6c415',1,'FPSCounterManager.textField()'],['../class_ping_text_manager.html#a1830e9b1916211c2fdac255ba9967fc7',1,'PingTextManager.textField()'],['../class_status_message_manager.html#ab201b358549ad580404c7ecf347c1939',1,'StatusMessageManager.textField()']]],
+  ['therapistmenumanagers_15',['therapistMenuManagers',['../class_network_character_manager.html#abb2805759ff52a34a97dd7df74fef56f',1,'NetworkCharacterManager']]],
+  ['thumbik_5ftarget_5fhelper_16',['ThumbIK_target_helper',['../class_neuro_rehab_1_1_utility_1_1_target_utility.html#a44e67995f09d737c99ed89efb6d92d56',1,'NeuroRehab::Utility::TargetUtility']]],
+  ['thumbmapping_17',['thumbMapping',['../class_neuro_rehab_1_1_mappings_1_1_target_mapping_group.html#a206b126880696f49c3a6ec92d7ca5c46',1,'NeuroRehab::Mappings::TargetMappingGroup']]],
+  ['thumbtarget_18',['thumbTarget',['../class_targets_helper.html#a94563b8ceda906602ab588be16aaf6ea',1,'TargetsHelper']]],
+  ['thumbtargettemplate_19',['thumbTargetTemplate',['../class_targets_helper.html#aa795bb755315dda51d083e67c2784893',1,'TargetsHelper']]],
+  ['trainingcoroutine_20',['trainingCoroutine',['../class_animation_server_manager.html#a77c2695fe13b42c982c54828bd429d81',1,'AnimationServerManager']]],
+  ['turnsmoothness_21',['turnSmoothness',['../class_avatar_controller.html#ace7be01433e0160394fd497758c79ff4',1,'AvatarController']]]
 ];

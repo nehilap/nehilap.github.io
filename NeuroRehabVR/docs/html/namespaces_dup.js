@@ -32,6 +32,11 @@ var namespaces_dup =
         [ "NotFound", "namespace_enums.html#a43c575cdf8ecae3080155c75265fe07aa38c300f4fc9ce8a77aad4a30de05cad8", null ],
         [ "Server", "namespace_enums.html#a43c575cdf8ecae3080155c75265fe07aa9aa1b03934893d7134a660af4204f2a9", null ]
       ] ],
+      [ "MessageType", "namespace_enums.html#a8f5cd57359c31a81e43f2555cdaa5474", [
+        [ "OK", "namespace_enums.html#a8f5cd57359c31a81e43f2555cdaa5474ae0aa021e21dddbd6d8cecec71e9cf564", null ],
+        [ "WARNING", "namespace_enums.html#a8f5cd57359c31a81e43f2555cdaa5474a059e9861e0400dfbe05c98a841f3f96b", null ],
+        [ "NORMAL", "namespace_enums.html#a8f5cd57359c31a81e43f2555cdaa5474a1e23852820b9154316c7c06e2b7ba051", null ]
+      ] ],
       [ "UserRole", "namespace_enums.html#ade6eaa3c076ad4478c8c751e2b114e83", [
         [ "Therapist", "namespace_enums.html#ade6eaa3c076ad4478c8c751e2b114e83a6c883895349dfc6f3feeee1c302fed2f", null ],
         [ "Patient", "namespace_enums.html#ade6eaa3c076ad4478c8c751e2b114e83a01122a97dca927210827560cb7d76af8", null ]

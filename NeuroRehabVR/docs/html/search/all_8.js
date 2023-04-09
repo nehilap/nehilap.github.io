@@ -14,14 +14,17 @@ var searchData=
   ['headcollisionmanager_2ecs_11',['HeadCollisionManager.cs',['../_head_collision_manager_8cs.html',1,'']]],
   ['headmove_12',['headMove',['../class_avatar_walking_controller.html#abc6d0466f1717e72b4790591930b880f',1,'AvatarWalkingController.headMove()'],['../class_network_avatar_walking_controller.html#ace90634fa9ed784d4cacf5a73f02fdd8',1,'NetworkAvatarWalkingController.headMove()']]],
   ['headmoveduration_13',['headMoveDuration',['../class_avatar_walking_controller.html#a5b67c7fa0d2d9e81989409caf20ca207',1,'AvatarWalkingController.headMoveDuration()'],['../class_network_avatar_walking_controller.html#a226b03721a29c0a123dbd2e623726a55',1,'NetworkAvatarWalkingController.headMoveDuration()']]],
-  ['headmovetreshold_14',['headMoveTreshold',['../class_avatar_walking_controller.html#a4bb1ae9afece163359de24d97cb0d36b',1,'AvatarWalkingController.headMoveTreshold()'],['../class_network_avatar_walking_controller.html#af2f5427f958b60be8b599087cdcfe262',1,'NetworkAvatarWalkingController.headMoveTreshold()']]],
+  ['headmovetreshold_14',['headMoveTreshold',['../class_network_avatar_walking_controller.html#af2f5427f958b60be8b599087cdcfe262',1,'NetworkAvatarWalkingController.headMoveTreshold()'],['../class_avatar_walking_controller.html#a4bb1ae9afece163359de24d97cb0d36b',1,'AvatarWalkingController.headMoveTreshold()']]],
   ['headoffset_15',['headOffset',['../class_avatar_controller.html#aa56cf198f55b4df31562bf82cb4d9041',1,'AvatarController']]],
   ['headspine_16',['headSpine',['../class_avatar_controller.html#aedec7b6b69b1281c288ec6c4ee44e95a',1,'AvatarController']]],
   ['headtarget_17',['headTarget',['../class_avatar_controller.html#acae9c23b0359c3eb5b8fa077ec25dd4b',1,'AvatarController']]],
   ['hidearmrangemarker_18',['hideArmRangeMarker',['../class_character_manager.html#a8ac9080bec77a8471fe7202b5c50bd70',1,'CharacterManager']]],
-  ['hmdtype_19',['hmdType',['../class_x_r_character_manager.html#a1497c51ec4484ed741d2e6a51620ee98',1,'XRCharacterManager.hmdType()'],['../class_x_r_status_manager.html#a1f190bc6941d29ba19d7ed7e6e0d3093',1,'XRStatusManager.hmdType()'],['../struct_structs_1_1_character_message.html#ae343c7a4e5e6581190c77f774e39bb30',1,'Structs.CharacterMessage.hmdType()']]],
-  ['hmdtype_20',['HMDType',['../namespace_enums.html#a43c575cdf8ecae3080155c75265fe07a',1,'Enums']]],
-  ['hostip_21',['hostIP',['../class_join_manager.html#a822e28fd3912b253248376aa43ceb2b0',1,'JoinManager']]],
-  ['hpg2reverb_22',['HPG2Reverb',['../namespace_enums.html#afc9dc20ef762f0c310a514f76ba4aca5a39fa00dd6756f702fe8fa1e40abc110e',1,'Enums']]],
-  ['htcvive_23',['HTCVive',['../namespace_enums.html#afc9dc20ef762f0c310a514f76ba4aca5a91d07ca283c7cd74e4c253f9d47ab705',1,'Enums']]]
+  ['hidebackgrounds_19',['hideBackgrounds',['../class_status_message_manager.html#ab2d6ff1cf4d6b9e34867c51872fe0ffc',1,'StatusMessageManager']]],
+  ['hidecountdown_20',['hideCountdown',['../class_countdown_manager.html#a569ae93ccaf0d28e371f394bafd07071',1,'CountdownManager']]],
+  ['hidemessage_21',['hideMessage',['../class_message_manager.html#a586e0e0320c3d7f85a3d065bd7f9eb54',1,'MessageManager.hideMessage()'],['../class_status_message_manager.html#accedd0b60cf237864fa44af35ce792ff',1,'StatusMessageManager.hideMessage()']]],
+  ['hmdtype_22',['hmdType',['../class_x_r_character_manager.html#a1497c51ec4484ed741d2e6a51620ee98',1,'XRCharacterManager.hmdType()'],['../class_x_r_status_manager.html#a1f190bc6941d29ba19d7ed7e6e0d3093',1,'XRStatusManager.hmdType()'],['../struct_structs_1_1_character_message.html#ae343c7a4e5e6581190c77f774e39bb30',1,'Structs.CharacterMessage.hmdType()']]],
+  ['hmdtype_23',['HMDType',['../namespace_enums.html#a43c575cdf8ecae3080155c75265fe07a',1,'Enums']]],
+  ['hostip_24',['hostIP',['../class_join_manager.html#a822e28fd3912b253248376aa43ceb2b0',1,'JoinManager']]],
+  ['hpg2reverb_25',['HPG2Reverb',['../namespace_enums.html#afc9dc20ef762f0c310a514f76ba4aca5a39fa00dd6756f702fe8fa1e40abc110e',1,'Enums']]],
+  ['htcvive_26',['HTCVive',['../namespace_enums.html#afc9dc20ef762f0c310a514f76ba4aca5a91d07ca283c7cd74e4c253f9d47ab705',1,'Enums']]]
 ];

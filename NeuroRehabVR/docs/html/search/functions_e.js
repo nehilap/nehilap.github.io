@@ -17,7 +17,11 @@ var searchData=
   ['restarmstopanimation_14',['restArmStopAnimation',['../class_arm_animation_controller.html#ac6be927590745e92279eace21a67ae17',1,'ArmAnimationController']]],
   ['reversedualriglerp_15',['reverseDualRigLerp',['../class_arm_animation_controller.html#a7f1fcfd3db701d2097367571bbae9cba',1,'ArmAnimationController']]],
   ['riglerp_16',['RigLerp',['../class_rig_lerp.html#ac4d844bcf67aedd8791159f63b48fe71',1,'RigLerp']]],
-  ['rpcspawncorrecttarget_17',['RpcSpawnCorrectTarget',['../class_network_character_manager.html#a86f008a4ab1ecb68fa258d35d5bf54c9',1,'NetworkCharacterManager']]],
-  ['rpcstartactualanimation_18',['RpcStartActualAnimation',['../class_animation_server_manager.html#a5f9bf46568592ffc4e957f6a3b447d68',1,'AnimationServerManager']]],
-  ['rpcstopactualanimation_19',['RpcStopActualAnimation',['../class_animation_server_manager.html#a7d4c9aaf8cf51f70ca69825517bec419',1,'AnimationServerManager']]]
+  ['rpcinformclients_17',['RpcInformClients',['../class_message_manager.html#aebbaa8ec85bcf1120ff71ba86e472129',1,'MessageManager']]],
+  ['rpcspawncorrecttarget_18',['RpcSpawnCorrectTarget',['../class_network_character_manager.html#a86f008a4ab1ecb68fa258d35d5bf54c9',1,'NetworkCharacterManager']]],
+  ['rpcstartactualanimation_19',['RpcStartActualAnimation',['../class_animation_server_manager.html#a4c7e9db80c3bae8c2eddc9fe577443e4',1,'AnimationServerManager']]],
+  ['rpcstartcountdown_20',['RpcStartCountdown',['../class_animation_server_manager.html#a022338e0433e3bdc2b7ca7366e3853fd',1,'AnimationServerManager']]],
+  ['rpcstarttraining_21',['RpcStartTraining',['../class_animation_server_manager.html#a529635ea18cfb16590b08fed7574f19c',1,'AnimationServerManager']]],
+  ['rpcstopactualanimation_22',['RpcStopActualAnimation',['../class_animation_server_manager.html#a7d4c9aaf8cf51f70ca69825517bec419',1,'AnimationServerManager']]],
+  ['rpcstoptraining_23',['RpcStopTraining',['../class_animation_server_manager.html#a63050029d7ca2d15a68291d5e5262a99',1,'AnimationServerManager.RpcStopTraining(string message, MessageType messageType)'],['../class_animation_server_manager.html#a155b4d7d30d3ddd9cd2b9f02ce4116b6',1,'AnimationServerManager.RpcStopTraining()']]]
 ];
